@@ -39,7 +39,10 @@ def proj_cap_ent(d0, v):
     projection with the entropy distance
     '''
     d = d0
+
     m = len(d)
+    if v < 1.0/m:
+        print "error"
     ind = np.argsort(d0, kind='quicksort')[::-1]
 
     u = d[ind]
@@ -64,202 +67,101 @@ def ksmallest(u0, k):
             mins.sort()
             mins = mins[:k]
     return np.asarray(mins)
-def pdboost3(H, epsi, hasCap, k, max_iter):
+
+def prox_mapping(v,x0,sigma, dist_option=2):
+    '''
+    prox-mapping  argmin_x   <v,x> + 1/sigma D(x0,x)
+    distance option:
+    dist_option:    1  euclidean distance, 0.5||x-x0||^2
+                    2  kl divergence
+    '''
+    if dist_option == 1:
+        x = x0 - sigma * v
+    elif dist_option ==2:
+        x = x0 * np.exp(-sigma * v)
+        x = x/x.sum()
+
+    return x
+
+def pdboost(H, epsi, hasCap, r, max_iter):
     '''
     primal-dual boost with capped probability ||d||_infty <= 1/k
-    similar to pdboost, the only difference is w becomes the primal variable now.
     '''
+
     print '----------------primal-dual boost3-------------------'
     H = np.hstack((H, -H))
     (n, p) = H.shape
-    gaps = np.zeros(max_iter+1)
-    margins = np.zeros(max_iter+1)
-    gaps[0] = 100
+    nu = int(n * r)
+    gaps = np.zeros(max_iter)
+    margin = np.zeros(max_iter)
+    primal_val = np.zeros(max_iter)
+    dual_val = np.zeros(max_iter)
+    # gaps[0] = 100
     showtimes = 5
     d = np.ones(n)/n
 
-    d_bar = d
+    d_bar = np.ones(n)/n
+    a_bar = np.ones(p)/p
     a = np.ones(p)/p
-    a_bar = a
+    # a_bar = a
+    a_tilde = np.ones(p)/p
+    # d_tilde = np.zeros(p)
     theta = 1
     sig = 1
     tau = 1
-    # sig = 1/np.sqrt(p)
-    # tau = 1/np.sqrt(p)
-    # sig = 1.0/(p/np.log(p))
-    # tau = 1.0/np.log(p)
     t = 0
-    while gaps[t] > epsi and t < max_iter:
-        t += 1
+    while t < max_iter:
 
-        d_new = d * np.exp(-tau * np.dot(H, a_bar))
-        d_new = d_new/d_new.sum()
+        d = prox_mapping(np.dot(H, a_tilde), d, tau, 2)
+
         if hasCap:
-            d_new = proj_cap_ent(d_new, 1.0/k)
+            d2 = proj_cap_ent(d, 1.0/nu)
             # d_new = d_new/d_new.sum()
-        d_bar = d_new
-        dtH = np.dot(d_bar, H)
-        tmp = a + sig * dtH
-        a_new = a * np.exp(sig * dtH)
-        a_new = a_new/a_new.sum()
+            if np.abs(d.sum() - d2.sum())>0.0001:
+                print 'error'
+            d = d2
+        d_tilde = d
+        dtH = np.dot(d_tilde, H)
+        a_new = prox_mapping(-dtH, a, sig, 2)
         # a_new = proj_l1ball(tmp, 1)
-        a_bar = a_new + theta*(a_new - a)
+        a_tilde = a_new + theta*(a_new - a)
         a = a_new
-        # something wrong, it should be unnecessary to renormalize
-        d = d_new
-        # dtH = np.dot(d, H)
-        Ha = np.dot(H, a)
+        d_bar *= t/(t+1.0)
+        d_bar += 1.0/(t+1)*d
+        a_bar *= t/(t+1.0)
+        a_bar += 1.0/(t+1)*a
 
         if hasCap:
-            gaps[t] = LA.norm(dtH, np.inf) - (ksmallest(Ha, k)).sum()/k
-            margins[t] = (ksmallest(Ha, k)).sum()/k
+            Ha = np.dot(H,a_bar)
+            min_margin = ksmallest(Ha, nu)
+            primal_val[t] = -np.mean(min_margin)
         else:
-            gaps[t] = LA.norm(dtH, np.inf) - np.min(Ha)
-            margins[t] = np.min(Ha)
-        if gaps[t] < 0:
-            print 'error'
+            primal_val[t] = - np.min(np.dot(H,a_bar))
+        margin[t] = -primal_val[t]
+        dual_val[t] = -np.max(np.dot(d_bar, H))
+        gaps[t] = primal_val[t] - dual_val[t]
         if t % np.int(max_iter/showtimes) == 0:
             print 'iter '+str(t)+' '+str(gaps[t])
-            # ind = np.argsort(Ha, kind='quicksort')
-            # d_s = np.zeros(n)
-            # d_s[ind[:k]] = 1.0/k
-            print 'primal: '+str(-(ksmallest(Ha, k)).sum()/k)
-            print 'dual: '+str(-LA.norm(dtH, np.inf))
-            # print 'intermediate: '+str(-np.dot(dtH, a))
-            # print 'norm '+str(d.sum())
-    return a, d, gaps, margins, t,
 
-def pdboost2(H, epsi, hasCap, k, max_iter):
-    '''
-    primal-dual boost with capped probability ||d||_infty <= 1/k
-    similar to pdboost, the only difference is w becomes the primal variable now.
-    '''
-    print '----------------primal-dual boost-------------------'
-    (n, p) = H.shape
-    gaps = np.zeros(max_iter+1)
-    margins = np.zeros(max_iter+1)
-    gaps[0] = 100
-    showtimes = 5
-    d = np.ones(n)/n
-    d_bar = d
-    a = np.zeros(p)
-    a_bar = a
-    theta = 1
-    # sig = .1
-    # tau = .1
-    sig = 1/np.sqrt(p)
-    tau = 1/np.sqrt(p)
-    # sig = 1.0/(p/np.log(p))
-    # tau = 1.0/np.log(p)
-    t = 0
-    while gaps[t] > epsi and t < max_iter:
+            # print 'primal: '+str(-(ksmallest(Ha, k)).sum()/k)
+            # print 'dual: '+str(-LA.norm(dtH, np.inf))
+
+        if gaps[t] <epsi:
+            break
         t += 1
-
-        d_new = d * np.exp(-tau * np.dot(H, a_bar))
-        d_new = d_new/d_new.sum()
-        if hasCap:
-            d_new = proj_cap_ent(d_new, 1.0/k)
-            # d_new = d_new/d_new.sum()
-        d_bar = d_new
-        dtH = np.dot(d_bar, H)
-        tmp = a + sig * dtH
-        a_new = proj_l1ball(tmp, 1)
-        a_bar = a_new + theta*(a_new - a)
-        a = a_new
-        # something wrong, it should be unnecessary to renormalize
-        d = d_new
-        # dtH = np.dot(d, H)
-        Ha = np.dot(H, a)
-
-        if hasCap:
-            gaps[t] = LA.norm(dtH, np.inf) - (ksmallest(Ha, k)).sum()/k
-            margins[t] = (ksmallest(Ha, k)).sum()/k
-        else:
-            gaps[t] = LA.norm(dtH, np.inf) - np.min(Ha)
-            margins[t] = np.min(Ha)
-        if gaps[t] < 0:
-            print 'error'
-        if t % np.int(max_iter/showtimes) == 0:
-            print 'iter '+str(t)+' '+str(gaps[t])
-            # ind = np.argsort(Ha, kind='quicksort')
-            # d_s = np.zeros(n)
-            # d_s[ind[:k]] = 1.0/k
-            print 'primal: '+str(-(ksmallest(Ha, k)).sum()/k)
-            print 'dual: '+str(-LA.norm(dtH, np.inf))
-            print 'intermediate: '+str(-np.dot(dtH, a))
-            # print 'norm '+str(d.sum())
-    return a, d, gaps, margins, t
+    gaps = gaps[:t]
+    primal_val = primal_val[:t]
+    dual_val = dual_val[:t]
+    return a_bar, d_bar, gaps, primal_val, dual_val, margin
 
 
-def pdboost(H, epsi, hasCap, k, max_iter):
-    '''
-    primal-dual boost with capped probability ||d||_infty <= 1/k
-    '''
-    print '----------------primal-dual boost-------------------'
-    (n, p) = H.shape
-    gaps = np.zeros(max_iter+1)
-    margins = np.zeros(max_iter+1)
-    gaps[0] = 100
-    margins = np.zeros(max_iter+1)
-    primals = np.zeros(max_iter+1)
-    duals = np.zeros(max_iter+1)
-    showtimes = 5
-    d = np.ones(n)/n
-    d_bar = d
-    a = np.zeros(p)
-    theta = 1
-    # sig = .1
-    # tau = .1
-    sig = 1/np.sqrt(p)
-    tau = 1/np.sqrt(p)
-    # sig = 1.0/(p/np.log(p))
-    # tau = 1.0/np.log(p)
-    t = 0
-    while gaps[t] > epsi and t < max_iter:
-        t += 1
-        dtH = np.dot(d_bar, H)
-        tmp = a + sig * dtH
-        a_new = proj_l1ball(tmp, 1)
-        d_new = d * np.exp(-tau * np.dot(H, a_new))
-        d_new = d_new/d_new.sum()
-        if hasCap:
-            d_new = proj_cap_ent(d_new, 1.0/k)
-            # d_new = d_new/d_new.sum()
-
-        d_bar = d_new + theta*(d_new - d)
-        a = a_new
-        # something wrong, it should be unnecessary to renormalize
-        d = d_new
-        dtH = np.dot(d, H)
-        Ha = np.dot(H, a)
-        margins[t] = np.min(Ha)
-        primals[t] = LA.norm(dtH, np.inf)
-        duals[t] = (ksmallest(Ha, k)).sum()/k
-        if hasCap:
-            gaps[t] = LA.norm(dtH, np.inf) - (ksmallest(Ha, k)).sum()/k
-            margins[t] = (ksmallest(Ha, k)).sum()/k
-        else:
-            gaps[t] = LA.norm(dtH, np.inf) - np.min(Ha)
-            margins[t] = np.min(Ha)
-        if gaps[t] < 0:
-            print 'error'
-        if t % np.int(max_iter/showtimes) == 0:
-            print 'iter '+str(t)+' '+str(gaps[t])
-            # ind = np.argsort(Ha, kind='quicksort')
-            # d_s = np.zeros(n)
-            # d_s[ind[:k]] = 1.0/k
-            print 'primal: '+str(LA.norm(dtH, np.inf))
-            print 'dual: '+str((ksmallest(Ha, k)).sum()/k)
-            print 'intermediate: '+str(np.dot(dtH, a))
-            print 'norm '+str(d.sum())
-    return a, d, gaps, margins, t, primals, duals
-
-def dboost(A, epsi, hasCap, k, max_iter, rule):
+def dboost(A, epsi, hasCap, r, max_iter, rule):
     '''
     boosting with conditional-gradient algorithm,from Shai Shwartz & Yoram Singer's boosting paper
     '''
     print '----------------dual boost-------------------'
     [n, m] =A.shape
+    nu = int(r*n)
     w = np.zeros(m)
     if rule == 2:
         w = np.ones(m)/np.float(m)
@@ -277,7 +179,7 @@ def dboost(A, epsi, hasCap, k, max_iter, rule):
         d = np.exp(-Aw/beta)
         d /= d.sum()
         if hasCap:
-            d = proj_cap_ent(d, 1.0/k)
+            d = proj_cap_ent(d, 1.0/nu)
 
         dTA = np.dot(d, A)
         j = np.argmax(np.abs(dTA))
