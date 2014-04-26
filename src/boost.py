@@ -36,7 +36,8 @@ def proj_l1ball(u, z):
 
 def proj_cap_ent(d0, v):
     '''
-    projection with the entropy distance
+    projection with the entropy distance, with capped distribution
+    min KL(d,d0) sub to max_i d(i) <=v
     '''
     d = d0
 
@@ -68,7 +69,7 @@ def ksmallest(u0, k):
             mins = mins[:k]
     return np.asarray(mins)
 
-def prox_mapping(v,x0,sigma, dist_option=2):
+def prox_mapping(v, x0, sigma, dist_option=2):
     '''
     prox-mapping  argmin_x   <v,x> + 1/sigma D(x0,x)
     distance option:
@@ -88,7 +89,7 @@ def pdboost(H, epsi, hasCap, r, max_iter):
     primal-dual boost with capped probability ||d||_infty <= 1/k
     '''
 
-    print '----------------primal-dual boost3-------------------'
+    print '----------------primal-dual boost-------------------'
     H = np.hstack((H, -H))
     (n, p) = H.shape
     nu = int(n * r)
@@ -142,10 +143,8 @@ def pdboost(H, epsi, hasCap, r, max_iter):
         gaps[t] = primal_val[t] - dual_val[t]
         if t % np.int(max_iter/showtimes) == 0:
             print 'iter '+str(t)+' '+str(gaps[t])
-
             # print 'primal: '+str(-(ksmallest(Ha, k)).sum()/k)
             # print 'dual: '+str(-LA.norm(dtH, np.inf))
-
         if gaps[t] <epsi:
             break
         t += 1
@@ -154,8 +153,49 @@ def pdboost(H, epsi, hasCap, r, max_iter):
     dual_val = dual_val[:t]
     return a_bar, d_bar, gaps, primal_val, dual_val, margin
 
+def fwboost(H, epsi=0.01, hasCap=False, ratio=0.1, max_iter=100, steprule = 1):
+    '''
+    frank-wolfe boost for binary classification
+        min_a max_d   d^T(-Ha) sub to:  ||a||_1\le 1
+    '''
+    [n, p] =H.shape
+    gaps = np.zeros(max_iter)
+    alpha = np.zeros(p)
+    d = np.ones(n)/n
+    mu = epsi/(2*np.log(n))
+    nu = int(n * ratio)
+    t = 0
+    Ha = np.dot(H,alpha)
+    while t < max_iter:
+        d_next = prox_mapping(Ha, d, 1/mu)
+        if hasCap:
+            d_next = proj_cap_ent(d_next, 1.0/nu)
 
-def dboost(A, epsi, hasCap, r, max_iter, rule):
+        d = d_next
+        dtH = np.dot(d, H)
+        j = np.argmax(np.abs(dtH))
+        ej = np.zeros(n)
+        ej[j] = np.sign(dtH(j))
+        gaps[t] = np.dot(dtH,alpha - ej)
+        if steprule ==1:
+            eta = np.max(0, np.min(1, mu*gaps[t]/np.sum(np.abs(alpha-ej))**2))
+        elif steprule ==2:
+            '''
+            do line search
+            '''
+        else:
+            print "steprule 3, to be done"
+
+        alpha *= (1-eta)
+        alpha[j] += eta*ej[j]
+        if(gaps[t] < epsi):
+            break
+
+    return alpha, d, gaps
+
+
+
+def dboost(A, epsi, hasCap, r, max_iter=100, rule=1):
     '''
     boosting with conditional-gradient algorithm,from Shai Shwartz & Yoram Singer's boosting paper
     '''
@@ -200,8 +240,7 @@ def dboost(A, epsi, hasCap, r, max_iter, rule):
             elif rule == 2:
                 eta[t] = 2.0/(t+1)
             Aw = (1-eta[t]) * Aw + eta[t] * sign * A[:, j]
-            # w_new = (1-eta[t])*w
-            # w_new[j] += eta[t]
+
             w *= (1-eta[t])
             w[j] += eta[t]
             margins[t] = np.min(Aw)
@@ -212,8 +251,6 @@ def dboost(A, epsi, hasCap, r, max_iter, rule):
             # print 'dual: '+str(np.dot(A, w).min()) +' and '+str((np.dot(A, w_new).min()))
             print 'primal: '+str(beta*(np.log(n)+(d*np.log(d)).sum())+LA.norm(np.dot(d, A), np.inf))
             print 'gaps: '+str(gaps[t])
-            # print 'increm: '+str(gaps[t]**2*beta/LA.norm(tmp, np.inf)**2)
-            # print 'margin: '+str()
 
     return w, d, gaps, eta, dual, margins, t,
 
@@ -223,25 +260,3 @@ if __name__ == '__main__':
     '''
     toy example
     '''
-    x = np.array([[-1, 1], [1, -1]])
-    # w = np.array([1, 1])
-
-    w = w / np.float(LA.norm(w, 2))
-    y = np.sign(np.dot(x, w))
-    num_iter = 1000
-    k = 400
-    row = 2
-    col = 2
-    hasCap = False
-    yH = y[:, np.newaxis] * x
-    (w1, d1, gaps1, eta1, dual1, m1, total_iter1) = dboost(yH, 0.01, hasCap, k, num_iter, 1)
-    # return x
-    plt.plot(range(1, total_iter1+1), ((gaps1[1:total_iter1+1])), 'r', label='dboost')
-    (w3, d3, gaps3, m3, total_iter3) = pdboost3(x, 0.01, hasCap, k, num_iter)
-
-    plt.plot(range(1, total_iter3+1), ((gaps3[1:total_iter3+1])), 'b', label='pdboost')
-
-
-    '''
-        test 3
-            '''

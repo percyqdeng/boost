@@ -26,32 +26,34 @@
       <file leaf-file-name="boost.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/boost.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="34" selection-start="396" selection-end="396" vertical-scroll-proportion="0.0" vertical-offset="1695" max-vertical-offset="3795">
+            <state line="162" column="23" selection-start="4195" selection-end="4195" vertical-scroll-proportion="0.0" vertical-offset="2218" max-vertical-offset="3075">
               <folding>
-                <element signature="e#26#44#0" expanded="true" />
+                <element signature="e#5057#6919#0" expanded="false" />
+                <marker date="1398469486000" expanded="true" signature="4004:4995" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="main.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="0" selection-start="1506" selection-end="1506" vertical-scroll-proportion="0.3323486" vertical-offset="0" max-vertical-offset="677">
+            <state line="6" column="0" selection-start="161" selection-end="176" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
               <folding>
-                <element signature="e#27#45#0" expanded="true" />
-                <element signature="e#285#1504#0" expanded="false" />
-                <element signature="e#1527#3052#0" expanded="false" />
+                <element signature="e#295#1514#0" expanded="false" />
+                <element signature="e#1537#3062#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cmp.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cmp.py">
+      <file leaf-file-name="boostClassify.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/boostClassify.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="53" selection-end="53" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
-              <folding />
+            <state line="33" column="27" selection-start="658" selection-end="658" vertical-scroll-proportion="0.64254063" vertical-offset="60" max-vertical-offset="750">
+              <folding>
+                <element signature="e#28#47#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -67,9 +69,10 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/src/__init__.py" />
-        <option value="$PROJECT_DIR$/src/boost.py" />
         <option value="$PROJECT_DIR$/src/cmp.py" />
         <option value="$PROJECT_DIR$/src/main.py" />
+        <option value="$PROJECT_DIR$/src/boost.py" />
+        <option value="$PROJECT_DIR$/src/boostClassify.py" />
       </list>
     </option>
   </component>
@@ -120,6 +123,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -168,7 +172,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -379,11 +382,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -405,9 +408,30 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/boost.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="34" selection-start="396" selection-end="396" vertical-scroll-proportion="0.0" vertical-offset="1695" max-vertical-offset="3795">
+          <folding>
+            <element signature="e#5057#6919#0" expanded="false" />
+            <marker date="1398469486000" expanded="true" signature="4004:4995" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="114" column="0" selection-start="3310" selection-end="3310" vertical-scroll-proportion="0.0" vertical-offset="525" max-vertical-offset="525">
+          <folding>
+            <element signature="e#295#1514#0" expanded="false" />
+            <element signature="e#1537#3062#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/boost.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state line="136" column="25" selection-start="3220" selection-end="3220" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3795">
           <folding>
-            <element signature="e#26#44#0" expanded="true" />
+            <element signature="e#5057#6919#0" expanded="false" />
+            <marker date="1398469486000" expanded="true" signature="4004:4995" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -416,17 +440,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="0" selection-start="222" selection-end="245" vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="1905">
           <folding>
-            <element signature="e#27#45#0" expanded="true" />
-            <element signature="e#285#1504#0" expanded="false" />
-            <element signature="e#1527#3052#0" expanded="false" />
+            <element signature="e#295#1514#0" expanded="false" />
+            <element signature="e#1537#3062#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cmp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="53" selection-end="53" vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="165">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -434,7 +450,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="304" column="35" selection-start="9048" selection-end="9048" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5265">
           <folding>
-            <element signature="e#26#44#0" expanded="true" />
+            <element signature="e#5057#6919#0" expanded="false" />
+            <marker date="1398469486000" expanded="true" signature="4004:4995" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -443,7 +460,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="190" column="49" selection-start="5466" selection-end="5466" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4200">
           <folding>
-            <element signature="e#26#44#0" expanded="true" />
+            <element signature="e#5057#6919#0" expanded="false" />
+            <marker date="1398469486000" expanded="true" signature="4004:4995" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -452,9 +470,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="77" column="12" selection-start="2337" selection-end="2337" vertical-scroll-proportion="0.0" vertical-offset="1063" max-vertical-offset="1650">
           <folding>
-            <element signature="e#27#45#0" expanded="true" />
-            <element signature="e#285#1504#0" expanded="false" />
-            <element signature="e#1527#3052#0" expanded="false" />
+            <element signature="e#295#1514#0" expanded="false" />
+            <element signature="e#1537#3062#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -463,7 +480,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="190" column="49" selection-start="5466" selection-end="5466" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4200">
           <folding>
-            <element signature="e#26#44#0" expanded="true" />
+            <element signature="e#5057#6919#0" expanded="false" />
+            <marker date="1398469486000" expanded="true" signature="4004:4995" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -472,9 +490,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="77" column="12" selection-start="2337" selection-end="2337" vertical-scroll-proportion="0.0" vertical-offset="1065" max-vertical-offset="1650">
           <folding>
-            <element signature="e#27#45#0" expanded="true" />
-            <element signature="e#285#1504#0" expanded="false" />
-            <element signature="e#1527#3052#0" expanded="false" />
+            <element signature="e#295#1514#0" expanded="false" />
+            <element signature="e#1537#3062#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -483,7 +500,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="89" column="9" selection-start="2065" selection-end="2065" vertical-scroll-proportion="0.0" vertical-offset="1557" max-vertical-offset="4140">
           <folding>
-            <element signature="e#26#44#0" expanded="true" />
+            <element signature="e#5057#6919#0" expanded="false" />
+            <marker date="1398469486000" expanded="true" signature="4004:4995" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -492,36 +510,37 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="72" column="15" selection-start="2107" selection-end="2107" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="1530">
           <folding>
-            <element signature="e#27#45#0" expanded="true" />
-            <element signature="e#285#1504#0" expanded="false" />
-            <element signature="e#1527#3052#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cmp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="53" selection-end="53" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/boost.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="34" selection-start="396" selection-end="396" vertical-scroll-proportion="0.0" vertical-offset="1695" max-vertical-offset="3795">
-          <folding>
-            <element signature="e#26#44#0" expanded="true" />
+            <element signature="e#295#1514#0" expanded="false" />
+            <element signature="e#1537#3062#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="0" selection-start="1506" selection-end="1506" vertical-scroll-proportion="0.3323486" vertical-offset="0" max-vertical-offset="677">
+        <state line="6" column="0" selection-start="161" selection-end="176" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
           <folding>
-            <element signature="e#27#45#0" expanded="true" />
-            <element signature="e#285#1504#0" expanded="false" />
-            <element signature="e#1527#3052#0" expanded="false" />
+            <element signature="e#295#1514#0" expanded="false" />
+            <element signature="e#1537#3062#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/boost.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="162" column="23" selection-start="4195" selection-end="4195" vertical-scroll-proportion="0.0" vertical-offset="2218" max-vertical-offset="3075">
+          <folding>
+            <element signature="e#5057#6919#0" expanded="false" />
+            <marker date="1398469486000" expanded="true" signature="4004:4995" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/boostClassify.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="27" selection-start="658" selection-end="658" vertical-scroll-proportion="0.64254063" vertical-offset="60" max-vertical-offset="750">
+          <folding>
+            <element signature="e#28#47#0" expanded="true" />
           </folding>
         </state>
       </provider>

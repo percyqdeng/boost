@@ -5,6 +5,7 @@ from sklearn.ensemble import RandomForestClassifier
 from numpy import linalg as LA
 import matplotlib.pyplot as plt
 import scipy.io
+import os
 import copy
 import heapq
 from boost import *
@@ -102,13 +103,16 @@ def toy_test():
     plt.savefig('../output/cmp.eps')
 
 def load_data(dtname = 'ringnormmat.mat'):
-    data = scipy.io.loadmat('~/workspace/boost/')
+    data = scipy.io.loadmat(dtname)
     x = data['x']
     y = data['t']
     trInd = data['train']
     teInd = data['test']
-    return x,y, trInd, teInd
+    return data
 
 
-# dtname = 'heartmat.mat'
-data = load_data()
+
+path = '/Users/qdengpercy/workspace/boost/dataset/'
+dtname = 'heartmat.mat'
+data = load_data(path+dtname)
+
