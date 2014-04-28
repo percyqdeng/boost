@@ -1,12 +1,15 @@
 __author__ = 'qdengpercy'
 
+import os
 
-from boost import *
 import numpy as np
 import scipy.io
 import math
-from gen_ftrs import *
 from sklearn.ensemble import AdaBoostClassifier
+from sklearn import tree
+
+from boost import *
+from gen_ftrs import *
 
 class BoostPara:
     def __init__(self, epsi=0.01, hasDualCap = False, ratio=0.1, max_iter=100, steprule = 1):
@@ -99,8 +102,8 @@ def benchMark(data):
     y = np.squeeze(y)
     x = normalize_data(x)
     para = BoostPara(epsi=0.01, hasDualCap=False, ratio=0.1, max_iter=1000, steprule=2)
-    # rep = data['train'].shape[0]
-    rep = 1
+    rep = data['train'].shape[0]
+    # rep = 1
     err_te = np.zeros(rep)
 
     for i in range(rep):
@@ -119,7 +122,8 @@ def benchMark(data):
 
         # max_iter = 1000
         err_te[i] = booster.test(xte, yte)
-    return booster
+        print "rounds "+ str(i+1)+" err "+str(err_te[i])
+    return booster, err_te
 
 def toyTest():
     ntr = 2000
@@ -131,10 +135,12 @@ def toyTest():
 
 
 if __name__ == '__main__':
-
-    path = '/Users/qdengpercy/workspace/boost/dataset/'
+    if os.name == "nt":
+         path = "..\\dataset\\"
+    elif os.name =="mac":
+        path = '/Users/qdengpercy/workspace/boost/dataset/'
     dtname = 'heartmat.mat'
     data = scipy.io.loadmat(path+dtname)
-    booster = benchMark(data)
+    booster, err = benchMark(data)
     # booster = toyTest()
 
