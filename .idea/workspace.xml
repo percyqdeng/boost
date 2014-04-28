@@ -35,7 +35,7 @@
       <file leaf-file-name="binBoost.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/binBoost.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="32" selection-start="1900" selection-end="1900" vertical-scroll-proportion="0.3988183" vertical-offset="690" max-vertical-offset="2190">
+            <state line="59" column="16" selection-start="1762" selection-end="1762" vertical-scroll-proportion="0.28803545" vertical-offset="690" max-vertical-offset="2190">
               <folding>
                 <element signature="e#28#47#0" expanded="true" />
               </folding>
@@ -467,7 +467,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/binBoost.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="32" selection-start="1900" selection-end="1900" vertical-scroll-proportion="0.3988183" vertical-offset="690" max-vertical-offset="2190">
+        <state line="59" column="16" selection-start="1762" selection-end="1762" vertical-scroll-proportion="0.28803545" vertical-offset="690" max-vertical-offset="2190">
           <folding>
             <element signature="e#28#47#0" expanded="true" />
           </folding>
