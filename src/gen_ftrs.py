@@ -111,8 +111,10 @@ def load_data(dtname = 'ringnormmat.mat'):
     return data
 
 
-
-path = '/Users/qdengpercy/workspace/boost/dataset/'
+if os.name == "mac":
+    path = '/Users/qdengpercy/workspace/boost/dataset/'
+elif os.name =="nt":
+    path = "..\\dataset\\"
 dtname = 'heartmat.mat'
 data = load_data(path+dtname)
 
