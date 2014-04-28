@@ -153,45 +153,7 @@ def pdboost(H, epsi, hasCap, r, max_iter):
     dual_val = dual_val[:t]
     return a_bar, d_bar, gaps, primal_val, dual_val, margin
 
-def fwboost(H, epsi=0.01, hasCap=False, ratio=0.1, max_iter=100, steprule = 1):
-    '''
-    frank-wolfe boost for binary classification
-        min_a max_d   d^T(-Ha) sub to:  ||a||_1\le 1
-    '''
-    [n, p] =H.shape
-    gaps = np.zeros(max_iter)
-    alpha = np.zeros(p)
-    d = np.ones(n)/n
-    mu = epsi/(2*np.log(n))
-    nu = int(n * ratio)
-    t = 0
-    Ha = np.dot(H,alpha)
-    while t < max_iter:
-        d_next = prox_mapping(Ha, d, 1/mu)
-        if hasCap:
-            d_next = proj_cap_ent(d_next, 1.0/nu)
 
-        d = d_next
-        dtH = np.dot(d, H)
-        j = np.argmax(np.abs(dtH))
-        ej = np.zeros(n)
-        ej[j] = np.sign(dtH(j))
-        gaps[t] = np.dot(dtH,alpha - ej)
-        if steprule ==1:
-            eta = np.max(0, np.min(1, mu*gaps[t]/np.sum(np.abs(alpha-ej))**2))
-        elif steprule ==2:
-            '''
-            do line search
-            '''
-        else:
-            print "steprule 3, to be done"
-
-        alpha *= (1-eta)
-        alpha[j] += eta*ej[j]
-        if(gaps[t] < epsi):
-            break
-
-    return alpha, d, gaps
 
 
 

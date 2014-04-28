@@ -43,7 +43,7 @@ def gen_syn(ftr_type, ntr, nte):
         ytr = y[:ntr]
         yte = y[ntr:]
         # add noise to data
-        flips = np.random.binomial(1, 0.8, (ntr+nte, p))
+        flips = np.random.binomial(1, 1, (ntr+nte, p))
         flips[flips == 0] = -1
         x *= flips
         # noise = np.random.normal(0,0.1,(ntr+nte,p))
