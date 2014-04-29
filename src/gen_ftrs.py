@@ -111,7 +111,7 @@ def load_data(dtname = 'ringnormmat.mat'):
     return data
 
 
-if os.name == "mac":
+if os.name == "posix":
     path = '/Users/qdengpercy/workspace/boost/dataset/'
 elif os.name =="nt":
     path = "..\\dataset\\"

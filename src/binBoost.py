@@ -20,7 +20,7 @@ class BoostPara:
         self.steprule = steprule
 
 
-def normalize_data(x):
+def preprocess_data(x):
     Z = np.std(x, 0)
     avg = np.mean(x, 0)
     x = (x-avg[np.newaxis, :])/Z[np.newaxis, :]
@@ -58,6 +58,7 @@ class FwBoost:
         [n, p] = H.shape
         gaps = np.zeros(para.max_iter)
         alpha = np.zeros(p)
+        # alpha = np.ones(p)/p
         d0 = np.ones(n)/n
         mu = para.epsi/(2*np.log(n))
         # mu = 1
@@ -91,21 +92,26 @@ class FwBoost:
             Ha *= (1-eta)
             Ha += H[:, j] * (eta*ej[j])
             if(gaps[t] < para.epsi):
+                t += 1
                 break
             t += 1
-
+        gaps = gaps[:t]
         return alpha, d, gaps, eta
+    def adaptive_boosting(self, para):
+
+        return
+
 
 def benchMark(data):
     x = data['x']
     y = data['t']
     y = np.squeeze(y)
-    x = normalize_data(x)
-    para = BoostPara(epsi=0.01, hasDualCap=False, ratio=0.1, max_iter=1000, steprule=2)
-    rep = data['train'].shape[0]
-    # rep = 1
+    x = preprocess_data(x)
+    para = BoostPara(epsi=0.001, hasDualCap=True, ratio=0.11, max_iter=10000, steprule=2)
+    # rep = data['train'].shape[0]
+    rep = 1
     err_te = np.zeros(rep)
-
+    err_tr = np.zeros(rep)
     for i in range(rep):
         trInd = data['train'][i, :] - 1
         teInd = data['test'][i, :] - 1
@@ -122,7 +128,9 @@ def benchMark(data):
 
         # max_iter = 1000
         err_te[i] = booster.test(xte, yte)
-        print "rounds "+ str(i+1)+" err "+str(err_te[i])
+        err_tr[i] = booster.test(xtr, ytr)
+        print "rounds "+ str(i+1)+"err_tr " + str(err_tr[i])+" err_te "+str(err_te[i])
+    plt.plot(booster.gaps,'bx-')
     return booster, err_te
 
 def toyTest():
@@ -132,15 +140,33 @@ def toyTest():
     booster = FwBoost()
     booster.train(xtr, ytr, para)
     plt.plot(booster.gaps,'rx-')
+    return booster
 
+def plot_result(booster):
+
+def plot_2Ddata(data):
+    x = data['x']
+    y = data['t']
+    y = np.squeeze(y)
+    plt.subplot(2,2,1)
+    plt.scatter(x[y==1, 0], x[y==1, 1], marker='o',c='r',label='+')
+    plt.subplot(2,2,2)
+    plt.scatter(x[y==-1, 0], x[y == -1, 1], marker='x',c='b',label='-')
+    plt.subplot(2,2,3)
+    plt.scatter(x[:, 0],x[:, 1])
+    plt.title('banana')
+    # plt.show()
+    plt.savefig('2dplot.eps')
 
 if __name__ == '__main__':
     if os.name == "nt":
          path = "..\\dataset\\"
-    elif os.name =="mac":
+    elif os.name =="posix":
         path = '/Users/qdengpercy/workspace/boost/dataset/'
-    dtname = 'heartmat.mat'
+    dtname = 'bananamat.mat'
     data = scipy.io.loadmat(path+dtname)
-    booster, err = benchMark(data)
-    # booster = toyTest()
+    plot_2Ddata(data)
+    plt.figure()
+    # booster, err = benchMark(data)
+    booster = toyTest()
 
