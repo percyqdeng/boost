@@ -43,9 +43,9 @@ def gen_syn(ftr_type, ntr, nte):
         ytr = y[:ntr]
         yte = y[ntr:]
         # add noise to data
-        flips = np.random.binomial(1, 1, (ntr+nte, p))
-        flips[flips == 0] = -1
-        x *= flips
+        # flips = np.random.binomial(1, 0.9, (ntr+nte, p))
+        # flips[flips == 0] = -1
+        # x *= flips
         # noise = np.random.normal(0,0.1,(ntr+nte,p))
         # x += noise
         xtr = x[:ntr, :]
@@ -76,9 +76,9 @@ def toy_test():
     pred = np.sign(np.dot(xte, w3[:p]))
     err3 = np.mean(pred != yte)
     plt.subplot(row, col, 1)
-    plt.plot(range(1, total_iter1+1), (np.log(gaps1[1:total_iter1+1])), 'r', label='dboost')
-    plt.plot((np.log(gaps3)), 'b', label='pdboost')
-    plt.plot(np.log((np.log(ntr*p)/range(len(gaps3)))),'g')
+    plt.plot(range(1, total_iter1+1), ((gaps1[1:total_iter1+1])), 'r', label='dboost')
+    # plt.plot((np.log(gaps3)), 'b', label='pdboost')
+    # plt.plot(np.log((np.log(ntr*p)/range(len(gaps3)))),'g')
     # plt.plot((np.log(ntr*p)/range(1,total_iter1)),'g')
     plt.xlabel('# iteration')
     plt.ylabel('log of gap')
@@ -110,11 +110,11 @@ def load_data(dtname = 'ringnormmat.mat'):
     teInd = data['test']
     return data
 
-
-if os.name == "posix":
-    path = '/Users/qdengpercy/workspace/boost/dataset/'
-elif os.name =="nt":
-    path = "..\\dataset\\"
-dtname = 'heartmat.mat'
-data = load_data(path+dtname)
-
+if __name__ =='__main__':
+    if os.name == "posix":
+        path = '/Users/qdengpercy/workspace/boost/dataset/'
+    elif os.name =="nt":
+        path = "..\\dataset\\"
+    # dtname = 'heartmat.mat'
+    # data = load_data(path+dtname)
+    toy_test()
