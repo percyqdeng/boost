@@ -8,9 +8,9 @@ import heapq
 import bisect
 path = '/Users/qdengpercy/workspace/boost'
 def proj_simplex(u, z):
-    '''
+    """
     find w :  min 0.5*||w-u||^2 s.t. w>=0; w1+w2+...+wn = z; z>0
-    '''
+    """
     p = len(u)
     ind = np.argsort(u,kind='quicksort')[::-1]
     mu = u[ind]
@@ -23,9 +23,9 @@ def proj_simplex(u, z):
     return w
 
 def proj_l1ball(u, z):
-    '''
+    """
     find w :  min 0.5*||w-u||^2 s.t. ||w||_1 <= z
-    '''
+    """
     if LA.norm(u, 1) <= z:
         w = u
         return w
@@ -35,10 +35,10 @@ def proj_l1ball(u, z):
     return w
 
 def proj_cap_ent(d0, v):
-    '''
+    """
     projection with the entropy distance, with capped distribution
     min KL(d,d0) sub to max_i d(i) <=v
-    '''
+    """
     d = d0
 
     m = len(d)
@@ -70,12 +70,12 @@ def ksmallest(u0, k):
     return np.asarray(mins)
 
 def prox_mapping(v, x0, sigma, dist_option=2):
-    '''
+    """
     prox-mapping  argmin_x   <v,x> + 1/sigma D(x0,x)
     distance option:
     dist_option:    1  euclidean distance, 0.5||x-x0||^2
                     2  kl divergence
-    '''
+    """
     if dist_option == 1:
         x = x0 - sigma * v
     elif dist_option ==2:
@@ -85,9 +85,9 @@ def prox_mapping(v, x0, sigma, dist_option=2):
     return x
 
 def pdboost(H, epsi, hasCap, r, max_iter):
-    '''
+    """
     primal-dual boost with capped probability ||d||_infty <= 1/k
-    '''
+    """
 
     print '----------------primal-dual boost-------------------'
     H = np.hstack((H, -H))
