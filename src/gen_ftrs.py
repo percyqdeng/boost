@@ -12,7 +12,7 @@ from boost import *
 from sklearn import svm
 
 
-def gen_syn(ftr_type, ntr, nte):
+def gen_syn(ftr_type, ntr, nte, hasNoise=False):
     '''
     get synthetic dataset as in Collin's paper
     '''
@@ -43,11 +43,12 @@ def gen_syn(ftr_type, ntr, nte):
         ytr = y[:ntr]
         yte = y[ntr:]
         # add noise to data
-        # flips = np.random.binomial(1, 0.9, (ntr+nte, p))
-        # flips[flips == 0] = -1
-        # x *= flips
-        # noise = np.random.normal(0,0.1,(ntr+nte,p))
-        # x += noise
+        if hasNoise:
+            flips = np.random.binomial(1, 0.9, (ntr+nte, p))
+            flips[flips == 0] = -1
+            x *= flips
+            noise = np.random.normal(0,0.1,(ntr+nte,p))
+            x += noise
         xtr = x[:ntr, :]
         xte = x[ntr:, :]
         yH = ytr[:, np.newaxis] * xtr
@@ -55,7 +56,7 @@ def gen_syn(ftr_type, ntr, nte):
     return xtr, ytr, yH, margin, w, xte, yte
 
 
-def toy_test():
+def toy_test2():
     ntr = 2000
     (xtr, ytr, yH, margin, w, xte, yte) = gen_syn('disc', ntr, 1000)
     (n,p) = xtr.shape
@@ -98,7 +99,7 @@ def toy_test():
     plt.subplot(row,col,4)
     plt.title('pdboost')
     plt.plot(primal3,'r', label='primal')
-    plt.plot(dual3,'b',label='dual')
+    plt.plot(dual3, 'b', label='dual')
 
     plt.savefig('../output/cmp.eps')
 
@@ -117,4 +118,4 @@ if __name__ =='__main__':
         path = "..\\dataset\\"
     # dtname = 'heartmat.mat'
     # data = load_data(path+dtname)
-    toy_test()
+    toy_test2()
