@@ -44,6 +44,8 @@ class AdaFwBoost:
 		frank-wolfe boost for binary classification with user defined weak learners, choose decision stump
 		as default
 		"""
+
+
 class FwBoost:
 	"""Frank-Wolfe Boosting method,
 	Parameters:
@@ -90,6 +92,14 @@ class FwBoost:
 
 		"""
 		n, p = x.shape
+		d = np.ones(n)/n
+
+		for t in range(self.max_iter):
+			weak_learner = DecisionTreeClassifier(max_depth=1)
+			weak_learner.fit(x, y, sample_weight=d)
+			pred = weak_learner.predict(x)
+			
+
 
 	def fw_boosting(self, H):
 		"""
@@ -103,36 +113,35 @@ class FwBoost:
 		dual_obj = np.zeros(self.max_iter)
 		alpha = np.zeros(p)
 		# alpha = np.ones(p)/p
-		d0 = np.ones(n)/n
-		mu = self.epsi/(2*np.log(n))
+		d0 = np.ones(n) / n
+		mu = self.epsi / (2 * np.log(n))
 		# mu = 1
 		nu = int(n * self.ratio)
 		t = 0
 		Ha = np.dot(H, alpha)
 		# d0 = np.ones(n)/n
 		while t < self.max_iter:
-			d_next = prox_mapping(Ha, d0, 1/mu)
-			if math.isnan(d_next[0]):
-				print 'omg'
+			d_next = prox_mapping(Ha, d0, 1 / mu)
+			assert math.isnan(d_next[0])
 			if self.has_dcap:
-				d_next = proj_cap_ent(d_next, 1.0/nu)
+				d_next = proj_cap_ent(d_next, 1.0 / nu)
 			d = d_next
 			dtH = np.dot(d, H)
 			j = np.argmax(np.abs(dtH))
 			ej = np.zeros(p)
 			ej[j] = np.sign(dtH[j])
-			gaps[t] = np.dot(dtH, ej-alpha)
+			gaps[t] = np.dot(dtH, ej - alpha)
 			if self.has_dcap:
 				min_margin = ksmallest(Ha, nu)
 				margins[t] = np.mean(min_margin)
 			else:
 				margins[t] = np.min(Ha)
-			prim_obj[t] = mu * np.log(1.0/n*np.sum(np.exp(-Ha/mu)))
-			dual_obj[t] = -np.max(np.abs(dtH)) - mu*np.dot(d,np.log(d)) + mu*np.log(n)
+			prim_obj[t] = mu * np.log(1.0 / n * np.sum(np.exp(-Ha / mu)))
+			dual_obj[t] = -np.max(np.abs(dtH)) - mu * np.dot(d,np.log(d)) + mu * np.log(n)
 			if self.steprule == 1:
-				eta = np.maximum(0, np.minimum(1, mu*gaps[t]/np.sum(np.abs(alpha-ej))**2))
+				eta = np.maximum(0, np.minimum(1, mu * gaps[t]/np.sum(np.abs(alpha - ej)) ** 2))
 			elif self.steprule == 2:
-				eta = np.maximum(0, np.minimum(1, mu*gaps[t]/LA.norm(Ha-H[:, j]*ej[j], np.inf)**2))
+				eta = np.maximum(0, np.minimum(1, mu * gaps[t] / LA.norm(Ha - H[:, j] * ej[j], np.inf) ** 2))
 			else:
 				#
 				# do line search
