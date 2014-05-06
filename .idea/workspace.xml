@@ -23,21 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="binBoost.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/binBoost.py">
+      <file leaf-file-name="fwBoost.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/fwBoost.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="197" column="0" selection-start="6283" selection-end="6283" vertical-scroll-proportion="0.3988183" vertical-offset="2685" max-vertical-offset="4275">
-              <folding>
-                <element signature="e#27#36#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="boost.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/boost.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="194" column="70" selection-start="4982" selection-end="4982" vertical-scroll-proportion="0.0" vertical-offset="2413" max-vertical-offset="3360">
+            <state line="100" column="38" selection-start="3132" selection-end="3132" vertical-scroll-proportion="0.2626728" vertical-offset="1209" max-vertical-offset="6675">
               <folding />
             </state>
           </provider>
@@ -46,7 +35,16 @@
       <file leaf-file-name="gen_ftrs.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gen_ftrs.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="24" selection-start="1185" selection-end="1185" vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="1755">
+            <state line="120" column="13" selection-start="3549" selection-end="3549" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1770">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="testFwBoost.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/testFwBoost.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="0" selection-start="50" selection-end="50" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
               <folding />
             </state>
           </provider>
@@ -62,8 +60,12 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/gen_ftrs.py" />
         <option value="$PROJECT_DIR$/src/binBoost.py" />
+        <option value="$PROJECT_DIR$/src/AdaFwBoost.py" />
+        <option value="$PROJECT_DIR$/src/FwBoost.py" />
+        <option value="$PROJECT_DIR$/src/testFwBoost.py" />
+        <option value="$PROJECT_DIR$/src/gen_ftrs.py" />
+        <option value="$PROJECT_DIR$/src/fwBoost.py" />
       </list>
     </option>
   </component>
@@ -71,6 +73,25 @@
     <option name="y" value="22" />
     <option name="width" value="1280" />
     <option name="height" value="774" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Python</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>PyPep8Inspection</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -129,6 +150,10 @@
               <option name="myItemId" value="boost" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="output" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -139,10 +164,6 @@
               <option name="myItemId" value="boost" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dataset" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -150,7 +171,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -302,7 +323,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14140625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -336,20 +357,21 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/binBoost.py">
+    <entry file="file://$PROJECT_DIR$/src/boost.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="38" selection-start="1715" selection-end="1715" vertical-scroll-proportion="0.0" vertical-offset="883" max-vertical-offset="4170">
-          <folding>
-            <element signature="e#27#36#0" expanded="true" />
-          </folding>
+        <state line="194" column="70" selection-start="4982" selection-end="4982" vertical-scroll-proportion="0.0" vertical-offset="2910" max-vertical-offset="3450" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gen_ftrs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="24" selection-start="1185" selection-end="1185" vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="1890">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/boost.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="213" column="50" selection-start="5711" selection-end="5712" vertical-scroll-proportion="0.0" vertical-offset="3195" max-vertical-offset="3450">
-          <folding />
-        </state>
+        <state line="213" column="50" selection-start="5711" selection-end="5712" vertical-scroll-proportion="0.0" vertical-offset="3195" max-vertical-offset="3450" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gen_ftrs.py">
@@ -361,24 +383,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/boost.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="194" column="70" selection-start="4982" selection-end="4982" vertical-scroll-proportion="0.0" vertical-offset="2368" max-vertical-offset="3360">
+        <state line="194" column="70" selection-start="4982" selection-end="4982" vertical-scroll-proportion="0.0" vertical-offset="2368" max-vertical-offset="3360" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/output/cmp.eps">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/testFwBoost.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="0" selection-start="50" selection-end="50" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gen_ftrs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="24" selection-start="1185" selection-end="1185" vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="1755">
+        <state line="120" column="13" selection-start="3549" selection-end="3549" vertical-scroll-proportion="0.0" vertical-offset="793" max-vertical-offset="1770">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/binBoost.py">
+    <entry file="file://$PROJECT_DIR$/src/fwBoost.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="197" column="0" selection-start="6283" selection-end="6283" vertical-scroll-proportion="0.3988183" vertical-offset="2685" max-vertical-offset="4275">
-          <folding>
-            <element signature="e#27#36#0" expanded="true" />
-          </folding>
+        <state line="100" column="38" selection-start="3132" selection-end="3132" vertical-scroll-proportion="0.2626728" vertical-offset="1209" max-vertical-offset="6675">
+          <folding />
         </state>
       </provider>
     </entry>
