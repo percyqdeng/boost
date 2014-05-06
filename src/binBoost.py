@@ -98,7 +98,6 @@ class FwBoost:
 			weak_learner = DecisionTreeClassifier(max_depth=1)
 			weak_learner.fit(x, y, sample_weight=d)
 			pred = weak_learner.predict(x)
-			
 
 
 	def fw_boosting(self, H):
