@@ -23,7 +23,7 @@ from gen_ftrs import *
 def preprocess_data(x):
     Z = np.std(x, 0)
     avg = np.mean(x, 0)
-    x = (x - avg[np.newaxis, :]) / Z[np.newaxis, :]
+    x = (x - avg[np.newaxis, :]) Z[np.newaxis, :]
     return x
 
 
