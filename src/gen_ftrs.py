@@ -13,9 +13,9 @@ from sklearn import svm
 
 
 def gen_syn(ftr_type, ntr, nte, hasNoise=False):
-    '''
+    """
     get synthetic dataset as in Collin's paper
-    '''
+    """
     p = 50
     mean = np.zeros(p)
     cov = np.eye(p)
@@ -24,19 +24,19 @@ def gen_syn(ftr_type, ntr, nte, hasNoise=False):
     w /= LA.norm(w, 1)
     # w = np.ones(p)/np.float(p)
     if ftr_type == 'real':
-        x = np.random.multivariate_normal(mean, cov, ntr+nte)
+        x = np.random.multivariate_normal(mean, cov, ntr + nte)
         y = np.sign(np.dot(x, w))
         ytr = y[:ntr]
         yte = y[ntr:]
         # add noise to data
-        noise = np.random.multivariate_normal(mean, 0.8*cov, ntr+nte)
+        noise = np.random.multivariate_normal(mean, 0.8 * cov, ntr + nte)
         x += noise
         xtr = x[:ntr, :]
         xte = x[ntr:, :]
         yH = ytr[:, np.newaxis] * xtr
         margin = np.min(np.dot(yH, w))
     elif ftr_type == 'disc':
-        x = np.random.binomial(1, 0.5, (ntr+nte, p))
+        x = np.random.binomial(1, 0.5, (ntr + nte, p))
 
         x[x == 0] = -1
         y = np.sign(np.dot(x, w))
@@ -44,10 +44,10 @@ def gen_syn(ftr_type, ntr, nte, hasNoise=False):
         yte = y[ntr:]
         # add noise to data
         if hasNoise:
-            flips = np.random.binomial(1, 0.9, (ntr+nte, p))
+            flips = np.random.binomial(1, 0.9, (ntr + nte, p))
             flips[flips == 0] = -1
             x *= flips
-            noise = np.random.normal(0,0.1,(ntr+nte,p))
+            noise = np.random.normal(0, 0.1, (ntr + nte, p))
             x += noise
         xtr = x[:ntr, :]
         xte = x[ntr:, :]
@@ -59,7 +59,7 @@ def gen_syn(ftr_type, ntr, nte, hasNoise=False):
 def toy_test2():
     ntr = 2000
     (xtr, ytr, yH, margin, w, xte, yte) = gen_syn('disc', ntr, 1000)
-    (n,p) = xtr.shape
+    (n, p) = xtr.shape
 
     num_iter = 4000
     ratio = 0.1
@@ -77,7 +77,7 @@ def toy_test2():
     pred = np.sign(np.dot(xte, w3[:p]))
     err3 = np.mean(pred != yte)
     plt.subplot(row, col, 1)
-    plt.plot(range(1, total_iter1+1), ((gaps1[1:total_iter1+1])), 'r', label='dboost')
+    plt.plot(range(1, total_iter1 + 1), ((gaps1[1:total_iter1 + 1])), 'r', label='dboost')
     # plt.plot((np.log(gaps3)), 'b', label='pdboost')
     # plt.plot(np.log((np.log(ntr*p)/range(len(gaps3)))),'g')
     # plt.plot((np.log(ntr*p)/range(1,total_iter1)),'g')
@@ -85,25 +85,26 @@ def toy_test2():
     plt.ylabel('log of gap')
     plt.subplot(row, col, 2)
 
-    plt.plot(range(1, total_iter1+1), (gaps1[1:total_iter1+1]), 'r', label='dboost')
-    plt.plot((np.log(ntr*p)/range(len(gaps3))),'g')
+    plt.plot(range(1, total_iter1 + 1), (gaps1[1:total_iter1 + 1]), 'r', label='dboost')
+    plt.plot((np.log(ntr * p) / range(len(gaps3))), 'g')
     plt.plot(gaps3, 'b', label='pdboost')
-    plt.xlabel('# iteration',size='small')
+    plt.xlabel('# iteration', size='small')
     plt.ylabel('gap')
 
     plt.subplot(row, col, 3)
     plt.title('111')
-    plt.plot(range(1, total_iter1+1), (m1[1:total_iter1+1]), 'r', label='dboost')
+    plt.plot(range(1, total_iter1 + 1), (m1[1:total_iter1 + 1]), 'r', label='dboost')
     plt.legend(loc='best')
 
-    plt.subplot(row,col,4)
+    plt.subplot(row, col, 4)
     plt.title('pdboost')
-    plt.plot(primal3,'r', label='primal')
+    plt.plot(primal3, 'r', label='primal')
     plt.plot(dual3, 'b', label='dual')
 
     plt.savefig('../output/cmp.eps')
 
-def load_data(dtname = 'ringnormmat.mat'):
+
+def load_data(dtname='ringnormmat.mat'):
     data = scipy.io.loadmat(dtname)
     x = data['x']
     y = data['t']
@@ -111,10 +112,11 @@ def load_data(dtname = 'ringnormmat.mat'):
     teInd = data['test']
     return data
 
-if __name__ =='__main__':
+
+if __name__ == '__main__':
     if os.name == "posix":
         path = '/Users/qdengpercy/workspace/boost/dataset/'
-    elif os.name =="nt":
+    elif os.name == "nt":
         path = "..\\dataset\\"
     # dtname = 'heartmat.mat'
     # data = load_data(path+dtname)
