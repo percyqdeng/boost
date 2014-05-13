@@ -7,24 +7,8 @@ import scipy.io
 import math
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn.tree import DecisionTreeClassifier
-
 from boost import *
 from gen_ftrs import *
-
-# class BoostPara:
-#     def __init__(self, epsi=0.01, hasDualCap = False, ratio=0.1, max_iter=100, steprule = 1):
-#         self.epsi = epsi
-#         self.hasDualCap = hasDualCap
-#         self.ratio = ratio
-#         max_iter = max_iter
-#         self.steprule = steprule
-
-
-def preprocess_data(x):
-    Z = np.std(x, 0)
-    avg = np.mean(x, 0)
-    x = (x - avg[np.newaxis, :]) Z[np.newaxis, :]
-    return x
 
 
 class AdaFwBoost(Boost):
@@ -212,25 +196,29 @@ class FwBoost(Boost):
         self._dual_obj = []
         self._margin = []
         self._gap = []
-
         self.err_tr = []
         self.alpha = []
         self.mu = 1
+
+    def to_name(self):
+        return "fwboost"
 
     def train(self, xtr, ytr):
         # self.Z = np.std(xtr, 0)
         # self.mu = np.mean(xtr, 0)
         # xtr = (xtr - self.mu[np.newaxis, :])/self.Z[np.newaxis, :]
+        print " re load"
         ntr = xtr.shape[0]
+        xtr = self._process_train_data(xtr)
         xtr = np.hstack((xtr, np.ones((ntr, 1))))
         yH = ytr[:, np.newaxis] * xtr
-
         self._fw_boosting(yH)
 
     def test(self, xte, yte):
         # normalize and add the intercept
         # xte = (xte-self.mu[np.newaxis, :])/self.Z[np.newaxis, :]
         nte = xte.shape[0]
+        xte = self._process_test_data(xte)
         xte = np.hstack((xte, np.ones((nte, 1))))
         pred = np.sign(np.dot(xte, self.alpha))
         return np.mean(pred != yte)
@@ -253,14 +241,11 @@ class FwBoost(Boost):
         # mu = 1
         nu = int(n * self.ratio)
         t = 0
-        Ha = np.dot(H, self.alpha)
-
+        h_a = np.dot(H, self.alpha)
         # d0 = np.ones(n)/n
         print " fw-boosting: maximal iter #: "+str(max_iter)
         for t in range(max_iter):
-            if t % (max_iter/10) == 0:
-                print "iter "+str(t)
-            d_next = prox_mapping(Ha, d0, 1 / self.mu)
+            d_next = prox_mapping(h_a, d0, 1 / self.mu)
             assert not math.isnan(d_next[0])
             if self.has_dcap:
                 d_next = proj_cap_ent(d_next, 1.0 / nu)
@@ -271,17 +256,17 @@ class FwBoost(Boost):
             ej[j] = np.sign(dtH[j])
             self._gap.append(np.dot(dtH, ej - self.alpha))
             if self.has_dcap:
-                min_margin = ksmallest(Ha, nu)
+                min_margin = ksmallest(h_a, nu)
                 self._margin.append(np.mean(min_margin))
             else:
-                self._margin.append(np.min(Ha))
-            self._primal_obj.append(self.mu * np.log(1.0 / n * np.sum(np.exp(-Ha / self.mu))))
+                self._margin.append(np.min(h_a))
+            self._primal_obj.append(self.mu * np.log(1.0 / n * np.sum(np.exp(-h_a / self.mu))))
             self._dual_obj.append(-np.max(np.abs(dtH)) - self.mu * np.dot(d, np.log(d)) + self.mu * np.log(n))
-            self.err_tr.append(np.mean(Ha <= 0))
+            self.err_tr.append(np.mean(h_a <= 0))
             if self.steprule == 1:
                 eta = np.maximum(0, np.minimum(1, self.mu * self._gap[-1] / np.sum(np.abs(self.alpha - ej)) ** 2))
             elif self.steprule == 2:
-                eta = np.maximum(0, np.minimum(1, self.mu * self._gap[-1] / LA.norm(Ha - H[:, j] * ej[j], np.inf) ** 2))
+                eta = np.maximum(0, np.minimum(1, self.mu * self._gap[-1] / LA.norm(h_a - H[:, j] * ej[j], np.inf) ** 2))
             else:
                 #
                 # do line search
@@ -289,16 +274,19 @@ class FwBoost(Boost):
                 print "steprule 3, to be done"
             self.alpha *= (1 - eta)
             self.alpha[j] += eta * ej[j]
-            Ha *= (1 - eta)
-            Ha += H[:, j] * (eta * ej[j])
+            h_a *= (1 - eta)
+            h_a += H[:, j] * (eta * ej[j])
             if self._gap[-1] < self.epsi:
                 break
+            if t % (max_iter/10) == 0:
+                print "iter " + str(t) + " gap :" + str(self._gap[-1])
         self.d = d
 
     def plot_result(self):
         r = 2
         c = 2
         nBins = 6
+        plt.figure()
         plt.subplot(r, c, 1)
         plt.plot(np.log(self._gap), 'r-', label='gap')
         T = len(self._gap)
@@ -324,7 +312,6 @@ class FwBoost(Boost):
         plt.legend(loc='best')
         plt.tight_layout()
         plt.locator_params(axis='x', nbins=nBins)
-
         plt.savefig('fwboost.png', format='png')
 
 
@@ -344,16 +331,16 @@ def plot_2d_data(data):
 # plt.savefig('2dplot.eps')
 
 if __name__ == '__main__':
-    if os.name == "nt":
-        path = "..\\dataset\\"
-    elif os.name == "posix":
-        path = '/Users/qdengpercy/workspace/boost/dataset/'
-
-    dtname = 'bananamat.mat'
+    # if os.name == "nt":
+    #     path = "..\\dataset\\"
+    # elif os.name == "posix":
+    #     path = '/Users/qdengpercy/workspace/boost/dataset/'
+    #
+    # dtname = 'bananamat.mat'
     # data = scipy.io.loadmat(path+dtname)
     # plot_2d_data(data)
     # plt.figure()
     # booster, err = benchmark(data)
     # booster = test_fwboost()
-    booster = test_adafwboost()
-
+    # booster = test_adafwboost()
+    pass

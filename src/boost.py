@@ -12,6 +12,9 @@ path = '/Users/qdengpercy/workspace/boost'
 
 
 class Boost(object):
+    normalizer = 1
+    avg = 0
+
     def __init__(self):
         pass
 
@@ -24,15 +27,22 @@ class Boost(object):
     def plot_result(self):
         pass
 
+    def to_name(self):
+        return "boost"
+
     def _process_train_data(self, xtr):
-        self.Z = np.std(xtr, 0)
+        self.normalizer = np.std(xtr, 0)
         self.avg = np.mean(xtr, 0)
-        xtr = (xtr - self.avg[np.newaxis, :]) / self.Z[np.newaxis, :]
+        xtr = (xtr - self.avg[np.newaxis, :]) / self.normalizer[np.newaxis, :]
         return xtr
 
     def _process_test_data(self, xte):
         # normalize and add the intercept
-        xte = (xte - self.mu[np.newaxis, :]) / self.Z[np.newaxis, :]
+        xte = (xte - self.avg[np.newaxis, :]) / self.normalizer[np.newaxis, :]
+        return xte
+
+    def _print_algo_info(self):
+        pass
 
 
 def proj_simplex(u, z):
@@ -113,76 +123,6 @@ def prox_mapping(v, x0, sigma, dist_option=2):
         x = x / x.sum()
 
     return x
-
-
-def pdboost(H, epsi, hasCap, r, max_iter):
-    """
-    primal-dual boost with capped probability ||d||_infty <= 1/k
-    """
-
-    print '----------------primal-dual boost-------------------'
-    H = np.hstack((H, -H))
-    (n, p) = H.shape
-    nu = int(n * r)
-    gaps = np.zeros(max_iter)
-    margin = np.zeros(max_iter)
-    primal_val = np.zeros(max_iter)
-    dual_val = np.zeros(max_iter)
-    # gaps[0] = 100
-    showtimes = 5
-    d = np.ones(n) / n
-
-    d_bar = np.ones(n) / n
-    a_bar = np.ones(p) / p
-    a = np.ones(p) / p
-    # a_bar = a
-    a_tilde = np.ones(p) / p
-    # d_tilde = np.zeros(p)
-    theta = 1
-    sig = 1
-    tau = 1
-    t = 0
-    while t < max_iter:
-
-        d = prox_mapping(np.dot(H, a_tilde), d, tau, 2)
-
-        if hasCap:
-            d2 = proj_cap_ent(d, 1.0 / nu)
-            # d_new = d_new/d_new.sum()
-            if np.abs(d.sum() - d2.sum()) > 0.0001:
-                print 'error'
-            d = d2
-        d_tilde = d
-        dtH = np.dot(d_tilde, H)
-        a_new = prox_mapping(-dtH, a, sig, 2)
-        # a_new = proj_l1ball(tmp, 1)
-        a_tilde = a_new + theta * (a_new - a)
-        a = a_new
-        d_bar *= t / (t + 1.0)
-        d_bar += 1.0 / (t + 1) * d
-        a_bar *= t / (t + 1.0)
-        a_bar += 1.0 / (t + 1) * a
-
-        if hasCap:
-            Ha = np.dot(H, a_bar)
-            min_margin = ksmallest(Ha, nu)
-            primal_val[t] = -np.mean(min_margin)
-        else:
-            primal_val[t] = - np.min(np.dot(H, a_bar))
-        margin[t] = -primal_val[t]
-        dual_val[t] = -np.max(np.dot(d_bar, H))
-        gaps[t] = primal_val[t] - dual_val[t]
-        if t % np.int(max_iter / showtimes) == 0:
-            print 'iter ' + str(t) + ' ' + str(gaps[t])
-        # print 'primal: '+str(-(ksmallest(Ha, k)).sum()/k)
-        # print 'dual: '+str(-LA.norm(dtH, np.inf))
-        if gaps[t] < epsi:
-            break
-        t += 1
-    gaps = gaps[:t]
-    primal_val = primal_val[:t]
-    dual_val = dual_val[:t]
-    return a_bar, d_bar, gaps, primal_val, dual_val, margin
 
 
 if __name__ == '__main__':

@@ -30,10 +30,13 @@ class ParaBoost(Boost):
         self._gap = []
         self.err_tr = []
         self.alpha = []
-        self.mu = 1
+
+    def to_name(self):
+        return "paraboost"
 
     def train(self, xtr, ytr):
         ntr = xtr.shape[0]
+        xtr = self._process_train_data(xtr)
         xtr = np.hstack((xtr, np.ones((ntr, 1))))
         yH = ytr[:, np.newaxis] * xtr
         self._para_boosting(yH)
@@ -41,6 +44,7 @@ class ParaBoost(Boost):
     def test(self, xte, yte):
 
         nte = xte.shape[0]
+        xte = self._process_test_data(xte)
         xte = np.hstack((xte, np.ones((nte, 1))))
         pred = np.sign(np.dot(xte, self.alpha))
         return np.mean(pred != yte)
@@ -49,10 +53,11 @@ class ParaBoost(Boost):
         r = 2
         c = 2
         nBins = 6
+        plt.figure()
         plt.subplot(r, c, 1)
         plt.plot(np.log(self._gap), 'r-', label='gap')
         T = len(self._gap)
-        bound = 1 / (self.mu * np.arange(1, 1 + T))
+        bound = self.c / np.arange(1, 1 + T)
         plt.plot(np.log(bound), 'b-', label='bound')
         plt.title('log primal-dual gap')
         plt.legend(loc='best')
@@ -86,6 +91,7 @@ class ParaBoost(Boost):
         print '----------------primal-dual boost-------------------'
         H = np.hstack((H, -H))
         (n, p) = H.shape
+        self.c = np.log(n*p)
         nu = int(n * self.ratio)
         max_iter = int(np.log(n * p) / self.epsi)
         showtimes = int(5)

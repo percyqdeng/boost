@@ -12,7 +12,7 @@ from boost import *
 from sklearn import svm
 
 
-def gen_syn(ftr_type, ntr, nte, hasNoise=False):
+def gen_syn(ntr, nte, ftr_type="disc", has_noise=False):
     """
     get synthetic dataset as in Collin's paper
     """
@@ -43,7 +43,7 @@ def gen_syn(ftr_type, ntr, nte, hasNoise=False):
         ytr = y[:ntr]
         yte = y[ntr:]
         # add noise to data
-        if hasNoise:
+        if has_noise:
             flips = np.random.binomial(1, 0.9, (ntr + nte, p))
             flips[flips == 0] = -1
             x *= flips
