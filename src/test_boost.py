@@ -65,7 +65,7 @@ class TestCase(object):
         # plot gap
         # booster1.plot_result()
         plt.ticklabel_format(style='sci')
-        
+
 
 
     def benchmark(self, dtname = 'bananamat'):
