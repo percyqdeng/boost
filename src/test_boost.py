@@ -66,6 +66,7 @@ class TestCase(object):
         # booster1.plot_result()
         plt.ticklabel_format(style='sci')
         
+        
 
 
     def benchmark(self, dtname = 'bananamat'):
