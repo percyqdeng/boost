@@ -56,53 +56,6 @@ def gen_syn(ntr, nte, ftr_type="disc", has_noise=False):
     return xtr, ytr, yH, margin, w, xte, yte
 
 
-def toy_test2():
-    ntr = 2000
-    (xtr, ytr, yH, margin, w, xte, yte) = gen_syn('disc', ntr, 1000)
-    (n, p) = xtr.shape
-
-    num_iter = 4000
-    ratio = 0.1
-    row = 2
-    col = 2
-    hasCap = True
-    epsi = 0.001
-    # yH = ytr[:, np.newaxis]*xtr
-    (w1, d1, gaps1, eta1, dual1, m1, total_iter1) = dboost(yH, epsi, hasCap, ratio, num_iter, 1)
-    pred = np.sign(np.dot(xte, w1))
-    err1 = np.mean(pred != yte)
-    (w3, d3, gaps3, primal3, dual3, m3) = pdboost(yH, epsi, hasCap, ratio, num_iter)
-
-    plt.figure()
-    pred = np.sign(np.dot(xte, w3[:p]))
-    err3 = np.mean(pred != yte)
-    plt.subplot(row, col, 1)
-    plt.plot(range(1, total_iter1 + 1), ((gaps1[1:total_iter1 + 1])), 'r', label='dboost')
-    # plt.plot((np.log(gaps3)), 'b', label='pdboost')
-    # plt.plot(np.log((np.log(ntr*p)/range(len(gaps3)))),'g')
-    # plt.plot((np.log(ntr*p)/range(1,total_iter1)),'g')
-    plt.xlabel('# iteration')
-    plt.ylabel('log of gap')
-    plt.subplot(row, col, 2)
-
-    plt.plot(range(1, total_iter1 + 1), (gaps1[1:total_iter1 + 1]), 'r', label='dboost')
-    plt.plot((np.log(ntr * p) / range(len(gaps3))), 'g')
-    plt.plot(gaps3, 'b', label='pdboost')
-    plt.xlabel('# iteration', size='small')
-    plt.ylabel('gap')
-
-    plt.subplot(row, col, 3)
-    plt.title('111')
-    plt.plot(range(1, total_iter1 + 1), (m1[1:total_iter1 + 1]), 'r', label='dboost')
-    plt.legend(loc='best')
-
-    plt.subplot(row, col, 4)
-    plt.title('pdboost')
-    plt.plot(primal3, 'r', label='primal')
-    plt.plot(dual3, 'b', label='dual')
-
-    plt.savefig('../output/cmp.eps')
-
 
 def load_data(dtname='ringnormmat.mat'):
     data = scipy.io.loadmat(dtname)

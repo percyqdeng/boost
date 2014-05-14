@@ -56,17 +56,22 @@ class TestCase(object):
         booster2.train(xtr, ytr)
         row = 1
         col = 2
+
         plt.subplot(row, col, 1)
         plt.plot(booster1._gap, 'r-', label=booster1.to_name())
         plt.plot(booster2._gap, 'b-', label=booster2.to_name())
+        plt.ylabel('primal-dual gap')
         plt.subplot(row, col, 2)
         plt.plot(booster1.err_tr, 'r-', label=booster1.to_name())
         plt.plot(booster2.err_tr, 'b-', label=booster2.to_name())
+        plt.ylabel('train err')
         # plot gap
         # booster1.plot_result()
         plt.ticklabel_format(style='sci')
-        
-        
+        plt.legend(bbox_to_anchor=(-1.2, 1.01, 2.2, .1), loc=2, ncol=2, mode="expand", borderaxespad=0.)
+        print booster1.err_tr[0]
+        print booster2.err_tr[0]
+
 
 
     def benchmark(self, dtname = 'bananamat'):
