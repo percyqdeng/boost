@@ -327,8 +327,6 @@ def plot_2d_data(data):
     plt.scatter(x[:, 0], x[:, 1])
     plt.title('banana')
 
-# plt.show()
-# plt.savefig('2dplot.eps')
 
 if __name__ == '__main__':
     # if os.name == "nt":

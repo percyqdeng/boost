@@ -121,7 +121,6 @@ def test_fwboost():
     return booster
 
 
-
 if __name__ == "__main__":
 
     filename = ["bananamat", "breast_cancermat", "cvt_bench", "diabetismat", "flare_solarmat", "germanmat",
