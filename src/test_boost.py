@@ -6,7 +6,7 @@ from paraboost import *
 
 class TestCase(object):
     """
-    TestCase
+    TestCase: experimental comparison among different boosting algorithms.
     """
 
     def __init__(self, dtname='bananamat.mat'):
@@ -42,6 +42,8 @@ class TestCase(object):
         self.booster.plot_result()
         self.booster.test(xte, yte)
 
+
+
     @staticmethod
     def test_hard_margin():
         # ntr = 1000
@@ -71,7 +73,6 @@ class TestCase(object):
         plt.legend(bbox_to_anchor=(-1.2, 1.01, 2.2, .1), loc=2, ncol=2, mode="expand", borderaxespad=0.)
         print booster1.err_tr[0]
         print booster2.err_tr[0]
-
 
 
     def benchmark(self, dtname = 'bananamat'):

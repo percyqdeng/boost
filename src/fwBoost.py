@@ -250,19 +250,18 @@ class FwBoost(Boost):
             if self.has_dcap:
                 d_next = proj_cap_ent(d_next, 1.0 / nu)
             d = d_next
-            dtH = np.dot(d, H)
-            j = np.argmax(np.abs(dtH))
+            dt_h = np.dot(d, H)
+            j = np.argmax(np.abs(dt_h))
             ej = np.zeros(p)
-            ej[j] = np.sign(dtH[j])
-            self._gap.append(np.dot(dtH, ej - self.alpha))
+            ej[j] = np.sign(dt_h[j])
+            self._gap.append(np.dot(dt_h, ej - self.alpha))
             if self.has_dcap:
                 min_margin = ksmallest(h_a, nu)
                 self._margin.append(np.mean(min_margin))
             else:
                 self._margin.append(np.min(h_a))
             self._primal_obj.append(self.mu * np.log(1.0 / n * np.sum(np.exp(-h_a / self.mu))))
-            self._dual_obj.append(-np.max(np.abs(dtH)) - self.mu * np.dot(d, np.log(d)) + self.mu * np.log(n))
-            self.err_tr.append(np.mean(h_a <= 0))
+            self._dual_obj.append(-np.max(np.abs(dt_h)) - self.mu * np.dot(d, np.log(d)) + self.mu * np.log(n))
             if self.steprule == 1:
                 eta = np.maximum(0, np.minimum(1, self.mu * self._gap[-1] / np.sum(np.abs(self.alpha - ej)) ** 2))
             elif self.steprule == 2:
@@ -276,6 +275,7 @@ class FwBoost(Boost):
             self.alpha[j] += eta * ej[j]
             h_a *= (1 - eta)
             h_a += H[:, j] * (eta * ej[j])
+            self.err_tr.append(np.mean(h_a <= 0))
             if self._gap[-1] < self.epsi:
                 break
             if t % (max_iter/10) == 0:
