@@ -3,6 +3,8 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="" />
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../dualsvm" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../mcmc" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../nonconvex" vcs="Git" />
   </component>
 </project>

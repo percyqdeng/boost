@@ -203,7 +203,7 @@ class FwBoost(Boost):
     def to_name(self):
         return "fwboost"
 
-    def train(self, xtr, ytr):
+    def train(self, xtr, ytr, codetype="cython"):
         # self.Z = np.std(xtr, 0)
         # self.mu = np.mean(xtr, 0)
         # xtr = (xtr - self.mu[np.newaxis, :])/self.Z[np.newaxis, :]
@@ -212,7 +212,10 @@ class FwBoost(Boost):
         xtr = self._process_train_data(xtr)
         xtr = np.hstack((xtr, np.ones((ntr, 1))))
         yH = ytr[:, np.newaxis] * xtr
-        self._fw_boosting(yH)
+        if codetype == "cython":
+
+        else:
+            self._fw_boosting(yH)
 
     def test(self, xte, yte):
         # normalize and add the intercept

@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/boost.iml" filepath="$PROJECT_DIR$/.idea/boost.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../dualsvm/.idea/dualsvm.iml" filepath="$PROJECT_DIR$/../dualsvm/.idea/dualsvm.iml" />
       <module fileurl="file://$PROJECT_DIR$/../nonconvex/.idea/nonconvex.iml" filepath="$PROJECT_DIR$/../nonconvex/.idea/nonconvex.iml" />
     </modules>
   </component>
