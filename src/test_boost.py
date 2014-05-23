@@ -43,7 +43,6 @@ class TestCase(object):
         self.booster.test(xte, yte)
 
 
-
     @staticmethod
     def test_hard_margin():
         # ntr = 1000
@@ -119,12 +118,12 @@ def test_adafwboost():
 
 def test_fwboost():
     ntr = 500
-    (xtr, ytr, yH, margin, w, xte, yte) = gen_syn('disc', ntr, 1000, hasNoise=False)
+    (xtr, ytr, yH, margin, w, xte, yte) = gen_syn(ntr, 1000, ftr_type='disc', has_noise=False)
     # para = BoostPara(epsi=0.001, has_dcap=False, ratio=0.1, max_iter=500000, steprule=1)
     booster = FwBoost(epsi=0.01, has_dcap=False, ratio=0.1, steprule=2)
-    booster.train(xtr, ytr)
+    booster.train(xtr, ytr, codetype='py')
     # plt.plot(booster.gaps,'rx-')
-    booster.plot_result()
+    # booster.plot_result()
     return booster
 
 
@@ -136,4 +135,5 @@ if __name__ == "__main__":
     # newtest.rand_test_boost(1)
     # newtest.rand_test_boost(2)
     # TestCase.cmp_hard_margin(1)
-    TestCase.test_hard_margin()
+    # TestCase.test_hard_margin()
+    booster = test_fwboost()

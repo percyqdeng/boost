@@ -62,7 +62,8 @@ cpdef test_ksmallest():
     pass
 
 @cython.boundscheck(False)
-cpdef heapsort(double[::1]u):
+@cython.cdivision(True)
+cpdef heapsort(np.ndarray[double, mode='c']u):
     cdef int n = u.shape[0]
     cdef vector[double] v
     for i in xrange(n):
@@ -72,7 +73,47 @@ cpdef heapsort(double[::1]u):
 
 
 @cython.boundscheck(False)
-cpdef ksmallest(u, unsigned int k):
+@cython.cdivision(True)
+cpdef double k_avg(np.ndarray[double, mode='c']u, unsigned int k):
+    """
+    average of ksmallest numbers in the list
+    """
+    cdef int n = u.shape[0]
+    # for i in xrange(n):
+    #     print str(u[i]) + ' ',
+    # print
+    cdef unsigned i, j
+    assert 0 <= k < n
+    cdef vector[double] v
+
+    for i in xrange(k):
+        v.push_back(u[i])
+    make_heap[vector[double].iterator](v.begin(), v.end())
+    # sort_heap[vector[double].iterator](v.begin(), v.end())
+    # print "the first k ele: "
+    # for i in range(k):
+    #     print str(v[i])+' ',
+    # print
+    for i in xrange(k,n):
+        v.push_back(u[i])
+        # print 'push '+str(u[i])+ ' ',
+        push_heap[vector[double].iterator](v.begin(), v.end())
+        pop_heap[vector[double].iterator](v.begin(), v.end())
+        # print 'move '+str(v[0])
+        v.pop_back()
+    # if debug:
+    # for i in xrange(len(v)):
+    #     print str(v[i])+' ',
+    cdef double res = 0
+    for i in xrange(k):
+        res += v[i]
+    return res / k
+
+
+cpdef ksmallest(np.ndarray[double, mode='c']u, unsigned int k):
+    """
+    compute the ksmallest numbers
+    """
     cdef int n = u.shape[0]
     # for i in xrange(n):
     #     print str(u[i]) + ' ',
@@ -100,6 +141,7 @@ cpdef ksmallest(u, unsigned int k):
     # for i in xrange(len(v)):
     #     print str(v[i])+' ',
     return v
+
 
 cpdef cmp_time(int n):
     arr = np.random.normal(0, 1, n)

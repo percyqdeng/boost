@@ -2,22 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2e59c25-b02d-4772-b3bb-3f39495576e4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/frank_wolfe_cy.pyx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/setup.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/build/temp.macosx-10.5-x86_64-2.7/frank_wolfe_cy.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/frank_wolfe_cy.so" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/src/frank_wolfe_cy.so" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/aux/build/temp.macosx-10.5-x86_64-2.7/quicksort.o" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/aux/quicksort.so" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/frank_wolfe_cy.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/aux/quicksort.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/aux/quicksort.pyx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/setup_fw.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/aux/setupqsort.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/aux/test_quicksort.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/adafwboost.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/adafwboost.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/result_paraboost.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/setup.py" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../mcmc/my_stoc_sphere/junkyard/cmp.pyx" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../mcmc/my_stoc_sphere/junkyard/setup.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../dualsvm/src/build/temp.macosx-10.5-x86_64-2.7/coor_cy.o" afterPath="$PROJECT_DIR$/../dualsvm/src/build/temp.macosx-10.5-x86_64-2.7/coor_cy.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../dualsvm/src/coor_cy.so" afterPath="$PROJECT_DIR$/../dualsvm/src/coor_cy.so" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/boost.iml" afterPath="$PROJECT_DIR$/.idea/boost.iml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/aux/ksmall.cpp" afterPath="$PROJECT_DIR$/src/frank_wolfe_cy.c" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/aux/setup.py" afterPath="$PROJECT_DIR$/src/aux/setup_ksmall.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/aux/test.py" afterPath="$PROJECT_DIR$/src/aux/test_ksmall.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fwboost.py" afterPath="$PROJECT_DIR$/src/fwboost.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fwboost.png" afterPath="$PROJECT_DIR$/src/fwboost.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aux/build/temp.macosx-10.5-x86_64-2.7/ksmall.o" afterPath="$PROJECT_DIR$/src/aux/build/temp.macosx-10.5-x86_64-2.7/ksmall.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aux/ksmall.so" afterPath="$PROJECT_DIR$/src/aux/ksmall.so" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/__init__.py" afterPath="$PROJECT_DIR$/src/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aux/__init__.py" afterPath="$PROJECT_DIR$/src/aux/__init__.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcmc/.idea/codeStyleSettings.xml" afterPath="$PROJECT_DIR$/../mcmc/.idea/codeStyleSettings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../dualsvm/src/coor_cy.cpp" afterPath="$PROJECT_DIR$/../dualsvm/src/coor_cy.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../dualsvm/src/coor_cy.pyx" afterPath="$PROJECT_DIR$/../dualsvm/src/coor_cy.pyx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../dualsvm/.idea/dualsvm.iml" afterPath="$PROJECT_DIR$/../dualsvm/.idea/dualsvm.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/frank_wolfe_cy.pyx" afterPath="$PROJECT_DIR$/src/frank_wolfe_cy.pyx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aux/ksmall.cpp" afterPath="$PROJECT_DIR$/src/aux/ksmall.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aux/ksmall.pyx" afterPath="$PROJECT_DIR$/src/aux/ksmall.pyx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../nonconvex/.idea/nonconvex.iml" afterPath="$PROJECT_DIR$/../nonconvex/.idea/nonconvex.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../nonconvex/src/regis.py" afterPath="$PROJECT_DIR$/../nonconvex/src/regis.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../dualsvm/src/testsvm.py" afterPath="$PROJECT_DIR$/../dualsvm/src/testsvm.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/result.eps" afterPath="$PROJECT_DIR$/src/result.eps" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test_boost.py" afterPath="$PROJECT_DIR$/src/test_boost.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcmc/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../mcmc/.idea/workspace.xml" />
     </list>
@@ -42,75 +61,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="setup.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/setup.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="29" selection-start="218" selection-end="218" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
-              <folding>
-                <element signature="e#28#60#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="fwboost.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/fwboost.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="217" column="12" selection-start="7465" selection-end="7465" vertical-scroll-proportion="0.0" vertical-offset="2760" max-vertical-offset="4440">
-              <folding>
-                <element signature="e#42#51#0" expanded="true" />
-                <element signature="e#7871#10251#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="boost.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/boost.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="33" selection-start="835" selection-end="835" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="945">
-              <folding>
-                <element signature="e#976#1327#0" expanded="false" />
-                <element signature="e#1357#1563#0" expanded="false" />
-                <element signature="e#1595#2017#0" expanded="false" />
-                <element signature="e#2046#2279#0" expanded="false" />
-                <element signature="e#2333#2665#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="coor_cy.pyx" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../dualsvm/src/coor_cy.pyx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="192" column="0" selection-start="6445" selection-end="6805" vertical-scroll-proportion="0.0" vertical-offset="2533" max-vertical-offset="3300">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="frank_wolfe_cy.pyx" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/frank_wolfe_cy.pyx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="106" column="15" selection-start="3432" selection-end="3432" vertical-scroll-proportion="-23.61111" vertical-offset="315" max-vertical-offset="3330">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="paraboost.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/paraboost.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="124" column="24" selection-start="4250" selection-end="4250" vertical-scroll-proportion="1.425656" vertical-offset="1371" max-vertical-offset="2265">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="setup.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../dualsvm/src/setup.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="34" selection-start="0" selection-end="338" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
+            <state line="204" column="35" selection-start="7096" selection-end="7096" vertical-scroll-proportion="0.0" vertical-offset="3060" max-vertical-offset="5325">
               <folding />
             </state>
           </provider>
@@ -119,16 +73,61 @@
       <file leaf-file-name="testsvm.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../dualsvm/src/testsvm.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="102" column="28" selection-start="3588" selection-end="3588" vertical-scroll-proportion="0.0" vertical-offset="1568" max-vertical-offset="2355">
+            <state line="120" column="24" selection-start="4205" selection-end="4205" vertical-scroll-proportion="0.0" vertical-offset="1800" max-vertical-offset="2355">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="stocksvm.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../dualsvm/src/stocksvm.py">
+      <file leaf-file-name="quicksort.pyx" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/aux/quicksort.pyx">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="26" selection-start="1903" selection-end="1903" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="1680">
+            <state line="7" column="31" selection-start="195" selection-end="216" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="930">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="setup_fw.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/setup_fw.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="17" selection-start="190" selection-end="190" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="315">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="boost.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/boost.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="94" column="7" selection-start="1982" selection-end="1982" vertical-scroll-proportion="0.0" vertical-offset="1410" max-vertical-offset="2010">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="frank_wolfe_cy.pyx" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/frank_wolfe_cy.pyx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="65" column="34" selection-start="2075" selection-end="2075" vertical-scroll-proportion="0.36464968" vertical-offset="746" max-vertical-offset="3720">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test_boost.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test_boost.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="116" column="0" selection-start="4073" selection-end="4073" vertical-scroll-proportion="0.0" vertical-offset="1468" max-vertical-offset="2145">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gen_ftrs.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gen_ftrs.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="46" column="45" selection-start="1260" selection-end="1260" vertical-scroll-proportion="0.0" vertical-offset="690" max-vertical-offset="1230">
               <folding />
             </state>
           </provider>
@@ -155,7 +154,6 @@
         <option value="$PROJECT_DIR$/src/gen_ftrs.py" />
         <option value="$PROJECT_DIR$/../nonconvex/src/regis.py" />
         <option value="$PROJECT_DIR$/../dualsvm/src/test_time.py" />
-        <option value="$PROJECT_DIR$/src/test_boost.py" />
         <option value="$PROJECT_DIR$/../mcmc/sgrld/wikirandom.py" />
         <option value="$PROJECT_DIR$/../dualsvm/src/stocksvm.py" />
         <option value="$PROJECT_DIR$/../dualsvm/src/dualcoor_cython.py" />
@@ -170,16 +168,31 @@
         <option value="$PROJECT_DIR$/../dualsvm/src/testsvm.py" />
         <option value="$PROJECT_DIR$/src/setup.py" />
         <option value="$PROJECT_DIR$/../dualsvm/src/coor_cy.pyx" />
-        <option value="$PROJECT_DIR$/src/fwboost.py" />
+        <option value="$PROJECT_DIR$/src/heapfun.pyx.py" />
+        <option value="$PROJECT_DIR$/src/heapfun.pyx" />
+        <option value="$PROJECT_DIR$/src/aux/setup_heap.py" />
+        <option value="$PROJECT_DIR$/src/aux/heapfun.pyx" />
+        <option value="$PROJECT_DIR$/src/aux/test.py" />
+        <option value="$PROJECT_DIR$/src/aux/test_quicksort.pyx" />
+        <option value="$PROJECT_DIR$/src/aux/src/setupqsort.py" />
+        <option value="$PROJECT_DIR$/src/aux/setupqsort.py" />
+        <option value="$PROJECT_DIR$/src/aux/quicksort.pyx" />
+        <option value="$PROJECT_DIR$/src/aux/test_quicksort.py" />
+        <option value="$PROJECT_DIR$/src/aux/ksmall.pyx" />
+        <option value="$PROJECT_DIR$/src/aux/setup.py" />
+        <option value="$PROJECT_DIR$/src/aux/__init__.py" />
+        <option value="$PROJECT_DIR$/src/__init__.py" />
+        <option value="$PROJECT_DIR$/src/setup_fw.py" />
         <option value="$PROJECT_DIR$/src/frank_wolfe_cy.pyx" />
+        <option value="$PROJECT_DIR$/src/fwboost.py" />
+        <option value="$PROJECT_DIR$/src/test_boost.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="256" />
-    <option name="y" value="133" />
-    <option name="width" value="768" />
-    <option name="height" value="532" />
+    <option name="y" value="22" />
+    <option name="width" value="1280" />
+    <option name="height" value="774" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -226,6 +239,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -258,33 +272,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="boost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="boost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="boost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="boost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -295,6 +284,7 @@
     <property name="options.searchVisible" value="true" />
     <property name="FullScreen" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="SearchEverywhereHistory" value="" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -303,7 +293,12 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/src" />
       <recent name="$PROJECT_DIR$/../dualsvm/src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/aux" />
     </key>
   </component>
   <component name="RunManager">
@@ -391,9 +386,6 @@
       <option name="PARAMETERS" value="" />
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
-      <method />
-    </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -415,6 +407,9 @@
       <option name="PUREUNITTEST" value="true" />
       <option name="PARAMS" value="" />
       <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -507,28 +502,28 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="256" y="133" width="768" height="532" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="22" width="1280" height="774" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30208334" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.071274295" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.069503546" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.044548653" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32907802" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -548,54 +543,17 @@
     <option name="LAST_COMMIT_MESSAGE" value="pycharm" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/src/test_boost.py</url>
+          <line>126</line>
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="1" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../dualsvm/src/dualksvm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="108" column="48" selection-start="4083" selection-end="4083" vertical-scroll-proportion="0.0" vertical-offset="1348" max-vertical-offset="3330" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../dualsvm/src/testsvm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="15" selection-start="1092" selection-end="1092" vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="570" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/paraboost.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="126" column="14" selection-start="4314" selection-end="4314" vertical-scroll-proportion="0.0" vertical-offset="1890" max-vertical-offset="2265" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test_boost.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="74" selection-start="181" selection-end="181" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="2145" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../nonconvex/src/stoch.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="252" column="4" selection-start="6803" selection-end="6803" vertical-scroll-proportion="0.0" vertical-offset="3780" max-vertical-offset="6630" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../nonconvex/src/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="41" selection-start="252" selection-end="252" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="315" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/boost.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="15" selection-start="474" selection-end="474" vertical-scroll-proportion="0.0" vertical-offset="435" max-vertical-offset="2010" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gen_ftrs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="4" selection-start="1012" selection-end="1012" vertical-scroll-proportion="0.0" vertical-offset="570" max-vertical-offset="1230" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../dualsvm/src/dualksvm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="86" selection-start="1728" selection-end="1728" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="3075" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../dualsvm/src/testsvm.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="32" column="13" selection-start="1090" selection-end="1090" vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="570" />
@@ -701,11 +659,6 @@
         <state line="15" column="41" selection-start="252" selection-end="252" vertical-scroll-proportion="0.38593483" vertical-offset="0" max-vertical-offset="583" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gen_ftrs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="4" selection-start="1012" selection-end="1012" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1095" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../mcmc/sgrld/util_funcs.pyx">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.9073757" vertical-offset="1112" max-vertical-offset="1695" />
@@ -736,107 +689,138 @@
         <state line="16" column="15" selection-start="317" selection-end="317" vertical-scroll-proportion="0.12864494" vertical-offset="45" max-vertical-offset="885" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test_boost.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="0" selection-start="1465" selection-end="1465" vertical-scroll-proportion="0.0" vertical-offset="2" max-vertical-offset="2160" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../dualsvm/src/coor_cy.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6895" column="15" selection-start="338656" selection-end="338656" vertical-scroll-proportion="75.738914" vertical-offset="72675" max-vertical-offset="143670" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../dualsvm/src/stocksvm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="26" selection-start="1903" selection-end="1903" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="1680">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../dualsvm/src/testsvm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="102" column="28" selection-start="3588" selection-end="3588" vertical-scroll-proportion="0.0" vertical-offset="1568" max-vertical-offset="2355">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../dualsvm/src/mysvm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="12" selection-start="681" selection-end="681" vertical-scroll-proportion="0.3815029" vertical-offset="96" max-vertical-offset="990">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../dualsvm/src/dualksvm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="30" selection-start="3529" selection-end="3529" vertical-scroll-proportion="-0.1517341" vertical-offset="1410" max-vertical-offset="3345">
-          <folding />
-        </state>
+        <state line="28" column="12" selection-start="681" selection-end="681" vertical-scroll-proportion="0.3815029" vertical-offset="96" max-vertical-offset="990" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../dualsvm/src/coor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="20" selection-start="3155" selection-end="3155" vertical-scroll-proportion="1.3323699" vertical-offset="233" max-vertical-offset="1830">
-          <folding />
-        </state>
+        <state line="77" column="20" selection-start="3155" selection-end="3155" vertical-scroll-proportion="1.3323699" vertical-offset="233" max-vertical-offset="1830" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/paraboost.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="106" column="2" selection-start="3571" selection-end="3571" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2265" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../dualsvm/src/coor_cy.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6895" column="15" selection-start="318678" selection-end="318678" vertical-scroll-proportion="17.83374" vertical-offset="96131" max-vertical-offset="335460" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../dualsvm/src/setup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="34" selection-start="0" selection-end="338" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
+        <state line="15" column="0" selection-start="303" selection-end="303" vertical-scroll-proportion="0.31050956" vertical-offset="0" max-vertical-offset="628" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aux/setupqsort.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="39" selection-start="333" selection-end="333" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../dualsvm/src/stocksvm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="26" selection-start="1903" selection-end="1903" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="1680" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aux/test_quicksort.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="10" selection-start="425" selection-end="425" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="735" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aux/test_ksmall.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="16" selection-start="116" selection-end="116" vertical-scroll-proportion="0.17355372" vertical-offset="0" max-vertical-offset="605" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aux/setup_ksmall.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="18" selection-start="0" selection-end="337" vertical-scroll-proportion="0.3821656" vertical-offset="0" max-vertical-offset="628" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../dualsvm/src/coor_cy.pyd">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="20820" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aux/ksmall.pyx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="0" selection-start="171" selection-end="571" vertical-scroll-proportion="0.23519164" vertical-offset="0" max-vertical-offset="2385" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aux/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="15" selection-start="56" selection-end="56" vertical-scroll-proportion="0.07165605" vertical-offset="0" max-vertical-offset="628" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="27" selection-end="27" vertical-scroll-proportion="0.0477707" vertical-offset="0" max-vertical-offset="628" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../dualsvm/src/dualksvm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="0" selection-start="1782" selection-end="1782" vertical-scroll-proportion="0.71900827" vertical-offset="210" max-vertical-offset="3345" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../dualsvm/src/testsvm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="120" column="24" selection-start="4205" selection-end="4205" vertical-scroll-proportion="0.0" vertical-offset="1410" max-vertical-offset="2280">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="29" selection-start="218" selection-end="218" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
-          <folding>
-            <element signature="e#28#60#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fwboost.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="217" column="12" selection-start="7465" selection-end="7465" vertical-scroll-proportion="0.0" vertical-offset="2760" max-vertical-offset="4440">
-          <folding>
-            <element signature="e#42#51#0" expanded="true" />
-            <element signature="e#7871#10251#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../dualsvm/src/coor_cy.pyx">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="192" column="0" selection-start="6445" selection-end="6805" vertical-scroll-proportion="0.0" vertical-offset="2533" max-vertical-offset="3300">
+        <state line="27" column="33" selection-start="626" selection-end="626" vertical-scroll-proportion="-3.6098726" vertical-offset="2672" max-vertical-offset="3300" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/setup_fw.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="17" selection-start="190" selection-end="190" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="315">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aux/quicksort.pyx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="31" selection-start="195" selection-end="216" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="930">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/boost.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="33" selection-start="835" selection-end="835" vertical-scroll-proportion="0.0" vertical-offset="253" max-vertical-offset="945">
-          <folding>
-            <element signature="e#976#1327#0" expanded="false" />
-            <element signature="e#1357#1563#0" expanded="false" />
-            <element signature="e#1595#2017#0" expanded="false" />
-            <element signature="e#2046#2279#0" expanded="false" />
-            <element signature="e#2333#2665#0" expanded="false" />
-          </folding>
+        <state line="94" column="7" selection-start="1982" selection-end="1982" vertical-scroll-proportion="0.0" vertical-offset="1020" max-vertical-offset="1920">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gen_ftrs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="45" selection-start="1260" selection-end="1260" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1095">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fwboost.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="204" column="35" selection-start="7096" selection-end="7096" vertical-scroll-proportion="0.0" vertical-offset="674" max-vertical-offset="3075">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test_boost.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="116" column="0" selection-start="4073" selection-end="4073" vertical-scroll-proportion="0.0" vertical-offset="1468" max-vertical-offset="2145">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/frank_wolfe_cy.pyx">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="106" column="15" selection-start="3432" selection-end="3432" vertical-scroll-proportion="-23.61111" vertical-offset="315" max-vertical-offset="3330">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/paraboost.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="124" column="24" selection-start="4250" selection-end="4250" vertical-scroll-proportion="1.425656" vertical-offset="1371" max-vertical-offset="2265">
+        <state line="65" column="34" selection-start="2075" selection-end="2075" vertical-scroll-proportion="0.36464968" vertical-offset="746" max-vertical-offset="3720">
           <folding />
         </state>
       </provider>

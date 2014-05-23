@@ -9,7 +9,7 @@ from sklearn.ensemble import AdaBoostClassifier
 from sklearn.tree import DecisionTreeClassifier
 from boost import *
 from gen_ftrs import *
-
+import frank_wolfe_cy as fw_cy
 
 class AdaFwBoost(Boost):
     """Adaptive Frank-Wolfe Boosting method,
@@ -47,7 +47,6 @@ class AdaFwBoost(Boost):
         self.ratio = ratio
 
         self.steprule = steprule
-
         self._primal_obj = []
         self._dual_obj = []
         self._margin = []
@@ -204,6 +203,7 @@ class FwBoost(Boost):
         return "fwboost"
 
     def train(self, xtr, ytr, codetype="cython"):
+        print "-------fw boost training---------"
         # self.Z = np.std(xtr, 0)
         # self.mu = np.mean(xtr, 0)
         # xtr = (xtr - self.mu[np.newaxis, :])/self.Z[np.newaxis, :]
@@ -211,11 +211,12 @@ class FwBoost(Boost):
         ntr = xtr.shape[0]
         xtr = self._process_train_data(xtr)
         xtr = np.hstack((xtr, np.ones((ntr, 1))))
-        yH = ytr[:, np.newaxis] * xtr
+        y_h = ytr[:, np.newaxis] * xtr
         if codetype == "cython":
-
+            self.alpha, self._primal_obj, self._gap, self.err_tr = \
+                fw_cy.fw_boost_cy(y_h, np.float32(self.epsi), self.ratio, self.steprule, self.has_dcap)
         else:
-            self._fw_boosting(yH)
+            self._fw_boosting(y_h)
 
     def test(self, xte, yte):
         # normalize and add the intercept
@@ -235,6 +236,7 @@ class FwBoost(Boost):
         Args:
             H : output matrix of weak learners
         """
+        print '-----------fw boost python code-----------'
         [n, p] = H.shape
         # self.alpha = np.ones(p)/p
         self.alpha = np.zeros(p)
@@ -243,7 +245,7 @@ class FwBoost(Boost):
         max_iter = int(np.log(n) / self.epsi**2)
         # mu = 1
         nu = int(n * self.ratio)
-        t = 0
+
         h_a = np.dot(H, self.alpha)
         # d0 = np.ones(n)/n
         print " fw-boosting: maximal iter #: "+str(max_iter)
