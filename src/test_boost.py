@@ -116,15 +116,37 @@ def test_adafwboost():
     return booster
 
 
-def test_fwboost():
+def cmp_margin():
     ntr = 500
     (xtr, ytr, yH, margin, w, xte, yte) = gen_syn(ntr, 1000, ftr_type='disc', has_noise=False)
     # para = BoostPara(epsi=0.001, has_dcap=False, ratio=0.1, max_iter=500000, steprule=1)
-    booster = FwBoost(epsi=0.01, has_dcap=False, ratio=0.1, steprule=2)
-    booster.train(xtr, ytr, codetype='py')
-    # plt.plot(booster.gaps,'rx-')
-    # booster.plot_result()
-    return booster
+    # xtr = np.array([[1,-1], [ 1,-1]], dtype=np.float)
+    # ytr = np.array([1, 1])
+    # booster1 = FwBoost(epsi=0.01, has_dcap=False, ratio=0.1, steprule=2)
+    # booster1.train(xtr, ytr, codetype='py', approx_margin=True)
+    # booster1.plot_result()
+    booster2 = FwBoost(epsi=0.01, has_dcap=False, ratio=0.1, steprule=1)
+    booster2.train(xtr, ytr, codetype='py', approx_margin=True)
+    # booster2.plot_result()
+    booster3 = ParaBoost(epsi=0.005, has_dcap=False, ratio=0.1)
+    booster3.train(xtr, ytr)
+
+    row = 1
+    col = 2
+    plt.figure()
+    # plt.subplot(row, col, 1)
+    plt.plot(booster2._margin,'r-', label='fw')
+    plt.plot(booster3._margin, 'b-', label='pd')
+
+    plt.figure()
+    plt.plot(booster2.err_tr,'r-', label='fw')
+    plt.plot(booster3.err_tr,'b-', label='pd')
+
+    plt.legend(loc='best')
+    plt.ticklabel_format(style='sci', axis='x', scilimits=(0, 0))
+
+
+
 
 
 if __name__ == "__main__":
@@ -136,4 +158,9 @@ if __name__ == "__main__":
     # newtest.rand_test_boost(2)
     # TestCase.cmp_hard_margin(1)
     # TestCase.test_hard_margin()
-    booster = test_fwboost()
+    cmp_margin()
+    # xtr = np.array([[1.0,-1, 1], [ - 1.0,-1,1],[1,-1,-1]], dtype=np.float)
+    # ytr = np.array([1, 1,-1])
+    # booster = FwBoost(epsi=0.01, has_dcap=False, ratio=0.1, steprule=2)
+    # booster.train(xtr, ytr, codetype='cyf')
+    # booster.train(xtr, ytr, codetype='cy')

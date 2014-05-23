@@ -39,6 +39,7 @@ class ParaBoost(Boost):
         xtr = self._process_train_data(xtr)
         xtr = np.hstack((xtr, np.ones((ntr, 1))))
         yH = ytr[:, np.newaxis] * xtr
+        yH = np.hstack((yH, -yH))
         self._para_boosting(yH)
 
     def test(self, xte, yte):
@@ -89,7 +90,7 @@ class ParaBoost(Boost):
         a_bar, d_bar : average value as output.
         """
         print '----------------primal-dual boost-------------------'
-        H = np.hstack((H, -H))
+
         (n, p) = H.shape
         self.c = np.log(n*p)
         nu = int(n * self.ratio)
