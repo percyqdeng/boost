@@ -35,9 +35,9 @@ class ParaBoost(Boost):
         return "paraboost"
 
     def train(self, xtr, ytr):
-        ntr = xtr.shape[0]
-        xtr = self._process_train_data(xtr)
-        xtr = np.hstack((xtr, np.ones((ntr, 1))))
+
+        # xtr = self._process_train_data(xtr)
+        # xtr = np.hstack((xtr, np.ones((ntr, 1))))
         yH = ytr[:, np.newaxis] * xtr
         yH = np.hstack((yH, -yH))
         self._para_boosting(yH)

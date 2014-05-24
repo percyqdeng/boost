@@ -44,7 +44,7 @@ cpdef fw_boost_cy(np.ndarray[np.float64_t, ndim=2]hh,
     cdef np.ndarray[np.float64_t] h_a = np.zeros(n)
     cdef np.float64_t ej
     cdef np.float64_t eta
-    cdef unsigned int max_iter = int(math.log(n) / epsi**2)
+    cdef unsigned int max_iter = int(108*math.log(n) / epsi**2)
     # max_iter = 100
     cdef unsigned int nu = int(n * ratio)
     mat_vec(hh, alpha, <np.float_t*>h_a.data)
@@ -85,17 +85,13 @@ cpdef fw_boost_cy(np.ndarray[np.float64_t, ndim=2]hh,
                 margin.push_back(min_margin)
             else:
                 margin.push_back(smallest(h_a))
-
             res = 0
             for i in xrange(n):
                 if h_a[i] < 0:
                     res += 1
             err_tr.push_back(res/n)
             gap.push_back(curr_gap)
-            # primal_obj.append(mu * math.log(1.0 / n * np.sum(np.exp(-h_a / mu))))
             primal_obj.push_back(cmp_primal_objective(h_a, mu))
-        # dual_obj.append(-np.max(np.abs(dt_h)) - mu * np.dot(d, np.log(d)) + mu * np.log(n))
-        # print "steprule "
         if steprule == 1:
             res = 0
             for i in xrange(p):

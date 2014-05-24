@@ -208,8 +208,8 @@ class FwBoost(Boost):
         # self.mu = np.mean(xtr, 0)
         # xtr = (xtr - self.mu[np.newaxis, :])/self.Z[np.newaxis, :]
         ntr = xtr.shape[0]
-        xtr = self._process_train_data(xtr)
-        xtr = np.hstack((xtr, np.ones((ntr, 1))))
+        # xtr = self._process_train_data(xtr)
+        # xtr = np.hstack((xtr, np.ones((ntr, 1))))
         y_h = ytr[:, np.newaxis] * xtr
         if approx_margin:
             self.mu = self.epsi / (2 * np.log(ntr))
