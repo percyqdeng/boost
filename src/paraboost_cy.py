@@ -1,7 +1,7 @@
 __author__ = 'qdengpercy'
 # coding=utf8
 from boost import *
-import pdb
+
 
 class ParaBoost(Boost):
     """Primal-Dual Parallel Boosting method as a saddle point matrix game
@@ -59,37 +59,6 @@ class ParaBoost(Boost):
         pred = np.sign(np.dot(xte, self.alpha))
         return np.mean(pred != yte)
 
-    def plot_result(self):
-        r = 2
-        c = 2
-        nBins = 6
-        plt.figure()
-        plt.subplot(r, c, 1)
-        plt.plot(np.log(self._gap), 'r-', label='gap')
-        T = len(self._gap)
-        bound = self.c / np.arange(1, 1 + T)
-        plt.plot(np.log(bound), 'b-', label='bound')
-        plt.title('log primal-dual gap')
-        plt.legend(loc='best')
-        plt.locator_params(axis='x', nbins=nBins)
-        plt.subplot(r, c, 2)
-        plt.plot(self._margin, 'b-')
-        plt.title('margin')
-        plt.locator_params(axis='x', nbins=nBins)
-        plt.subplot(r, c, 3)
-        plt.plot(self._primal_obj, 'r-', label='primal')
-        plt.plot(self._dual_obj, color='g', label='dual')
-        plt.title('primal objective')
-        plt.legend(loc='best')
-        plt.locator_params(axis='x', nbins=nBins)
-        plt.subplot(r, c, 4)
-        plt.plot(self.err_tr, 'b-', label="train err")
-        plt.savefig('result.eps', format='eps')
-        plt.title('training error')
-        plt.legend(loc='best')
-        plt.tight_layout()
-        plt.locator_params(axis='x', nbins=nBins)
-        plt.savefig('result_paraboost.png', format='png')
 
     def _para_boosting(self, H, earlystop=False):
         """

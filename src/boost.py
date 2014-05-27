@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import copy
 import heapq
 import bisect
-
+import pdb
 
 path = '/Users/qdengpercy/workspace/boost'
 
@@ -86,12 +86,16 @@ def proj_cap_ent(d0, v):
     ind = np.argsort(d0, kind='quicksort')[::-1]
     uu = d[ind]
     Z = uu.sum()
+    # try:
     for i in range(m):
+        if Z == 0:
+            break
         e = (1 - v * i) / Z
         if e * uu[i] <= v:
             break
         Z -= uu[i]
-
+    # except Exception as err:
+    #     pdb.set_trace()
     # if d.max()>1 or d.min()<0:
     #     print ''
     d = np.minimum(v, e * d0)

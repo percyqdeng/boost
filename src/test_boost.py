@@ -3,17 +3,17 @@ __author__ = 'qdengpercy'
 from fwboost import *
 from paraboost import *
 import sklearn.cross_validation as cv
+from sklearn.metrics import zero_one_loss
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import AdaBoostClassifier
 
 class TestCase(object):
     """
     TestCase: experimental comparison among different boosting algorithms.
     """
 
-    def __init__(self, dtname='bananamat.mat'):
-        if os.name == "nt":
-            dtpath = "..\\..\\dataset\\ucibenchmark\\"
-        elif os.name == "posix":
-            dtpath = '../../dataset/benchmark_uci/'
+    def __init__(self, pathname='../../dataset/benchmark_uci/', dtname='bananamat.mat'):
+        dtpath = pathname
         data = scipy.io.loadmat(dtpath + dtname)
         self.x = data['x']
         # self.x = preprocess_data(self.x)
@@ -27,13 +27,7 @@ class TestCase(object):
     def rand_test_boost(self):
         xtr, ytr, xte, yte = self._gen_i_th(i=-1)
         xtr, xte = TestCase._normalize_features(xtr, xte)
-        # rep = self.train_ind.shape[0]
-        # i = np.random.randint(low=0, high=rep)
-        # xtr = self.x[self.train_ind[i, :], :]
-        # ytr = self.y[self.train_ind[i, :]]
-        # xte = self.x[self.test_ind[i, :], :]
-        # yte = self.y[self.test_ind[i, :]]
-        # print 'i = '+str(i)
+
         self.booster1 = ParaBoost(epsi=0.01, has_dcap=True, ratio=0.3)
         self.booster1.train(xtr, ytr)
         self.booster2 = FwBoost(epsi=0.01, has_dcap=True, ratio=0.3, steprule=1)
@@ -57,7 +51,7 @@ class TestCase(object):
         xte = (xte - avg[np.newaxis, :]) / std[np.newaxis, :]
         return xtr, xte
 
-    def _gen_i_th(self, i=-1):
+    def gen_i_th(self, i=-1):
         rep = self.train_ind.shape[0]
         if i < 0 or i >= rep:
             i = np.random.randint(low=0, high=rep)
@@ -197,6 +191,97 @@ class TestCase(object):
         plt.legend(loc='best')
         plt.savefig("../output/synth_hard_margin_log.pdf")
 
+    def bench_mark(self):
+        """
+        test on uci benchmark
+        """
+        n_estimators = 100
+        n_samples = self.x.shape[0]
+        n_reps = 10
+        ss = cv.ShuffleSplit(n_samples, n_reps, train_size=0.7, test_size=0.3, random_state=1)
+        ada_tr_err = np.zeros((n_reps, n_estimators))
+        ada_te_err = np.zeros((n_reps, n_estimators))
+        pd_tr_err = np.zeros(n_reps)
+        pd_te_err = np.zeros(n_reps)
+        k = 0
+        ratio_list = np.array([0.01, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5])
+        for tr_ind, te_ind in ss:
+            print " iter#: %d" % (k)
+            xtr = self.x[tr_ind, :]
+            ytr = self.y[tr_ind]
+            xte = self.x[te_ind, :]
+            yte = self.y[te_ind]
+
+            ada_disc = AdaBoostClassifier(DecisionTreeClassifier(max_depth=1),
+                                          n_estimators=n_estimators, algorithm="SAMME")
+            ada_disc.fit(xtr, ytr)
+            htr = np.zeros((ytr.shape[0], n_estimators))
+            for i, y_pred in enumerate(ada_disc.staged_predict(xtr)):
+                htr[:, i] = y_pred
+                ada_tr_err[k, i] = zero_one_loss(y_true=ytr, y_pred=y_pred)
+            hte = np.zeros((yte.shape[0], n_estimators))
+            for i, y_pred in enumerate(ada_disc.staged_predict(xte)):
+                hte[:, i] = y_pred
+                ada_te_err[k, i] = zero_one_loss(y_true=yte, y_pred=y_pred)
+
+
+            best_ratio = TestCase.cross_valid(htr, ytr, ratio_list)
+            print "best ratio %f " % (best_ratio)
+            pd = ParaBoost(epsi=0.01, has_dcap=True, ratio=best_ratio)
+            pd.train_h(htr, ytr)
+            pred = pd.test_h(hte)
+            pd_tr_err[k] = pd.err_tr[-1]
+            pd_te_err[k] = zero_one_loss(y_true=yte, y_pred=pred)
+            k += 1
+
+        print "trainerr %f, testerr %f" % (np.mean(pd_tr_err), np.mean(pd_te_err))
+
+        n_terms = 2 * 2
+        err = np.zeros(n_terms)
+        std = np.zeros(n_terms)
+        err[0] = np.mean(ada_tr_err[:, -1])
+        err[1] = np.mean(ada_te_err[:, -1])
+        err[2] = np.mean(pd_tr_err)
+        err[3] = np.mean(pd_te_err)
+        std[0] = np.std(ada_tr_err[:, -1])
+        std[1] = np.std(ada_te_err[:, -1])
+        std[2] = np.std(pd_tr_err)
+        std[3] = np.std(pd_te_err)
+        # plt.figure()
+        # plt.plot(np.mean(ada_tr_err, axis=0), 'r-', label="ada_train")
+        # plt.plot(np.mean(ada_te_err, axis=0), 'b-', label="ada_test")
+        # plt.show()
+        return err, std,
+
+    @staticmethod
+    def cross_valid(h, y, ratio_list):
+        """
+        cross validation to tune the best cap probability for soft-margin boosting
+        """
+        n_samples = h.shape[0]
+        n_folds = 4
+        ntr = n_samples/n_folds
+        ratio_list = ratio_list[ratio_list >= 1.0/ntr]
+        kf = cv.KFold(n=n_samples, n_folds=n_folds)
+        err_tr = np.zeros((n_folds, len(ratio_list)))
+        err_te = np.zeros((n_folds, len(ratio_list)))
+        k = 0
+        for tr_ind, te_ind in kf:
+            xtr, ytr, xte, yte = h[tr_ind, :], y[tr_ind], h[te_ind, :], y[te_ind]
+            for i, r in enumerate(ratio_list):
+                pd = ParaBoost(epsi=0.01, has_dcap=True, ratio=r)
+                pd.train_h(xtr, ytr)
+                pred = pd.test_h(xte)
+                err_te[k, i] = zero_one_loss(y_true=yte, y_pred=pred)
+                err_tr[k, i] = pd.err_tr[-1]
+            k += 1
+        err_te_avg = np.mean(err_te, axis=0)
+        err_tr_avg = np.mean(err_tr, axis=0)
+        arg = np.argmin(err_te_avg)
+        best_ratio = ratio_list[arg]
+        err = err_te_avg[arg]
+        return best_ratio
+
     @staticmethod
     def test_hard_margin():
         # ntr = 1000
@@ -267,13 +352,17 @@ def cmp_margin():
     plt.ticklabel_format(style='sci', axis='x', scilimits=(0, 0))
     return booster1, booster2, w
 
-
+if os.name == "nt":
+    dtpath = "..\\..\\dataset\\ucibenchmark\\"
+elif os.name == "posix":
+    dtpath = '../../dataset/benchmark_uci/'
 if __name__ == "__main__":
-    filename = ["bananamat", "breast_cancermat", "cvt_bench", "diabetismat", "flare_solarmat", "germanmat",
+    filename = ["bananamat", "breast_cancermat", "diabetismat", "flare_solarmat", "germanmat",
                 "heartmat", "ringnormmat", "splicemat"]
-    # newtest = TestCase(filename[1])
+    newtest = TestCase(dtpath, filename[3])
+    newtest.bench_mark()
     # newtest.rand_test_boost()
     # bfw, bpd, w = cmp_margin()
     # newtest.synthetic2()
     # TestCase.synthetic_soft_margin()
-    TestCase.debug()
+    # TestCase.debug()
