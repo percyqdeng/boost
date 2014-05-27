@@ -202,7 +202,7 @@ class FwBoost(Boost):
     def to_name(self):
         return "fwboost"
 
-    def train(self, xtr, ytr, codetype="cy", approx_margin=False):
+    def train(self, xtr, ytr, codetype="cy", approx_margin=True, early_stop=False):
         print "-------fw boost training---------"
         # self.Z = np.std(xtr, 0)
         # self.mu = np.mean(xtr, 0)
@@ -215,18 +215,25 @@ class FwBoost(Boost):
             self.mu = self.epsi / (2 * np.log(ntr))
         else:
             self.mu = 1
+
+        if early_stop:
+            self.max_iter = 10
+        else:
+            self.max_iter = int(108*np.log(ntr) / self.epsi**2)
+
         if codetype == "cy":
-            self.alpha, self._primal_obj, self._gap, self.err_tr, self._margin= \
-                fw_cy.fw_boost_cy(y_h, np.float32(self.epsi), self.ratio, self.steprule, self.has_dcap, self.mu)
-        elif codetype =='py':
+            self.alpha, self._primal_obj, self._gap, self.err_tr, self._margin, self.iter_num= \
+                fw_cy.fw_boost_cy(y_h, np.float32(self.epsi), self.ratio, self.steprule, self.has_dcap, self.mu, self.max_iter)
+        elif codetype == 'py':
             self._fw_boosting(y_h)
+
 
     def test(self, xte, yte):
         # normalize and add the intercept
         # xte = (xte-self.mu[np.newaxis, :])/self.Z[np.newaxis, :]
         nte = xte.shape[0]
-        xte = self._process_test_data(xte)
-        xte = np.hstack((xte, np.ones((nte, 1))))
+        # xte = self._process_test_data(xte)
+        # xte = np.hstack((xte, np.ones((nte, 1))))
         pred = np.sign(np.dot(xte, self.alpha))
         return np.mean(pred != yte)
 
@@ -239,32 +246,47 @@ class FwBoost(Boost):
         Args:
             H : output matrix of weak learners
         """
-        print '-----------fw boost python code-----------'
+
         [n, p] = H.shape
         # self.alpha = np.ones(p)/p
         self.alpha = np.zeros(p)
         d0 = np.ones(n) / n
         # self.mu = self.epsi / (2 * np.log(n))
-        max_iter = int(np.log(n) / self.epsi**2)
+        self.iter_num = []
         # max_iter = 100
         # mu = 1
         nu = int(n * self.ratio)
-
+        if self.max_iter < 100:
+            delta = 1
+        else:
+            delta = 40
         h_a = np.dot(H, self.alpha)
         # d0 = np.ones(n)/n
-        print " fw-boosting: maximal iter #: "+str(max_iter)
-        for t in range(max_iter):
+        print " fw-boosting(python): maximal iter #: "+str(self.max_iter)
+        for t in range(self.max_iter):
             d_next = prox_mapping(h_a, d0, 1 / self.mu)
-            assert not math.isnan(d_next[0])
+
+            # assert not math.isnan(d_next.max())
+            # if math.isnan(d_next.max()) or d_next.min()<0 or d_next.max()>1:
+            #     print d_next.max()
             if self.has_dcap:
-                d_next = proj_cap_ent(d_next, 1.0 / nu)
-            d = d_next
+                d = proj_cap_ent(d_next, 1.0 / nu)
+                if d.max() > 1.0/nu or d.min()<0:
+                    d = proj_cap_ent(d_next, 1.0 / nu)
+                    print 'dmax %f, cap, %f' % (d.max(), 1.0/nu)
+                    # assert d.max() <= 1.0/nu
+            else:
+                d = d_next
+            # if math.isnan(d.max()) or d.min() < 0 or d.max()>1:
+            #     print d.max()
             dt_h = np.dot(d, H)
             j = np.argmax(np.abs(dt_h))
             ej = np.zeros(p)
             ej[j] = np.sign(dt_h[j])
             curr_gap = np.dot(dt_h, ej - self.alpha)
-            if t % 10 == 0:
+            # print 'iter %s, gap: %s ' %(t, curr_gap)
+            if t % delta == 0:
+                self.iter_num.append(t)
                 if self.has_dcap:
                     min_margin = ksmallest(h_a, nu)
                     self._margin.append(np.mean(min_margin))
@@ -290,8 +312,8 @@ class FwBoost(Boost):
 
             if curr_gap < self.epsi:
                 break
-            if t % (max_iter/10) == 0:
-                print ("iter# %d, gap %.5f" % (t, curr_gap))
+            if t % (self.max_iter/10) == 0:
+                print ("iter# %d, gap %.5f, dmax %f" % (t, curr_gap, d.max()))
         self.d = d
 
     def plot_result(self):

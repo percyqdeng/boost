@@ -79,19 +79,21 @@ def proj_cap_ent(d0, v):
     projection with the entropy distance, with capped distribution
     min KL(d,d0) sub to max_i d(i) <=v
     """
-    d = d0
+    d = d0.copy()/d0.sum()
     m = len(d)
     if v < 1.0 / m:
         print "error"
     ind = np.argsort(d0, kind='quicksort')[::-1]
-    u = d[ind]
-    Z = u.sum()
+    uu = d[ind]
+    Z = uu.sum()
     for i in range(m):
         e = (1 - v * i) / Z
-        if e * u[i] <= v:
+        if e * uu[i] <= v:
             break
-        Z -= u[i]
+        Z -= uu[i]
 
+    # if d.max()>1 or d.min()<0:
+    #     print ''
     d = np.minimum(v, e * d0)
     return d
 
@@ -100,10 +102,10 @@ def ksmallest(u0, k):
     u = u0.tolist()
     mins = u[:k]
     mins.sort()
-    for i in u[k:]:
-        if i < mins[-1]:
-            mins.append(i)
-            # np.append(mins, i)
+    for i, x in enumerate(u[k:]):
+        if x < mins[-1]:
+            mins.append(x)
+            # np.append(mins, x)
             mins.sort()
             mins = mins[:k]
     return np.asarray(mins)

@@ -58,7 +58,6 @@ def gen_syn(ntr, nte, ftr_type="disc", has_noise=False):
             # x *= flips
             # noise = np.random.normal(0, 0.1, (ntr + nte, p))
             # x += noise
-            # x =
             ind = np.random.choice(p, int(0.3*p), replace=False)
             x2 = x.copy()
             x2[:, ind] = - x2[:, ind]

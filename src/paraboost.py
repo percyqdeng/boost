@@ -30,23 +30,24 @@ class ParaBoost(Boost):
         self._gap = []
         self.err_tr = []
         self.alpha = []
+        self.iter_num = []
 
     def to_name(self):
         return "paraboost"
 
-    def train(self, xtr, ytr):
+    def train(self, xtr, ytr, early_stop=False):
 
         # xtr = self._process_train_data(xtr)
         # xtr = np.hstack((xtr, np.ones((ntr, 1))))
         yH = ytr[:, np.newaxis] * xtr
         yH = np.hstack((yH, -yH))
-        self._para_boosting(yH)
+        self._para_boosting(yH, early_stop)
 
     def test(self, xte, yte):
 
         nte = xte.shape[0]
-        xte = self._process_test_data(xte)
-        xte = np.hstack((xte, np.ones((nte, 1))))
+        # xte = self._process_test_data(xte)
+        # xte = np.hstack((xte, np.ones((nte, 1))))
         pred = np.sign(np.dot(xte, self.alpha))
         return np.mean(pred != yte)
 
@@ -82,7 +83,7 @@ class ParaBoost(Boost):
         plt.locator_params(axis='x', nbins=nBins)
         plt.savefig('result_paraboost.png', format='png')
 
-    def _para_boosting(self, H):
+    def _para_boosting(self, H, earlystop=False):
         """
         primal-dual boost with capped probability ||d||_infty <= 1/k
         a, d : primal dual variables to be updated,
@@ -94,7 +95,14 @@ class ParaBoost(Boost):
         (n, p) = H.shape
         self.c = np.log(n*p)
         nu = int(n * self.ratio)
-        max_iter = int(np.log(n * p) / self.epsi)
+        if earlystop:
+            max_iter = 200
+        else:
+            max_iter = int(np.log(n * p) / self.epsi)
+        if max_iter < 1000:
+            delta = 4
+        else:
+            delta = 40
         showtimes = int(5)
         d = np.ones(n) / n
         d_bar = np.ones(n) / n
@@ -107,6 +115,7 @@ class ParaBoost(Boost):
         sig = 1
         tau = 1
         t = 0
+        print " pd-boosting(python): maximal iter #: "+str(max_iter)
         for t in range(max_iter):
             d = prox_mapping(np.dot(H, a_tilde), d, tau, 2)
             if self.has_dcap:
@@ -126,15 +135,17 @@ class ParaBoost(Boost):
             a_bar *= t / (t + 1.0)
             a_bar += 1.0 / (t + 1) * a
             h_a = np.dot(H, a_bar)
-            if self.has_dcap:
-                min_margin = ksmallest(h_a, nu)
-                self._primal_obj.append(-np.mean(min_margin))
-            else:
-                self._primal_obj.append(- np.min(h_a))
-            self._margin.append(-self._primal_obj[-1])
-            self._dual_obj.append(-np.max(np.dot(d_bar, H)))
-            self._gap.append(self._primal_obj[-1] - self._dual_obj[-1])
-            self.err_tr.append(np.mean(h_a < 0))
+            if t % delta == 0:
+                self.iter_num.append(t)
+                if self.has_dcap:
+                    min_margin = ksmallest(h_a, nu)
+                    self._primal_obj.append(-np.mean(min_margin))
+                else:
+                    self._primal_obj.append(- np.min(h_a))
+                self._margin.append(-self._primal_obj[-1])
+                self._dual_obj.append(-np.max(np.dot(d_bar, H)))
+                self._gap.append(self._primal_obj[-1] - self._dual_obj[-1])
+                self.err_tr.append(np.mean(h_a < 0))
             if t % (max_iter / showtimes) == 0:
                 print 'iter ' + str(t) + ' ' + str(self._gap[-1])
             if self._gap[-1] < self.epsi:

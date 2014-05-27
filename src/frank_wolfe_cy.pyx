@@ -16,7 +16,8 @@ ctypedef np.float_t dtype_t
 @cython.boundscheck(False)
 @cython.cdivision(True)
 cpdef fw_boost_cy(np.ndarray[np.float64_t, ndim=2]hh,
-                  np.float64_t epsi=0.01, np.float64_t ratio=0.1, int steprule=1, bool has_dcap=False, np.float64_t mu=1):
+                  np.float64_t epsi=0.01, np.float64_t ratio=0.1,
+                  int steprule=1, bool has_dcap=False, np.float64_t mu=1, int max_iter=200):
     """
     frank-wolfe boost for binary classification with weak learner as matrix hh
     min_a max_d   d^T(-hha) sub to:  ||a||_1\le 1
@@ -25,7 +26,6 @@ cpdef fw_boost_cy(np.ndarray[np.float64_t, ndim=2]hh,
     Args:
         hh : output matrix of weak learners
     """
-
     print '-----------fw boost cython code-----------'
     cdef unsigned int n = hh.shape[0]
     cdef unsigned int p = hh.shape[1]
@@ -40,17 +40,22 @@ cpdef fw_boost_cy(np.ndarray[np.float64_t, ndim=2]hh,
     cdef np.ndarray[np.float64_t] d= np.zeros(n)
     cdef np.ndarray[np.float64_t] d_next = np.zeros(n)
     cdef np.ndarray[np.float64_t] dt_h = np.zeros(p)
+    cdef vector[int] iter_num
     # cdef np.float64_t mu = epsi / (2 * math.log(n))
     cdef np.ndarray[np.float64_t] h_a = np.zeros(n)
     cdef np.float64_t ej
     cdef np.float64_t eta
-    cdef unsigned int max_iter = int(108*math.log(n) / epsi**2)
+    # cdef unsigned int max_iter = int(108 * math.log(n) / epsi**2)
     # max_iter = 100
     cdef unsigned int nu = int(n * ratio)
     mat_vec(hh, alpha, <np.float_t*>h_a.data)
     cdef Py_ssize_t t, j, i, k
     cdef np.float64_t res, tmp, curr_gap
-
+    cdef Py_ssize_t delta
+    if max_iter < 200:
+        delta = 1
+    else:
+        delta = 40
     print " fw-boosting: maximal iter #: "+str(max_iter)
     for t in range(max_iter):
         exp_descent(h_a, d0, <np.float_t*>d.data, 1 / mu)
@@ -64,10 +69,6 @@ cpdef fw_boost_cy(np.ndarray[np.float64_t, ndim=2]hh,
             if fabs(dt_h[i]) > res:
                 res = fabs(dt_h[i])
                 j = i
-        # j = np.argmax(np.abs(dt_h))
-        # ej = np.zeros(p)
-        # print "sample j" + str(j)
-        # ej[j] = np.sign(dt_h[j])
         if dt_h[j] < 0:
             ej = -1
         else:
@@ -79,7 +80,8 @@ cpdef fw_boost_cy(np.ndarray[np.float64_t, ndim=2]hh,
         curr_gap = res
         # print 'curr gap '+str(curr_gap)
         # gap.push(np.dot(dt_h, ej - alpha))
-        if t %10 == 0:
+        if t % delta == 0:
+            iter_num.push_back(t)
             if has_dcap:
                 min_margin = k_average(h_a, nu)
                 margin.push_back(min_margin)
@@ -92,6 +94,7 @@ cpdef fw_boost_cy(np.ndarray[np.float64_t, ndim=2]hh,
             err_tr.push_back(res/n)
             gap.push_back(curr_gap)
             primal_obj.push_back(cmp_primal_objective(h_a, mu))
+            # print 'iter %s, gap: %s ' %(t, curr_gap)
         if steprule == 1:
             res = 0
             for i in xrange(p):
@@ -114,20 +117,17 @@ cpdef fw_boost_cy(np.ndarray[np.float64_t, ndim=2]hh,
             alpha[i] *= 1-eta
         # alpha *= (1 - eta)
         alpha[j] += eta * ej
-        # res = 0
         for i in xrange(n):
             h_a[i] *= (1 - eta)
             h_a[i] += hh[i, j] * (eta * ej)
         if curr_gap < epsi:
             break
-
-        # res = 0
-        # for i in xrange(p)
         if t % (max_iter/10) == 0:
-            print ("iter# %d, gap %.5f" % (t, curr_gap))
+            print ("iter# %d, gap %.5f, dmax %f" % (t, curr_gap, d.max()))
 
     print "most t "+str(t)
-    return alpha, primal_obj, gap, err_tr, margin
+    return alpha, primal_obj, gap, err_tr, margin, iter_num
+
 
 cdef np.float64_t cmp_primal_objective(np.ndarray[np.float64_t] z, np.float64_t mu):
     """
@@ -135,13 +135,28 @@ cdef np.float64_t cmp_primal_objective(np.ndarray[np.float64_t] z, np.float64_t 
     """
     cdef np.float64_t res = 0
     cdef unsigned int i, n = z.shape[0]
-    for i in range(n):
+    for i in xrange(n):
         res += math.exp(-z[i]/mu)
     res = mu * math.log(res / n)
     return res
 
+
+@cython.boundscheck(False)
+@cython.cdivision(True)
+cdef np.float64_t smallest(np.ndarray[np.float64_t] u):
+    cdef unsigned int n = u.shape[0]
+    cdef Py_ssize_t i
+    cdef np.float64_t res = u[0]
+    for i in xrange(1, n):
+        if u[i] < res:
+            res = u[i]
+    return res
+
+
+@cython.boundscheck(False)
+@cython.cdivision(True)
 cdef np.float64_t k_average(np.ndarray[np.float64_t]v, unsigned int k):
-    u = v.copy()
+    cdef np. ndarray[np.float64_t] u = v.copy()
     qsort(u)
     cdef np.float64_t res = 0
     cdef Py_ssize_t i
@@ -149,14 +164,14 @@ cdef np.float64_t k_average(np.ndarray[np.float64_t]v, unsigned int k):
         res += u[i]
     return res / k
 
-# @cython.boundscheck(False)
-# @cython.cdivision(True)
+@cython.boundscheck(False)
+@cython.cdivision(True)
 cdef void proj_cap_ent_cy(np.ndarray[np.float64_t]d0, np.float64_t v):
     """
     projection with the entropy distance, with capped distribution
     min KL(d,d0) sub to max_i d(i) <=v
     """
-    u = d0.copy()
+    cdef np.ndarray[np.float64_t] u = d0.copy()
     cdef int i, m = d0.shape[0]
     if v < 1.0 / m:
         print "error"
@@ -209,7 +224,7 @@ cdef void exp_descent(np.ndarray[np.float64_t]v, np.ndarray[np.float64_t]x0,
 
 @cython.boundscheck(False)
 @cython.cdivision(True)
-cdef void mat_vec(np.ndarray[np.float64_t, ndim=2]aa, np.ndarray[np.float64_t]b, np.float64_t * c):
+cdef void mat_vec(np.ndarray[np.float64_t, ndim=2]aa, np.ndarray[np.float64_t]b, double * c):
     """
     c = aa * b
     """
@@ -226,7 +241,7 @@ cdef void mat_vec(np.ndarray[np.float64_t, ndim=2]aa, np.ndarray[np.float64_t]b,
 @cython.boundscheck(False)
 @cython.cdivision(True)
 cdef void vec_mat(np.ndarray[np.float64_t] a,
-                  np.ndarray[np.float64_t, ndim=2]bb, np.float64_t *c):
+                  np.ndarray[np.float64_t, ndim=2]bb, double *c):
     # not most efficient!!!!!!!!!
     """
     a.T * bb = c.T
@@ -249,11 +264,3 @@ cdef np.float64_t l1norm(np.ndarray[np.float64_t] v):
         res += fabs(v[i])
     return res
 
-cdef np.float64_t smallest(np.ndarray[np.float64_t] u):
-    cdef unsigned int n = u.shape[0]
-    cdef Py_ssize_t i
-    cdef np.float64_t res = u[0]
-    for i in xrange(1, n):
-        if u[i] < res:
-            res = u[i]
-    return res
