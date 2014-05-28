@@ -193,7 +193,7 @@ class TestCase(object):
     @staticmethod
     def weak_learner_pred(cls):
         weak_learners = cls.estimators_
-        
+
 
     def bench_mark(self):
         """
