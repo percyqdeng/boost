@@ -33,7 +33,7 @@ import pylab as pl
 import os
 from test_boost import *
 
-n_estimators = 400
+
 # A learning rate of 1. may not be optimal for both SAMME and SAMME.R
 learning_rate = 1.
 
@@ -47,9 +47,9 @@ elif os.name == "posix":
     dtpath = '../../dataset/benchmark_uci/'
 filename = ["bananamat", "breast_cancermat", "diabetismat", "flare_solarmat", "germanmat",
                 "heartmat", "ringnormmat", "splicemat"]
-newtest = TestCase(dtpath, filename[1])
+newtest = TestCase(dtpath, filename[-2])
 X_train, y_train, X_test, y_test = newtest.gen_i_th()
-
+n_estimators = 1000
 dt_stump = DecisionTreeClassifier(max_depth=1, min_samples_leaf=1)
 dt_stump.fit(X_train, y_train)
 dt_stump_err = 1.0 - dt_stump.score(X_test, y_test)
@@ -58,6 +58,7 @@ dt = DecisionTreeClassifier(max_depth=9, min_samples_leaf=1)
 dt.fit(X_train, y_train)
 dt_err = 1.0 - dt.score(X_test, y_test)
 
+print "fit ada_discrete"
 ada_discrete = AdaBoostClassifier(
     base_estimator=dt_stump,
     learning_rate=learning_rate,
@@ -65,6 +66,7 @@ ada_discrete = AdaBoostClassifier(
     algorithm="SAMME")
 ada_discrete.fit(X_train, y_train)
 
+print "fit ada_real"
 ada_real = AdaBoostClassifier(
     base_estimator=dt_stump,
     learning_rate=learning_rate,
@@ -79,6 +81,7 @@ ax.plot([1, n_estimators], [dt_stump_err] * 2, 'k-',
         label='Decision Stump Error')
 ax.plot([1, n_estimators], [dt_err] * 2, 'k--',
         label='Decision Tree Error')
+
 
 ada_discrete_err = np.zeros((n_estimators,))
 for i, y_pred in enumerate(ada_discrete.staged_predict(X_test)):
@@ -116,4 +119,22 @@ ax.set_ylabel('error rate')
 leg = ax.legend(loc='upper right', fancybox=True)
 leg.get_frame().set_alpha(0.7)
 
-pl.show()
+# pl.show()
+
+h = np.zeros((X_train.shape[0], n_estimators))
+for i, y_pred in enumerate(ada_discrete.staged_predict(X_train)):
+    h[:, i] = y_pred
+
+pd = ParaBoost(epsi=0.01, has_dcap=True, ratio=0.1)
+pd.train_h(h, y_train)
+pred = pd.test_h(h)
+err_tr = zero_one_loss(y_train, pred)
+
+hte = np.zeros((X_test.shape[0], n_estimators))
+for i, y_pred in enumerate(ada_discrete.staged_predict(X_test)):
+    hte[:, i] = y_pred
+
+pred = pd.test_h(hte)
+err_te = zero_one_loss(y_test, pred)
+
+print "err_tr%f, err_te%f" % (err_tr, err_te)

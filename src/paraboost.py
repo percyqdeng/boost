@@ -123,7 +123,7 @@ class ParaBoost(Boost):
         sig = 1
         tau = 1
         t = 0
-        # print " pd-boosting(python): maximal iter #: "+str(max_iter)
+
         for t in range(max_iter):
             d = prox_mapping(np.dot(H, a_tilde), d, tau, 2)
             if self.has_dcap:
@@ -160,7 +160,7 @@ class ParaBoost(Boost):
                 break
         self.alpha = a_bar[:p / 2] - a_bar[p / 2:]
         self.d = d_bar
-
+        print " pd-boosting(python): max iter#%d: , actual iter#%d" % (max_iter, t)
 
 if __name__ == "__main__":
     pass

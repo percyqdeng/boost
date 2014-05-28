@@ -11,7 +11,6 @@ class TestCase(object):
     """
     TestCase: experimental comparison among different boosting algorithms.
     """
-
     def __init__(self, pathname='../../dataset/benchmark_uci/', dtname='bananamat.mat'):
         dtpath = pathname
         data = scipy.io.loadmat(dtpath + dtname)
@@ -191,11 +190,16 @@ class TestCase(object):
         plt.legend(loc='best')
         plt.savefig("../output/synth_hard_margin_log.pdf")
 
+    @staticmethod
+    def weak_learner_pred(cls):
+        weak_learners = cls.estimators_
+        
+
     def bench_mark(self):
         """
         test on uci benchmark
         """
-        n_estimators = 100
+        n_estimators = np.minimum(1000, int(self.x.shape[0]*0.7))
         n_samples = self.x.shape[0]
         n_reps = 10
         ss = cv.ShuffleSplit(n_samples, n_reps, train_size=0.7, test_size=0.3, random_state=1)
@@ -204,7 +208,7 @@ class TestCase(object):
         pd_tr_err = np.zeros(n_reps)
         pd_te_err = np.zeros(n_reps)
         k = 0
-        ratio_list = np.array([0.01, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5])
+        ratio_list = np.array([0.01, 0.05, 0.1, 0.2, 0.3])
         for tr_ind, te_ind in ss:
             print " iter#: %d" % (k)
             xtr = self.x[tr_ind, :]
@@ -258,6 +262,7 @@ class TestCase(object):
         """
         cross validation to tune the best cap probability for soft-margin boosting
         """
+        print " find optimal ratio"
         n_samples = h.shape[0]
         n_folds = 4
         ntr = n_samples/n_folds
@@ -267,6 +272,7 @@ class TestCase(object):
         err_te = np.zeros((n_folds, len(ratio_list)))
         k = 0
         for tr_ind, te_ind in kf:
+            print "nfold: %d" % (k)
             xtr, ytr, xte, yte = h[tr_ind, :], y[tr_ind], h[te_ind, :], y[te_ind]
             for i, r in enumerate(ratio_list):
                 pd = ParaBoost(epsi=0.01, has_dcap=True, ratio=r)
