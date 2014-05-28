@@ -43,7 +43,7 @@
       <file leaf-file-name="test_boost.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test_boost.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="212" column="10" selection-start="7544" selection-end="7544" vertical-scroll-proportion="0.6569343" vertical-offset="2190" max-vertical-offset="5070">
+            <state line="214" column="0" selection-start="7607" selection-end="7607" vertical-scroll-proportion="0.7116788" vertical-offset="2190" max-vertical-offset="5070">
               <folding>
                 <element signature="e#27#48#0" expanded="true" />
                 <element signature="e#5305#6854#0" expanded="false" />
@@ -729,12 +729,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gen_ftrs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="46" selection-start="1551" selection-end="1551" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1455" />
+        <state line="55" column="46" selection-start="1551" selection-end="1551" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1455">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/fwboost.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="299" column="76" selection-start="10892" selection-end="10892" vertical-scroll-proportion="-0.22304833" vertical-offset="4485" max-vertical-offset="5640" />
+        <state line="299" column="76" selection-start="10892" selection-end="10892" vertical-scroll-proportion="-0.22304833" vertical-offset="4485" max-vertical-offset="5640">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/boost.py">
@@ -807,7 +811,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test_boost.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="212" column="10" selection-start="7544" selection-end="7544" vertical-scroll-proportion="0.6569343" vertical-offset="2190" max-vertical-offset="5070">
+        <state line="214" column="0" selection-start="7607" selection-end="7607" vertical-scroll-proportion="0.7116788" vertical-offset="2190" max-vertical-offset="5070">
           <folding>
             <element signature="e#27#48#0" expanded="true" />
             <element signature="e#5305#6854#0" expanded="false" />
