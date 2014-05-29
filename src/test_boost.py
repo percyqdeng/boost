@@ -191,47 +191,69 @@ class TestCase(object):
         plt.savefig("../output/synth_hard_margin_log.pdf")
 
     @staticmethod
-    def weak_learner_pred(cls):
-        weak_learners = cls.estimators_
+    def weak_learner_pred(cls, x):
+        """
+        obtain the output of adaboost weak learners
+        """
+        # weak_learners = cls.estimators_
+        n_samples = x.shape[0]
+        n_estimators = (cls.n_estimators)
+        h = np.zeros((n_samples, n_estimators))
+        classes = np.array([-1, 1])
+        for i, estimator in enumerate(cls.estimators_):
+            if cls.algorithm == 'SAMME.R':
+                # The weights are all 1. for SAMME.R
+                current_pred = cls._samme_proba(estimator, cls.n_classes_, x)
+            else:  # elif self.algorithm == "SAMME":
+                current_pred = estimator.predict(x)
+                # current_pred = (current_pred == classes).T
+            h[:, i] = classes.take(current_pred > 0, axis=0)
+        return h
 
 
     def bench_mark(self):
         """
         test on uci benchmark
         """
-        n_estimators = np.minimum(1000, int(self.x.shape[0]*0.7))
+        n_estimators = np.minimum(10, int(self.x.shape[0]*0.7))
+        # n_estimators = 1
         n_samples = self.x.shape[0]
         n_reps = 10
         ss = cv.ShuffleSplit(n_samples, n_reps, train_size=0.7, test_size=0.3, random_state=1)
-        ada_tr_err = np.zeros((n_reps, n_estimators))
-        ada_te_err = np.zeros((n_reps, n_estimators))
+        ada_tr_err = np.zeros(n_reps)
+        ada_te_err = np.zeros(n_reps)
         pd_tr_err = np.zeros(n_reps)
         pd_te_err = np.zeros(n_reps)
         k = 0
-        ratio_list = np.array([0.01, 0.05, 0.1, 0.2, 0.3])
+        ratio_list = np.array([0.05, 0.1, 0.15, 0.2, 0.3])
         for tr_ind, te_ind in ss:
             print " iter#: %d" % (k)
             xtr = self.x[tr_ind, :]
             ytr = self.y[tr_ind]
             xte = self.x[te_ind, :]
             yte = self.y[te_ind]
-
             ada_disc = AdaBoostClassifier(DecisionTreeClassifier(max_depth=1),
                                           n_estimators=n_estimators, algorithm="SAMME")
             ada_disc.fit(xtr, ytr)
-            htr = np.zeros((ytr.shape[0], n_estimators))
-            for i, y_pred in enumerate(ada_disc.staged_predict(xtr)):
-                htr[:, i] = y_pred
-                ada_tr_err[k, i] = zero_one_loss(y_true=ytr, y_pred=y_pred)
-            hte = np.zeros((yte.shape[0], n_estimators))
-            for i, y_pred in enumerate(ada_disc.staged_predict(xte)):
-                hte[:, i] = y_pred
-                ada_te_err[k, i] = zero_one_loss(y_true=yte, y_pred=y_pred)
-
+            pred = ada_disc.predict(xtr)
+            ada_tr_err[k] = zero_one_loss(ytr, pred)
+            pred = ada_disc.predict(xte)
+            ada_te_err[k] = zero_one_loss(yte, pred)
+            htr = TestCase.weak_learner_pred(ada_disc, xtr)
+            hte = TestCase.weak_learner_pred(ada_disc, xte)
+            # htr = np.zeros((ytr.shape[0], n_estimators))
+            # for i, y_pred in enumerate(ada_disc.staged_predict(xtr)):
+            #     htr[:, i] = y_pred
+            #     ada_tr_err[k, i] = zero_one_loss(y_true=ytr, y_pred=y_pred)
+            # hte = np.zeros((yte.shape[0], n_estimators))
+            # for i, y_pred in enumerate(ada_disc.staged_predict(xte)):
+            #     hte[:, i] = y_pred
+            #     ada_te_err[k, i] = zero_one_loss(y_true=yte, y_pred=y_pred)
 
             best_ratio = TestCase.cross_valid(htr, ytr, ratio_list)
+            # best_ratio = 0.1
             print "best ratio %f " % (best_ratio)
-            pd = ParaBoost(epsi=0.01, has_dcap=True, ratio=best_ratio)
+            pd = ParaBoost(epsi=0.005, has_dcap=True, ratio=best_ratio)
             pd.train_h(htr, ytr)
             pred = pd.test_h(hte)
             pd_tr_err[k] = pd.err_tr[-1]
@@ -243,12 +265,12 @@ class TestCase(object):
         n_terms = 2 * 2
         err = np.zeros(n_terms)
         std = np.zeros(n_terms)
-        err[0] = np.mean(ada_tr_err[:, -1])
-        err[1] = np.mean(ada_te_err[:, -1])
+        err[0] = np.mean(ada_tr_err)
+        err[1] = np.mean(ada_te_err)
         err[2] = np.mean(pd_tr_err)
         err[3] = np.mean(pd_te_err)
-        std[0] = np.std(ada_tr_err[:, -1])
-        std[1] = np.std(ada_te_err[:, -1])
+        std[0] = np.std(ada_tr_err)
+        std[1] = np.std(ada_te_err)
         std[2] = np.std(pd_tr_err)
         std[3] = np.std(pd_te_err)
         # plt.figure()

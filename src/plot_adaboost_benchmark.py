@@ -66,6 +66,20 @@ ada_discrete = AdaBoostClassifier(
     algorithm="SAMME")
 ada_discrete.fit(X_train, y_train)
 
+h = TestCase.weak_learner_pred(ada_discrete, X_train)
+ada_wk_tr_err = np.zeros(h.shape[1])
+for i in range(h.shape[1]):
+    ada_wk_tr_err[i] = zero_one_loss(y_train, h[:,i])
+
+hte = TestCase.weak_learner_pred(ada_discrete, X_test)
+ada_wk_te_err = np.zeros(hte.shape[1])
+for i in range(hte.shape[1]):
+    ada_wk_te_err[i] = zero_one_loss(y_test, hte[:,i])
+
+fig = pl.figure()
+pl.plot(range(n_estimators), ada_wk_tr_err, 'r-')
+pl.plot(range(n_estimators), ada_wk_te_err, 'b-')
+plt.show()
 print "fit ada_real"
 ada_real = AdaBoostClassifier(
     base_estimator=dt_stump,
@@ -119,7 +133,7 @@ ax.set_ylabel('error rate')
 leg = ax.legend(loc='upper right', fancybox=True)
 leg.get_frame().set_alpha(0.7)
 
-# pl.show()
+pl.show()
 
 h = np.zeros((X_train.shape[0], n_estimators))
 for i, y_pred in enumerate(ada_discrete.staged_predict(X_train)):
