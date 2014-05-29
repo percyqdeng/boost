@@ -9,7 +9,7 @@ from libc.math cimport fmax
 from libc.math cimport fmin
 cimport cython
 from libcpp.vector cimport vector
-from aux.quicksort import sort as qsort
+from auxiliary.quicksort import sort as qsort
 ctypedef np.float_t dtype_t
 
 cpdef pm_boost_cy(np.ndarray[double,ndim=2]hh,double epsi=0.01, double ratio=0.1, int steprule=1, bool has_dcap=False):

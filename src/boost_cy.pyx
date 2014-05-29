@@ -7,7 +7,7 @@ from libc cimport math
 from libc.math cimport fmax
 from libc.math cimport fmin
 cimport cython
-from aux.quicksort import sort as qsort
+from auxiliary.quicksort import sort as qsort
 ctypedef np.float_t dtype_t
 
 
