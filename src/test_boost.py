@@ -6,6 +6,7 @@ import sklearn.cross_validation as cv
 from sklearn.metrics import zero_one_loss
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import AdaBoostClassifier
+import profile
 
 class TestCase(object):
     """
@@ -72,7 +73,6 @@ class TestCase(object):
         x2 = np.random.uniform(0, 1, size=(n1, n2))
         x2 = np.hstack((x2, -x2))
         x = np.vstack((x, x2))
-
         y = np.vstack((np.ones((n1, 1)), -np.ones((n1, 1))))
         y = np.squeeze(y)
         ind = np.random.choice(2*n1, int(0.2*n1), replace=False)
@@ -245,10 +245,6 @@ class TestCase(object):
             # for i, y_pred in enumerate(ada_disc.staged_predict(xtr)):
             #     htr[:, i] = y_pred
             #     ada_tr_err[k, i] = zero_one_loss(y_true=ytr, y_pred=y_pred)
-            # hte = np.zeros((yte.shape[0], n_estimators))
-            # for i, y_pred in enumerate(ada_disc.staged_predict(xte)):
-            #     hte[:, i] = y_pred
-            #     ada_te_err[k, i] = zero_one_loss(y_true=yte, y_pred=y_pred)
 
             best_ratio = TestCase.cross_valid(htr, ytr, ratio_list)
             # best_ratio = 0.1
@@ -339,6 +335,10 @@ class TestCase(object):
         print booster1.err_tr[0]
         print booster2.err_tr[0]
 
+def profile_paraboost():
+    x, y = TestCase.gen_syn_data(n1=2000, n2=2000)
+    pd = ParaBoost(epsi=0.005, has_dcap=True, ratio=0.1)
+    profile.runctx("pd.train(x,y)", globals(), locals())
 
 def test_adafwboost():
     ntr = 500
@@ -350,47 +350,21 @@ def test_adafwboost():
     return booster
 
 
-def cmp_margin():
-    ntr = 700
-    (xtr, ytr, xte, yte, w) = gen_syn(ntr, 10, ftr_type='disc', has_noise=True)
-    booster1 = FwBoost(epsi=0.001, has_dcap=False, ratio=0.1, steprule=1)
-    booster1.train(xtr, ytr, codetype='py', approx_margin=True)
-    # booster2.plot_result()
-    booster2 = ParaBoost(epsi=0.001, has_dcap=False, ratio=0.1)
-    booster2.train(xtr, ytr)
 
-    row = 1
-    col = 2
-    plt.figure()
-    plt.plot(booster1._margin,'r-', label='fw')
-    plt.plot(booster2._margin, 'b-', label='pd')
-    plt.ticklabel_format(style='sci', axis='x', scilimits=(0, 0))
-    plt.xlabel('number of iteration')
-    plt.ylabel('margin')
-    plt.legend(loc='best')
-    plt.savefig('../output/cmp_marginreal.pdf')
-    plt.figure()
-    plt.plot(booster1.err_tr, 'r-', label='fw')
-    plt.plot(booster2.err_tr, 'b-', label='pd')
-    plt.figure()
-    plt.plot(booster1._primal_obj, 'r-', label='fw')
-    plt.plot(booster2._primal_obj, 'b-', label='pd')
-    plt.ylabel('primal objective')
-    plt.legend(loc='best')
-    plt.ticklabel_format(style='sci', axis='x', scilimits=(0, 0))
-    return booster1, booster2, w
 
 if os.name == "nt":
     dtpath = "..\\..\\dataset\\ucibenchmark\\"
 elif os.name == "posix":
     dtpath = '../../dataset/benchmark_uci/'
-if __name__ == "__main__":
-    filename = ["bananamat", "breast_cancermat", "diabetismat", "flare_solarmat", "germanmat",
+filename = ["bananamat", "breast_cancermat", "diabetismat", "flare_solarmat", "germanmat",
                 "heartmat", "ringnormmat", "splicemat"]
-    newtest = TestCase(dtpath, filename[3])
-    newtest.bench_mark()
+if __name__ == "__main__":
+
+    # newtest = TestCase(dtpath, filename[3])
+    # newtest.bench_mark()
     # newtest.rand_test_boost()
     # bfw, bpd, w = cmp_margin()
     # newtest.synthetic2()
     # TestCase.synthetic_soft_margin()
     # TestCase.debug()
+    profile_paraboost()

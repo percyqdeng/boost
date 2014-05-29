@@ -1,12 +1,7 @@
 __author__ = 'qdengpercy'
 import numpy as np
-from sklearn.ensemble import RandomForestClassifier
 from numpy import linalg as LA
-import matplotlib.pyplot as plt
-import copy
-import heapq
-import bisect
-import pdb
+import time
 
 path = '/Users/qdengpercy/workspace/boost'
 
@@ -79,12 +74,13 @@ def proj_cap_ent(d0, v):
     projection with the entropy distance, with capped distribution
     min KL(d,d0) sub to max_i d(i) <=v
     """
-    d = d0.copy()/d0.sum()
+    d = d0
     m = len(d)
     if v < 1.0 / m:
         print "error"
-    ind = np.argsort(d0, kind='quicksort')[::-1]
-    uu = d[ind]
+    # ind = np.argsort(d, kind='quicksort')[::-1]
+    # uu = d[ind]
+    uu = np.sort(d, kind='quicksort')[::-1]
     Z = uu.sum()
     # try:
     for i in range(m):
@@ -98,8 +94,20 @@ def proj_cap_ent(d0, v):
     #     pdb.set_trace()
     # if d.max()>1 or d.min()<0:
     #     print ''
-    d = np.minimum(v, e * d0)
+    d = np.minimum(v, e * d)
     return d
+
+
+def cmp_ksmal_time():
+    n = 100000
+    k = 100
+    a = np.random.normal(0, 1, n)
+
+
+def ksmallest2(u0, k):
+    u = np.sort(u0, kind='quicksort')
+    res = u[:k]
+    return res
 
 
 def ksmallest(u0, k):
@@ -113,6 +121,23 @@ def ksmallest(u0, k):
             mins.sort()
             mins = mins[:k]
     return np.asarray(mins)
+
+def check_ksm():
+    n = 50000
+    k = 5000
+    rep = 20
+    t1 = 0
+    t2 = 0
+    for i in range(rep):
+        arr = np.random.normal(0, 1, n)
+        # timeit.timeit("ksmallest(arr,k")
+        start = time.time()
+        ksmallest(arr, k)
+        t1 += time.time() - start
+        start = time.time()
+        ksmallest2(arr, k)
+        t2 += time.time() - start
+    print "%d runs, average time t1 %f, t2 %f" % (rep, t1/rep, t2/rep)
 
 
 def prox_mapping(v, x0, sigma, dist_option=2):

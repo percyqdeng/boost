@@ -4,7 +4,6 @@ __author__ = 'qdengpercy'
 import os
 import numpy as np
 import scipy.io
-import math
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn.tree import DecisionTreeClassifier
 from boost import *

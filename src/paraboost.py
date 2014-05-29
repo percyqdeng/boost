@@ -100,6 +100,7 @@ class ParaBoost(Boost):
         """
         # print '----------------primal-dual boost-------------------'
         H = np.hstack((H, -H))
+        # H_ft = np.asfortranarray((H.copy()))
         (n, p) = H.shape
         self.c = np.log(n*p)
         nu = int(n * self.ratio)
@@ -116,8 +117,11 @@ class ParaBoost(Boost):
         d_bar = np.ones(n) / n
         a_bar = np.ones(p) / p
         a = np.ones(p) / p
+        h_a = np.sum(H, axis=1) / p
+        h_a_bar = h_a.copy()
         # a_bar = a
-        a_tilde = np.ones(p) / p
+        # a_tilde = np.ones(p) / p
+        h_a_tilde = h_a.copy()
         # d_tilde = np.zeros(p)
         theta = 1
         sig = 1
@@ -125,7 +129,7 @@ class ParaBoost(Boost):
         t = 0
 
         for t in range(max_iter):
-            d = prox_mapping(np.dot(H, a_tilde), d, tau, 2)
+            d = prox_mapping(h_a_tilde, d, tau, 2)
             if self.has_dcap:
                 d2 = proj_cap_ent(d, 1.0 / nu)
                 # d_new = d_new/d_new.sum()
@@ -134,26 +138,31 @@ class ParaBoost(Boost):
                 d = d2
             d_tilde = d
             dtH = np.dot(d_tilde, H)
+            # dtH = np.dot(H.T, d_tilde)
             a_new = prox_mapping(-dtH, a, sig, 2)
-            # a_new = proj_l1ball(tmp, 1)
-            a_tilde = a_new + theta * (a_new - a)
+            h_a_new = np.dot(H, a_new)
+
+            # a_tilde = a_new + theta * (a_new - a)
+            h_a_tilde = (1+theta) * h_a_new - theta * h_a
             a = a_new
+            h_a = h_a_new
             d_bar *= t / (t + 1.0)
             d_bar += 1.0 / (t + 1) * d
             a_bar *= t / (t + 1.0)
             a_bar += 1.0 / (t + 1) * a
-            h_a = np.dot(H, a_bar)
+            # h_a_bar = np.dot(H, a_bar)
+            h_a_bar = t / (t + 1.0) * h_a_bar + 1.0/(t+1) * h_a
             if t % delta == 0:
                 self.iter_num.append(t)
                 if self.has_dcap:
-                    min_margin = ksmallest(h_a, nu)
+                    min_margin = ksmallest2(h_a_bar, nu)
                     self._primal_obj.append(-np.mean(min_margin))
                 else:
-                    self._primal_obj.append(- np.min(h_a))
+                    self._primal_obj.append(- np.min(h_a_bar))
                 self._margin.append(-self._primal_obj[-1])
                 self._dual_obj.append(-np.max(np.dot(d_bar, H)))
                 self._gap.append(self._primal_obj[-1] - self._dual_obj[-1])
-                self.err_tr.append(np.mean(h_a < 0))
+                self.err_tr.append(np.mean(h_a_bar < 0))
             # if t % (max_iter / showtimes) == 0:
             #     print 'iter ' + str(t) + ' ' + str(self._gap[-1])
             if self._gap[-1] < self.epsi:
