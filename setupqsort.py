@@ -8,7 +8,7 @@ import numpy as np
 setup(
     name='qsort',
     include_dirs=[np.get_include()],
-    ext_modules=cythonize("quicksort.pyx",
+    ext_modules=cythonize("auxiliary/quicksort.pyx",
                           language="c++",
                           )
 )
