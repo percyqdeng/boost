@@ -215,11 +215,11 @@ class TestCase(object):
         """
         test on uci benchmark
         """
-        n_estimators = np.minimum(10, int(self.x.shape[0]*0.7))
+        n_estimators = np.minimum(1000, int(self.x.shape[0]*0.7))
         # n_estimators = 1
         n_samples = self.x.shape[0]
-        n_reps = 10
-        ss = cv.ShuffleSplit(n_samples, n_reps, train_size=0.7, test_size=0.3, random_state=1)
+        n_reps = 20
+        ss = cv.ShuffleSplit(n_samples, n_reps, train_size=0.6, test_size=0.4, random_state=1)
         ada_tr_err = np.zeros(n_reps)
         ada_te_err = np.zeros(n_reps)
         pd_tr_err = np.zeros(n_reps)

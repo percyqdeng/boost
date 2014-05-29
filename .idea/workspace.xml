@@ -2,20 +2,574 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2e59c25-b02d-4772-b3bb-3f39495576e4" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/setup_boost.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/setup_fw.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../mcmc/my_stoc_sphere/junkyard/cmp.pyx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../mcmc/my_stoc_sphere/junkyard/setup.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../dualsvm/src/build/temp.macosx-10.5-x86_64-2.7/coor_cy.o" afterPath="$PROJECT_DIR$/../dualsvm/src/build/temp.macosx-10.5-x86_64-2.7/coor_cy.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../dualsvm/src/coor_cy.so" afterPath="$PROJECT_DIR$/../dualsvm/src/coor_cy.so" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcmc/.idea/codeStyleSettings.xml" afterPath="$PROJECT_DIR$/../mcmc/.idea/codeStyleSettings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../dualsvm/src/coor_cy.cpp" afterPath="$PROJECT_DIR$/../dualsvm/src/coor_cy.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../dualsvm/src/coor_cy.pyx" afterPath="$PROJECT_DIR$/../dualsvm/src/coor_cy.pyx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../dualsvm/.idea/dualsvm.iml" afterPath="$PROJECT_DIR$/../dualsvm/.idea/dualsvm.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../nonconvex/.idea/nonconvex.iml" afterPath="$PROJECT_DIR$/../nonconvex/.idea/nonconvex.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../nonconvex/src/regis.py" afterPath="$PROJECT_DIR$/../nonconvex/src/regis.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.idea/.name" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.idea/encodings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.idea/misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.idea/modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.idea/nonconvex.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.idea/scopes/scope_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.idea/vcs.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.idea/workspace.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.lock" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/history.version" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.index" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.version" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.plugins/org.eclipse.core.resources/.root/1.tree" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.core.resources.prefs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.ui.prefs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.ide.prefs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.prefs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.plugins/org.eclipse.egit.ui/dialog_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.plugins/org.eclipse.jdt.core/invalidArchivesCache" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.plugins/org.eclipse.jdt.core/nonChainingJarsCache" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.plugins/org.eclipse.jdt.core/variablesAndContainers.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.plugins/org.eclipse.jdt.ui/OpenTypeHistory.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.plugins/org.eclipse.jdt.ui/QualifiedTypeNameHistory.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.plugins/org.eclipse.jdt.ui/dialog_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.plugins/org.eclipse.ui.ide/dialog_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.plugins/org.eclipse.ui.workbench/dialog_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.plugins/org.eclipse.ui.workbench/workingsets.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/version.ini" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/LPTest.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/Loss01Explorer.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/_readme.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/cal01Loss.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/calLinearLoss.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/calSmoothLoss.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/calSmoothLossGradient.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/compareClassifiers.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/compareOptimizers.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/convertDataBupa.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/convertDataCancer.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/convertDataCmc.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/convertDataHeart.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/convertDataIris.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/convertDataPima.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/convertDataSonar.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/convertDataTicTacToe.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/convertDataUSPS.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/data.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/data1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/data100.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/data2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/data3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/data4.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/data5.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/data6.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/data7.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/dataF1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/data_small.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/CTG.xls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/Indian Liver Patient Dataset (ILPD).csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/allsigns.tar.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/breast-cancer-wisconsin.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/breast-cancer-wisconsin.names" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/bupa.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/bupa.names" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/cmc.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/cmc.names" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/crx.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/crx.names" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/german.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/german.data-numeric.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/german.names" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/haberman.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/haberman.names" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/heart.cleveland.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/heart.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/heart.names" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/house-votes-84.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/house-votes-84.names" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/iris.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/iris2.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/kr-vs-kp.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/kr-vs-kp.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/kr-vs-kp.names" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/kr_vs_kp.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/mammographic_masses.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/mammographic_masses.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/mammographic_masses.names" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/pima-indians-diabetes.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/pima-indians-diabetes.names" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/processed.hungarian.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/processed.switzerland.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/sonar.all-data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/sonar.names" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/spambase.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/spambase.names" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/tic-tac-toe.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/tic-tac-toe.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/tic-tac-toe.names" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/usps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/usps.t" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/usps.trn" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/usps89.trn" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/datatmp/usps89.tst" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/iris.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/simple.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/three_pts.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/data/tic-tac-toe.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/dataUCI/breast-cancer-wisconsin.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/dataUCI/bupa.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/dataUCI/cmc.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/dataUCI/haberman.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/dataUCI/heart.cleveland.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/dataUCI/heart.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/dataUCI/house-votes-84.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/dataUCI/indian_liver.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/dataUCI/pima-indians-diabetes.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/dataUCI/sonar.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/dataUCI/spambase.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/findBestALAConstant.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/findBestLRConstant.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/findBestLogisticRegressionConstant.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/findBestSLOConstant.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/findBestSVMConstant.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/findLeastLossLibLinearConstant.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/generateData.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/generateTestData.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/getBestCSWeights.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/getBestPredictionRatesByALA.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/getBestPredictionRatesByBPM.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/getBestPredictionRatesByLR.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/getBestPredictionRatesBySVM.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/getBestWeightsByLR.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/getBnBOptimalPredictionVector.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/getBnBOptimalPredictionVector2.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/getEndPointsOfDecisionLine.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/getMinimal01LossByBPM.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/getMinimal01LossByBnB.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/getMinimal01LossByCSA.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/getMinimal01LossByLR.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/getMinimal01LossByPCS.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/getMinimal01LossBySLA.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/getMinimal01LossBySVM.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/getPredictionErrorRate.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/getPredictionVector.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/getSolutionByLR.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/getWeightsByALA.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/getWeightsByBPM.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/getWeightsByBranchAndBound.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/getWeightsByBranchAndBound2.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/getWeightsByBranchAndBound3.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/getWeightsByBranchAndBound4.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/getWeightsByLP.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/getWeightsByLeastSquare.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/getWeightsByLinearSVM.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/getWeightsByLogisticRegression.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/getWeightsByLogisticRegressionOld.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/getWeightsByPerceptron.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/getWeightsByPointsSelection.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/getWeightsByPointsSelection2.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/getWeightsByPointsSelection3.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/getWeightsByPointsSelection4.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/getWeightsByPointsSelectionInit.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/getWeightsBySmoothLoss.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/ilpL.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/ilpT.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/@bpm_ep/bpm_ep.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/@bpm_ep/classify.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/@bpm_ep/display.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/@bpm_ep/draw.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/@bpm_ep/get_s.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/@bpm_ep/get_v.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/@bpm_ep/get_w.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/@bpm_ep/predict.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/@bpm_ep/retrain.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/@bpm_ep/set_X.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/@bpm_ep/set_Y.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/@bpm_ep/set_kernel.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/@bpm_ep/set_restrict.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/@bpm_ep/set_stepsize.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/@bpm_ep/set_vp.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/@bpm_ep/subsasgn.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/@bpm_ep/subsref.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/@bpm_ep/train.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/@bpm_ep/train_ard.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/@bpm_ep/train_ard_kernel.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/@bpm_ep/train_kernel.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/@bpm_ep/train_linear.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/COPYING" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/Contents.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/README.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/bpm_brute.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/bpm_classify.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/bpm_direct.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/bpm_draw.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/bpm_likelihood.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/bpm_task.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/brute_predict.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/data/bits.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/data/breast_cancer_wisconsin.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/data/digit.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/data/example2.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/data/example3.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/data/heart.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/data/ionosphere.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/data/pima.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/data/six_pts.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/data/sonar.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/data/three_pts.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/data/thyroid.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/draw_ellipsoid.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/draw_vs_point.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/kernelmtx_discrete.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/kernelmtx_linear.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/kernelmtx_poly.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/kernelmtx_rbf.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/billiard/billiard.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/billiard/kbilliard.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/billiard/tbilliard.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/ep/ep_kernel.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/ep/ep_probit.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/ep/ep_step.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/logreg/logreg_newton.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/old/junk" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/old/kernel.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/old/kerneldiag.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/old/kernelmtx.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/old/svkernelv.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/old/test_maire.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/X.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/Y.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/adf_step.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/bayes_brute.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/bayes_brute2.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/bayes_predict_brute.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/digit_compare.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/digit_compare2.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/draw_ellipsoid.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/ep_kernel.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/ep_step.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/ep_step_sphere.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/gpc.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/gpc2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/gpc2t.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/gpr.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/gpr.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/gpr2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/gpr2s.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/gpr2t.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/heart_result.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/ion_results.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/opper_mf.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/opper_tap.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/opper_vb.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/perceptron.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/pima_small.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/pima_time.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/rujan.results" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/rujan_pms" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/save_rujan.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/show_vs.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/sonar_brute.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/sonar_brute2.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/sonar_brute3.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/sonar_results.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/sonar_results2.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/svm_linear.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/task1.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/task2.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/task3.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/test1.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/test_digit.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/test_doc.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/test_gpr.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/test_gpr2.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/test_iris.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/test_kernel.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/test_select.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/test_sonar.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/test_tap.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/test_tbilliard.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/sep/thyroid_results.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/svm/Contents.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/svm/README" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/svm/alpha2w.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/svm/binomial.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/svm/centrefig.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/svm/cmap.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/svm/cols.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/svm/example.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/svm/iris1v23.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/svm/iris2v13.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/svm/iris3v12.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/svm/linsep.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/svm/nlinsep.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/svm/nobias.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/svm/radius.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/svm/rows.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/svm/scale_cols.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/svm/scale_rows.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/svm/sinc.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/svm/softmargin.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/svm/svc.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/svm/svcerror.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/svm/svcinfo.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/svm/svcoutput.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/svm/svcplot.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/svm/svdatanorm.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/svm/svkernel.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/svm/svkernelmtx.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/svm/svkernelv.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/svm/svr.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/svm/svrerror.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/svm/svroutput.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/svm/svrplot.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/svm/svtol.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/svm/test_example.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/svm/titanium.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/svm/uiclass.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/svm/uiclass.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/svm/uiregress.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/other/svm/uiregress.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/plot_data.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/show_vs.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/test1.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/test2.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/test3.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/test5.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/test_kernel.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/train_svm.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/bpm/xrepmat.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/liblinear/README" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/liblinear/libsvmread.mexw32" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/liblinear/libsvmwrite.mexw32" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/liblinear/predict.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/liblinear/predict.mexw32" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/liblinear/testPoints.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/liblinear/train.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/liblinear/train.mexw32" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/lpsolve/lpsolve55.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/libs/lpsolve/mxlpsolve.mexw32" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/main.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/main_mean_error.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/main_mean_error_plot.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/main_method_tester.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/main_test2.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/main_usps.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/main_usps_reg.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/mesh01LossGrid.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/meshSmoothLossGrid.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/mip1.lp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/noisifyData.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/normalizeData.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/normalizeData01.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/plot01Loss.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/plotData.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/plotFeatures.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/plotSmoothLoss3D.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/plotSmoothLossCuttingPlane.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/predictByWeights.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/printSolution.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/readData.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/readDataLibSVM.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/readDataOptdigits.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/showDataPoints.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/showImprovement.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/showImprovementStats.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/smoothLossExplorer.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/smoothLossLMOptimizer.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/smoothLossLocalOptimizer.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/smoothLossLocalOptimizerV1.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/smoothLossLocalOptimizerV2.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/smoothLossOptimizer.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/smoothLossOptimizerV1.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/smoothLossRangeOptimizer.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/smoothLossSGD.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/smoothLossViz.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/test611b.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/test621a.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/test621b.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/test622a.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/test622a2.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/test622a3.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/test623a.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/test631a.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/test631b.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/test631c.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/test631d.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/test631d.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/test632a.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/test632b.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/test633a.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/test_ALA_2.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/test_ALA_3.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/test_ALA_CompareApprox.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/test_BnB_algorithms.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/test_BnB_final.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/test_PS_PS2T0.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/test_PS_PS3.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/test_PS_approx.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/test_PS_intro.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/test_SLA_smooth.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/test_complexityND.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/tests/temp.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/tests/test621a.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/tests/test621b.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/tests/test622a.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/tests/test622a2.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/tests/test622a200.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/tests/test622b.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/tests/test623a.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/tests/test632a.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/tests/test633a.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/2-RSGF.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/2_RSG_V.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Algorithm_Selecting.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Algorithm_Selecting.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Computing_Data.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Computing_Data.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Data_generation.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Data_generation.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Estimating_Parameters.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Estimating_Parameters.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/General_sample_generation.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/General_sample_generation.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Hybrid-RSG.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Hybrid_RSG.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Hybrid_RSGF.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Input1.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Input1.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Input2.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Input3.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Input3.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Input4.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Input_Parameters.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Input_Parameters.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Input_Parameters2.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Least_sqr-n100-st0.1.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Least_sqr-n100-st1.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Least_sqr-n1000-st0.1.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Least_sqr-n1000-st1.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Least_sqr-n500-st0.1.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Least_sqr-n500-st1.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Main_Program.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Main_Program.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Notes for repeating the experiments in the paper.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/RSG.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/RSG.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/RSGF.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/RSGF_2.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/RSGF_2.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/RSGF_2V.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/RSG_2.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/RSG_2V.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Results_showing.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Results_showing.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Results_showing2.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Results_showing2.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/SGradient.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/SGradient.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/SVM-n100.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/SVM-n1000.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/SVM-n500.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Sample_generation.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Sample_generation.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Sample_generation_Reg.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Sample_generation_SVM.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Sample_generation_SVM.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Sample_generation_SVM2.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Sample_generation_Trig.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Sample_generation_Trig.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Zero_Running_script.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/classic_SA.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/classic_SA.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/common_prog.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/common_prog.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/data_showing.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/eval_xbar.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/eval_xbar.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/evaluation_oracle.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/evaluation_oracle.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/evaluation_oracle2.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/generating_rnd_num.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/generating_rnd_num.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/initializer.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/initializer.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/last_seed.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/objective_computation.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/objective_computation.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/problem_selecting.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/problem_selecting.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/problem_selecting2.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/simulation.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/simulation.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/smooth_SA.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/smooth_SA.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/smooth_zero_SA.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/smooth_zero_SA.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_Algorithm_Selecting.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_Estimating_Parameters.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_Estimating_Parameters.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_Input1.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_Input1.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_Input2.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_Input_Parameters.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_Input_Parameters.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_Results_showing.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_Results_showing.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_Results_showing2.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_SGradient.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_SGradient.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_classic_SA.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_common_prog.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_eval_xbar.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_eval_xbar.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_eval_xbar2.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_evaluation.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_evaluation.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_initializer.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_initializer.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/data/SVM-n100.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/data/SVM-n1000.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/data/SVM-n500.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/output/aaa.eps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/output/vis2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/output/visu.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/paper/NonconvexSA-Techreport1.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/1000acc.tex" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/1000mean_nm.tex" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/1000var_nm.tex" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/100acc.lyx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/100acc.tex" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/100mean_nm.lyx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/100mean_nm.tex" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/100var_nm.lyx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/100var_nm.tex" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/500acc.tex" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/500mean_nm.tex" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/500var_nm.tex" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/converg.eps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/converg.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/converg0.0001.eps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/converg0.001.eps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/converg0.01.eps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/curve.eps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/main.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/regis.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/sigmoid.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/stoch.py" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\qdengpercy\workspace\boost\src\result.eps" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\qdengpercy\workspace\nonconvex\Nonconvex SA-Code\Result\Results-SVM-n1000.mat" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\qdengpercy\workspace\nonconvex\Nonconvex SA-Code\Result\Results-svm-n100.mat" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\qdengpercy\workspace\nonconvex\Nonconvex SA-Code\Result\Results.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\qdengpercy\workspace\nonconvex\Nonconvex-SA-Code\Result\Results-SVM-n100.mat" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\qdengpercy\workspace\nonconvex\Nonconvex-SA-Code\Result\Results.txt" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/bench_err.npy" afterPath="$PROJECT_DIR$/output/bench_err.npy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/bench_std.npy" afterPath="$PROJECT_DIR$/output/bench_std.npy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/benchmark.py" afterPath="$PROJECT_DIR$/src/benchmark.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/boost.iml" afterPath="$PROJECT_DIR$/.idea/boost.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/frank_wolfe_cy.cpp" afterPath="$PROJECT_DIR$/src/frank_wolfe_cy.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcmc/.idea/mcmc.iml" afterPath="$PROJECT_DIR$/../mcmc/.idea/mcmc.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcmc/.idea/misc.xml" afterPath="$PROJECT_DIR$/../mcmc/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/auxiliary/quicksort.pyx" afterPath="$PROJECT_DIR$/src/auxiliary/quicksort.pyx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setupqsort.py" afterPath="$PROJECT_DIR$/setupqsort.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test_boost.py" afterPath="$PROJECT_DIR$/src/test_boost.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../dualsvm/src/testsvm.py" afterPath="$PROJECT_DIR$/../dualsvm/src/testsvm.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcmc/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../mcmc/.idea/workspace.xml" />
     </list>
@@ -40,14 +594,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="test_boost.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="test_boost.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test_boost.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="214" column="0" selection-start="7607" selection-end="7607" vertical-scroll-proportion="0.7116788" vertical-offset="2190" max-vertical-offset="5070">
+            <state line="320" column="22" selection-start="12011" selection-end="12011" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6030">
               <folding>
                 <element signature="e#27#48#0" expanded="true" />
-                <element signature="e#5305#6854#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fwBoost.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/fwBoost.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="299" column="76" selection-start="10892" selection-end="10892" vertical-scroll-proportion="-0.33811477" vertical-offset="4530" max-vertical-offset="5640">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -55,8 +617,10 @@
       <file leaf-file-name="benchmark.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/benchmark.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="20" selection-start="825" selection-end="825" vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="570">
-              <folding />
+            <state line="19" column="0" selection-start="498" selection-end="498" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
+              <folding>
+                <element signature="e#27#45#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -64,7 +628,7 @@
       <file leaf-file-name="plot_adaboost_benchmark.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/plot_adaboost_benchmark.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="0" selection-start="2680" selection-end="2680" vertical-scroll-proportion="0.0" vertical-offset="1260" max-vertical-offset="2175">
+            <state line="84" column="0" selection-start="2791" selection-end="2791" vertical-scroll-proportion="0.0" vertical-offset="1260" max-vertical-offset="2385">
               <folding />
             </state>
           </provider>
@@ -73,7 +637,7 @@
       <file leaf-file-name="paraboost.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/paraboost.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="149" column="35" selection-start="5008" selection-end="5008" vertical-scroll-proportion="0.0" vertical-offset="2235" max-vertical-offset="2565">
+            <state line="153" column="29" selection-start="5208" selection-end="5208" vertical-scroll-proportion="0.0" vertical-offset="1722" max-vertical-offset="2550">
               <folding />
             </state>
           </provider>
@@ -103,9 +667,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/fwBoost.py" />
-        <option value="$PROJECT_DIR$/../nonconvex/src/regis.py" />
-        <option value="$PROJECT_DIR$/../dualsvm/src/test_time.py" />
         <option value="$PROJECT_DIR$/../mcmc/sgrld/wikirandom.py" />
         <option value="$PROJECT_DIR$/../dualsvm/src/stocksvm.py" />
         <option value="$PROJECT_DIR$/../dualsvm/src/dualcoor_cython.py" />
@@ -139,7 +700,6 @@
         <option value="$PROJECT_DIR$/src/benchtest.py" />
         <option value="$PROJECT_DIR$/src/fwboost.py" />
         <option value="$PROJECT_DIR$/src/boost.py" />
-        <option value="$PROJECT_DIR$/src/benchmark.py" />
         <option value="$PROJECT_DIR$/src/plot_adaboost_hastie_10_2.py" />
         <option value="$PROJECT_DIR$/src/paraboost_cy.py" />
         <option value="$PROJECT_DIR$/src/src/setup_boost_cy.py" />
@@ -153,15 +713,19 @@
         <option value="$PROJECT_DIR$/src/plot_adaboost_benchmark.py" />
         <option value="$PROJECT_DIR$/src/paraboost.py" />
         <option value="$PROJECT_DIR$/../dualsvm/src/testsvm.py" />
+        <option value="$PROJECT_DIR$/src/setupqsort.py" />
+        <option value="$PROJECT_DIR$/src/auxiliary/quicksort.pyx" />
+        <option value="$PROJECT_DIR$/setupqsort.py" />
+        <option value="$PROJECT_DIR$/src/benchmark.py" />
         <option value="$PROJECT_DIR$/src/test_boost.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="245" />
-    <option name="y" value="22" />
-    <option name="width" value="1001" />
-    <option name="height" value="774" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1296" />
+    <option name="height" value="776" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -208,6 +772,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -225,16 +790,6 @@
               <option name="myItemId" value="dualsvm" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="boost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dualsvm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
@@ -261,17 +816,30 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="boost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="boost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="build" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../mcmc" />
-    <property name="options.lastSelected" value="preferences.sourceCode.Python" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -291,6 +859,8 @@
       <recent name="$PROJECT_DIR$/../dualsvm/src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\qdengpercy\workspace\boost" />
+      <recent name="C:\Users\qdengpercy\workspace\boost\src" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/aux" />
     </key>
@@ -380,9 +950,6 @@
       <option name="PARAMETERS" value="" />
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
-      <method />
-    </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -404,6 +971,9 @@
       <option name="PUREUNITTEST" value="true" />
       <option name="PARAMS" value="" />
       <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -500,18 +1070,18 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="245" y="22" width="1001" height="774" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1296" height="776" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23176824" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30390626" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16453901" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2260479" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.044548653" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -547,14 +1117,48 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/test_boost.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="214" column="0" selection-start="7686" selection-end="7686" vertical-scroll-proportion="0.0" vertical-offset="2580" max-vertical-offset="5400">
+          <folding>
+            <element signature="e#27#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/benchmark.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="20" selection-start="825" selection-end="825" vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="570">
+          <folding>
+            <element signature="e#27#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/plot_adaboost_benchmark.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="0" selection-start="2791" selection-end="2791" vertical-scroll-proportion="0.0" vertical-offset="1260" max-vertical-offset="2385">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/paraboost.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="149" column="35" selection-start="5008" selection-end="5008" vertical-scroll-proportion="0.0" vertical-offset="2235" max-vertical-offset="2565">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/paraboost_cy.pyx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="134" column="40" selection-start="4931" selection-end="4931" vertical-scroll-proportion="0.0" vertical-offset="1742" max-vertical-offset="4110">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../dualsvm/src/dualksvm.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="92" column="12" selection-start="3287" selection-end="3287" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="3000" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../dualsvm/src/testsvm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="0" selection-start="1077" selection-end="1077" vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="570" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/paraboost.py">
@@ -627,11 +1231,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="885" />
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/threading.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="751" column="8" selection-start="26615" selection-end="26615" vertical-scroll-proportion="9.0375" vertical-offset="6204" max-vertical-offset="20055" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../mcmc/sgrld/wikirandom.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="95" column="37" selection-start="3957" selection-end="3957" vertical-scroll-proportion="0.1509434" vertical-offset="1337" max-vertical-offset="1920" />
@@ -645,56 +1244,6 @@
     <entry file="file://$PROJECT_DIR$/../mcmc/sgrld/run_wiki.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="15" selection-start="317" selection-end="317" vertical-scroll-proportion="0.12864494" vertical-offset="45" max-vertical-offset="885" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../dualsvm/src/mysvm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="12" selection-start="681" selection-end="681" vertical-scroll-proportion="0.3815029" vertical-offset="96" max-vertical-offset="990" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../dualsvm/src/coor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="20" selection-start="3155" selection-end="3155" vertical-scroll-proportion="1.3323699" vertical-offset="233" max-vertical-offset="1830" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../dualsvm/src/coor_cy.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6895" column="15" selection-start="318678" selection-end="318678" vertical-scroll-proportion="17.83374" vertical-offset="96131" max-vertical-offset="335460" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aux/setupqsort.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="39" selection-start="333" selection-end="333" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aux/test_quicksort.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="10" selection-start="425" selection-end="425" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="735" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aux/test_ksmall.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="16" selection-start="116" selection-end="116" vertical-scroll-proportion="0.17355372" vertical-offset="0" max-vertical-offset="605" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aux/setup_ksmall.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="18" selection-start="0" selection-end="337" vertical-scroll-proportion="0.3821656" vertical-offset="0" max-vertical-offset="628" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../dualsvm/src/coor_cy.pyd">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="20820" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aux/ksmall.pyx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="171" selection-end="571" vertical-scroll-proportion="0.23519164" vertical-offset="0" max-vertical-offset="2385" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aux/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="15" selection-start="56" selection-end="56" vertical-scroll-proportion="0.07165605" vertical-offset="0" max-vertical-offset="628" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/__init__.py">
@@ -712,31 +1261,9 @@
         <state line="61" column="29" selection-start="2106" selection-end="2106" vertical-scroll-proportion="0.44378698" vertical-offset="690" max-vertical-offset="1215" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../dualsvm/src/coor_cy.pyx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="142" column="54" selection-start="5031" selection-end="5031" vertical-scroll-proportion="0.0" vertical-offset="1757" max-vertical-offset="3300" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../dualsvm/src/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="6" selection-start="310" selection-end="338" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../dualsvm/src/stocksvm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="15" selection-start="1953" selection-end="1953" vertical-scroll-proportion="0.6133829" vertical-offset="525" max-vertical-offset="1680" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gen_ftrs.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="55" column="46" selection-start="1551" selection-end="1551" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1455">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fwboost.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="299" column="76" selection-start="10892" selection-end="10892" vertical-scroll-proportion="-0.22304833" vertical-offset="4485" max-vertical-offset="5640">
           <folding />
         </state>
       </provider>
@@ -761,11 +1288,6 @@
         <state line="24" column="0" selection-start="541" selection-end="541" vertical-scroll-proportion="0.4509804" vertical-offset="107" max-vertical-offset="1890" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/aux/quicksort.pyx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="20" selection-start="257" selection-end="257" vertical-scroll-proportion="0.26737967" vertical-offset="0" max-vertical-offset="930" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/setup_fw.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="27" selection-start="353" selection-end="353" vertical-scroll-proportion="0.26737967" vertical-offset="0" max-vertical-offset="561" />
@@ -776,28 +1298,9 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="538" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/benchmark.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="20" selection-start="825" selection-end="825" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/plot_adaboost_benchmark.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="0" selection-start="2680" selection-end="2680" vertical-scroll-proportion="0.0" vertical-offset="804" max-vertical-offset="2070">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../dualsvm/src/testsvm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="33" selection-start="1455" selection-end="1455" vertical-scroll-proportion="1.0695187" vertical-offset="0" max-vertical-offset="2280" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/paraboost.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="149" column="35" selection-start="5008" selection-end="5008" vertical-scroll-proportion="0.0" vertical-offset="1269" max-vertical-offset="2550">
+        <state line="84" column="0" selection-start="2791" selection-end="2791" vertical-scroll-proportion="0.0" vertical-offset="1260" max-vertical-offset="2385">
           <folding />
         </state>
       </provider>
@@ -809,13 +1312,56 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/auxiliary/quicksort.pyd">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5805">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/benchmark.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="0" selection-start="498" selection-end="498" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
+          <folding>
+            <element signature="e#27#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/paraboost.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="153" column="29" selection-start="5208" selection-end="5208" vertical-scroll-proportion="0.0" vertical-offset="1722" max-vertical-offset="2550">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setupqsort.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="31" selection-start="209" selection-end="209" vertical-scroll-proportion="0.16260162" vertical-offset="0" max-vertical-offset="738">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/auxiliary/quicksort.pyx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="11" selection-start="329" selection-end="329" vertical-scroll-proportion="0.26422763" vertical-offset="0" max-vertical-offset="945">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test_boost.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="214" column="0" selection-start="7607" selection-end="7607" vertical-scroll-proportion="0.7116788" vertical-offset="2190" max-vertical-offset="5070">
+        <state line="320" column="22" selection-start="12011" selection-end="12011" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6030">
           <folding>
             <element signature="e#27#48#0" expanded="true" />
-            <element signature="e#5305#6854#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fwBoost.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="299" column="76" selection-start="10892" selection-end="10892" vertical-scroll-proportion="-0.33811477" vertical-offset="4530" max-vertical-offset="5640">
+          <folding />
         </state>
       </provider>
     </entry>

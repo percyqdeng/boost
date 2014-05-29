@@ -1,0 +1,3 @@
+LIBRARY frank_wolfe_cy.pyd
+EXPORTS
+initfrank_wolfe_cy

@@ -1,0 +1,3 @@
+LIBRARY boost_cy.pyd
+EXPORTS
+initboost_cy

@@ -1,6 +1,7 @@
 __author__ = 'qdengpercy'
 
 import numpy as np
+import os
 from fwboost import *
 from paraboost import *
 from sklearn import cross_validation
@@ -13,7 +14,7 @@ from test_boost import *
 
 
 if os.name == "nt":
-    dtpath = '../../dataset/benchmark_uci'
+     dtpath = "..\\..\\dataset\\ucibenchmark\\"
 elif os.name == "posix":
     dtpath = '../../dataset/benchmark_uci/'
 
