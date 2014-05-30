@@ -1,6 +1,7 @@
 __author__ = 'qdengpercy'
 
 from fwboost import *
+import matplotlib.pyplot as plt
 from paraboost import *
 import sklearn.cross_validation as cv
 from sklearn.metrics import zero_one_loss

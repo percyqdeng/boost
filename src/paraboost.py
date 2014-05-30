@@ -1,6 +1,7 @@
 __author__ = 'qdengpercy'
 # coding=utf8
 from boost import *
+import matplotlib.pyplot as plt
 import pdb
 
 class ParaBoost(Boost):
