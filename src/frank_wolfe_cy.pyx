@@ -28,8 +28,12 @@ cpdef fw_boost_cy(np.ndarray[np.float64_t, ndim=2]hh,
         hh : output matrix of weak learners
     """
     print '-----------fw boost cython code-----------'
-    cdef unsigned int n = hh.shape[0]
-    cdef unsigned int p = hh.shape[1]
+    cdef Py_ssize_t n = hh.shape[0]
+    cdef Py_ssize_t p = hh.shape[1]
+    cdef np.ndarray[int] used = (np.zeros(n, dtype=np.int32))
+    cdef unsigned int total_zeros = p
+    cdef vector[int] num_zeros
+
     cdef vector[np.float64_t] margin
     cdef vector[np.float64_t] primal_obj
     # cdef vector[np.float64_t] dual_obj
@@ -58,7 +62,7 @@ cpdef fw_boost_cy(np.ndarray[np.float64_t, ndim=2]hh,
     else:
         delta = 40
     print " fw-boosting: maximal iter #: "+str(max_iter)
-    for t in range(max_iter):
+    for t in xrange(max_iter):
         exp_descent(h_a, d0, <np.float_t*>d.data, 1 / mu)
         if has_dcap:
             proj_cap_ent_cy(d, 1.0 / nu)
@@ -70,6 +74,9 @@ cpdef fw_boost_cy(np.ndarray[np.float64_t, ndim=2]hh,
             if fabs(dt_h[i]) > res:
                 res = fabs(dt_h[i])
                 j = i
+        if used[j] == 0:
+            total_zeros -= 1
+            used[j] = 1
         if dt_h[j] < 0:
             ej = -1
         else:
@@ -95,6 +102,7 @@ cpdef fw_boost_cy(np.ndarray[np.float64_t, ndim=2]hh,
             err_tr.push_back(res/n)
             gap.push_back(curr_gap)
             primal_obj.push_back(cmp_primal_objective(h_a, mu))
+            num_zeros.push_back(total_zeros)
             # print 'iter %s, gap: %s ' %(t, curr_gap)
         if steprule == 1:
             res = 0
@@ -127,7 +135,7 @@ cpdef fw_boost_cy(np.ndarray[np.float64_t, ndim=2]hh,
             print ("iter# %d, gap %.5f, dmax %f" % (t, curr_gap, d.max()))
 
     print "most t "+str(t)
-    return alpha, primal_obj, gap, err_tr, margin, iter_num
+    return alpha, primal_obj, gap, err_tr, margin, iter_num, num_zeros
 
 
 cdef np.float64_t cmp_primal_objective(np.ndarray[np.float64_t] z, np.float64_t mu):

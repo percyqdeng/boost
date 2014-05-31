@@ -36,13 +36,15 @@ class ParaBoost(Boost):
     def to_name(self):
         return "paraboost"
 
-    def train(self, xtr, ytr, early_stop=False):
-
-        # xtr = self._process_train_data(xtr)
-        # xtr = np.hstack((xtr, np.ones((ntr, 1))))
-        yH = ytr[:, np.newaxis] * xtr
-        # yH = np.hstack((yH, -yH))
-        self._para_boosting(yH, early_stop)
+    def train(self, xtr, ytr, early_stop=False, ftr='raw'):
+        if ftr == 'raw':
+            ntr = xtr.shape[0]
+            h = self._process_train_data(xtr)
+            h = np.hstack((h, np.ones((ntr, 1))))
+            y_h = ytr[:, np.newaxis] * xtr
+        elif ftr == 'wl':
+            y_h = ytr[:, np.newaxis] * xtr
+        self._para_boosting(y_h, early_stop)
 
     def train_h(self, h, ytr, early_stop=False):
         yh = ytr[:, np.newaxis] * h

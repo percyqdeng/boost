@@ -146,8 +146,8 @@ class TestCase(object):
         plt.tight_layout()
         plt.savefig('../output/syn_soft_margin.pdf')
 
-
-    def synthetic_hard_margin(self):
+    @staticmethod
+    def synthetic_hard_margin():
         """
         compare margin
         """
@@ -194,7 +194,7 @@ class TestCase(object):
     @staticmethod
     def weak_learner_pred(cls, x):
         """
-        obtain the output of adaboost weak learners
+        call scklearn's adaboost and obtain weak learners on testing data x,
         """
         # weak_learners = cls.estimators_
         n_samples = x.shape[0]
@@ -211,6 +211,54 @@ class TestCase(object):
             h[:, i] = classes.take(current_pred > 0, axis=0)
         return h
 
+    # @staticmethod
+    def cmp_sparsity(self):
+        """
+        show sparsity pattern
+        """
+        # n_estimators = np.minimum(1000, int(self.x.shape[0]*0.7))
+        n_estimators = 1000
+        n_samples = self.x.shape[0]
+        n_reps = 1
+        ss = cv.ShuffleSplit(n_samples, n_reps, train_size=0.6, test_size=0.4, random_state=1)
+        k = 0
+        for tr_ind, te_ind in ss:
+            print " iter#: %d" % (k)
+            xtr = self.x[tr_ind, :]
+            ytr = self.y[tr_ind]
+            xte = self.x[te_ind, :]
+            yte = self.y[te_ind]
+            ada_disc = AdaBoostClassifier(DecisionTreeClassifier(max_depth=1),
+                                          n_estimators=n_estimators, algorithm="SAMME")
+            ada_disc.fit(xtr, ytr)
+            htr = TestCase.weak_learner_pred(ada_disc, xtr)
+            fw = FwBoost(epsi=0.005, has_dcap=True, ratio=0.1)
+            fw.train(htr, ytr, codetype="cy", ftr='wl')
+            pd = ParaBoost(0.005, has_dcap=True, ratio=0.1)
+            pd.train(htr, ytr, ftr='wl')
+        plt.figure()
+        plt.subplot(121)
+        plt.plot(fw.iter_num, fw.num_zeros, 'rx-')
+        plt.ylim(0, n_estimators)
+        plt.subplot(122)
+        plt.plot(fw.iter_num, fw.err_tr, 'rx-', label='fw')
+        plt.plot(pd.iter_num, pd.err_tr, 'bx-', label='pd')
+        plt.legend(loc='best')
+        plt.ticklabel_format(style='sci')
+        plt.tight_layout()
+
+        plt.figure()
+        plt.subplot(121)
+        a = np.fabs(fw.alpha)
+        a /= a.max()
+        a = np.sort(a, kind='quicksort')[::-1]
+        b = np.fabs(pd.alpha)
+        b /= b.max()
+        b = np.sort(b, kind='quicksort')[::-1]
+        plt.plot(a, 'rx-', label='fw')
+        plt.plot(b, 'bo-', label='pd')
+        # plt.show()
+        return fw
 
     def bench_mark(self):
         """
@@ -251,7 +299,7 @@ class TestCase(object):
             # best_ratio = 0.1
             print "best ratio %f " % (best_ratio)
             pd = ParaBoost(epsi=0.005, has_dcap=True, ratio=best_ratio)
-            pd.train_h(htr, ytr)
+            pd.train(htr, ytr, ftr='wl')
             pred = pd.test_h(hte)
             pd_tr_err[k] = pd.err_tr[-1]
             pd_te_err[k] = zero_one_loss(y_true=yte, y_pred=pred)
@@ -354,18 +402,25 @@ def test_adafwboost():
 
 
 if os.name == "nt":
-    dtpath = "..\\..\\dataset\\ucibenchmark\\"
+    ucipath = "..\\..\\dataset\\ucibenchmark\\"
+    uspspath = "..\\..\\dataset\\usps\\"
 elif os.name == "posix":
-    dtpath = '../../dataset/benchmark_uci/'
-filename = ["bananamat", "breast_cancermat", "diabetismat", "flare_solarmat", "germanmat",
+    ucipath = '../../dataset/benchmark_uci/'
+    uspspath = '../../dataset/usps/'
+ucifile = ["bananamat", "breast_cancermat", "diabetismat", "flare_solarmat", "germanmat",
                 "heartmat", "ringnormmat", "splicemat"]
+uspsfile = 'usps_all.mat'
+mnistfile = 'mnist_all.mat'
+
+
 if __name__ == "__main__":
 
-    # newtest = TestCase(dtpath, filename[3])
+    newtest = TestCase(ucipath, ucifile[0])
+    fw = newtest.cmp_sparsity()
     # newtest.bench_mark()
     # newtest.rand_test_boost()
     # bfw, bpd, w = cmp_margin()
     # newtest.synthetic2()
     # TestCase.synthetic_soft_margin()
     # TestCase.debug()
-    profile_paraboost()
+    # profile_paraboost()

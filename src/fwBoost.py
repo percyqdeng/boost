@@ -3,6 +3,7 @@ __author__ = 'qdengpercy'
 
 import os
 import numpy as np
+import math
 import scipy.io
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn.tree import DecisionTreeClassifier
@@ -196,20 +197,34 @@ class FwBoost(Boost):
         self._gap = []
         self.err_tr = []
         self.alpha = []
+        self.num_zeros = []
+        self.iter_num = []
 
 
     def to_name(self):
         return "fwboost"
 
-    def train(self, xtr, ytr, codetype="cy", approx_margin=True, early_stop=False):
+    def train(self, xtr, ytr, codetype="cy", approx_margin=True, early_stop=False, ftr='raw'):
+        """
+        Argument:
+        codetype:  string,
+            "cy", call the faster cython function; "py", call the python code
+        approx_margin:  bool type,
+            True, approximately maximize the margin; False, solve exponential loss
+        early_stop: bool
+            True, for debug use; False, normal use
+        ftr: string, feature type
+            'wl', features from weak learner
+            'raw', raw data
+        """
         print "-------fw boost training---------"
-        # self.Z = np.std(xtr, 0)
-        # self.mu = np.mean(xtr, 0)
-        # xtr = (xtr - self.mu[np.newaxis, :])/self.Z[np.newaxis, :]
-        ntr = xtr.shape[0]
-        # xtr = self._process_train_data(xtr)
-        # xtr = np.hstack((xtr, np.ones((ntr, 1))))
-        y_h = ytr[:, np.newaxis] * xtr
+        if ftr == 'raw':
+            ntr = xtr.shape[0]
+            xtr = self._process_train_data(xtr)
+            xtr = np.hstack((xtr, np.ones((ntr, 1))))
+            y_h = ytr[:, np.newaxis] * xtr
+        elif ftr == 'wl':
+            y_h = ytr[:, np.newaxis] * xtr
         if approx_margin:
             self.mu = self.epsi / (2 * np.log(ntr))
         else:
@@ -221,7 +236,7 @@ class FwBoost(Boost):
             self.max_iter = int(108*np.log(ntr) / self.epsi**2)
 
         if codetype == "cy":
-            self.alpha, self._primal_obj, self._gap, self.err_tr, self._margin, self.iter_num= \
+            self.alpha, self._primal_obj, self._gap, self.err_tr, self._margin, self.iter_num, self.num_zeros= \
                 fw_cy.fw_boost_cy(y_h, np.float32(self.epsi), self.ratio, self.steprule, self.has_dcap, self.mu, self.max_iter)
         elif codetype == 'py':
             self._fw_boosting(y_h)
@@ -247,11 +262,13 @@ class FwBoost(Boost):
         """
 
         [n, p] = H.shape
+        used = np.zeros(p)
+        total_zeros = p
         # self.alpha = np.ones(p)/p
         self.alpha = np.zeros(p)
         d0 = np.ones(n) / n
         # self.mu = self.epsi / (2 * np.log(n))
-        self.iter_num = []
+
         # max_iter = 100
         # mu = 1
         nu = int(n * self.ratio)
@@ -280,6 +297,9 @@ class FwBoost(Boost):
             #     print d.max()
             dt_h = np.dot(d, H)
             j = np.argmax(np.abs(dt_h))
+            if used[j] == 0:
+                used[j] = 1
+                total_zeros -= 1
             ej = np.zeros(p)
             ej[j] = np.sign(dt_h[j])
             curr_gap = np.dot(dt_h, ej - self.alpha)
@@ -294,6 +314,7 @@ class FwBoost(Boost):
                 self._gap.append(curr_gap)
                 self.err_tr.append(np.mean(h_a <= 0))
                 self._primal_obj.append(self.mu * np.log(1.0 / n * np.sum(np.exp(-h_a / self.mu))))
+                self.num_zeros.append(total_zeros)
             # self._dual_obj.append(-np.max(np.abs(dt_h)) - self.mu * np.dot(d, np.log(d)) + self.mu * np.log(n))
             if self.steprule == 1:
                 eta = np.maximum(0, np.minimum(1, self.mu * curr_gap / np.sum(np.abs(self.alpha - ej)) ** 2))
@@ -303,17 +324,15 @@ class FwBoost(Boost):
                 # do line search
                 #
                 print "steprule 3, to be done"
-
             self.alpha *= (1 - eta)
             self.alpha[j] += eta * ej[j]
             h_a *= (1 - eta)
             h_a += H[:, j] * (eta * ej[j])
-
             if curr_gap < self.epsi:
                 break
             if t % (self.max_iter/10) == 0:
                 print ("iter# %d, gap %.5f, dmax %f" % (t, curr_gap, d.max()))
-        self.d = d
+        # self.d = d
 
     def plot_result(self):
         r = 2
