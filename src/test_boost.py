@@ -1,14 +1,16 @@
 __author__ = 'qdengpercy'
 
-from fwboost import *
+import profile
+
 import matplotlib.pyplot as plt
-from paraboost import *
 import sklearn.cross_validation as cv
 from sklearn.metrics import zero_one_loss
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import AdaBoostClassifier
-import profile
 
+from fwboost import *
+from paraboost import *
+from extract_features import *
 class TestCase(object):
     """
     TestCase: experimental comparison among different boosting algorithms.
@@ -28,7 +30,6 @@ class TestCase(object):
     def rand_test_boost(self):
         xtr, ytr, xte, yte = self._gen_i_th(i=-1)
         xtr, xte = TestCase._normalize_features(xtr, xte)
-
         self.booster1 = ParaBoost(epsi=0.01, has_dcap=True, ratio=0.3)
         self.booster1.train(xtr, ytr)
         self.booster2 = FwBoost(epsi=0.01, has_dcap=True, ratio=0.3, steprule=1)
@@ -178,7 +179,7 @@ class TestCase(object):
         plt.figure()
         plt.ylim(0.05, 0.2)
         # plt.plot(fw.iter_num, fw._margin,'r-',label='fw')
-        plt.plot(pd.iter_num, pd._margin,'b-',label='pd')
+        plt.plot(pd.iter_num, pd._margin,'b-', label='pd')
         plt.ylabel('margin')
         plt.legend(loc='best')
         plt.savefig("../output/synth_hard_margin.pdf")
@@ -190,26 +191,6 @@ class TestCase(object):
         plt.ylabel('margin')
         plt.legend(loc='best')
         plt.savefig("../output/synth_hard_margin_log.pdf")
-
-    @staticmethod
-    def weak_learner_pred(cls, x):
-        """
-        call scklearn's adaboost and obtain weak learners on testing data x,
-        """
-        # weak_learners = cls.estimators_
-        n_samples = x.shape[0]
-        n_estimators = (cls.n_estimators)
-        h = np.zeros((n_samples, n_estimators))
-        classes = np.array([-1, 1])
-        for i, estimator in enumerate(cls.estimators_):
-            if cls.algorithm == 'SAMME.R':
-                # The weights are all 1. for SAMME.R
-                current_pred = cls._samme_proba(estimator, cls.n_classes_, x)
-            else:  # elif self.algorithm == "SAMME":
-                current_pred = estimator.predict(x)
-                # current_pred = (current_pred == classes).T
-            h[:, i] = classes.take(current_pred > 0, axis=0)
-        return h
 
     # @staticmethod
     def cmp_sparsity(self):
@@ -231,7 +212,7 @@ class TestCase(object):
             ada_disc = AdaBoostClassifier(DecisionTreeClassifier(max_depth=1),
                                           n_estimators=n_estimators, algorithm="SAMME")
             ada_disc.fit(xtr, ytr)
-            htr = TestCase.weak_learner_pred(ada_disc, xtr)
+            htr = weak_learner_pred(ada_disc, xtr)
             fw = FwBoost(epsi=0.005, has_dcap=True, ratio=0.1)
             fw.train(htr, ytr, codetype="cy", ftr='wl')
             pd = ParaBoost(0.005, has_dcap=True, ratio=0.1)

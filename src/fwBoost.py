@@ -218,8 +218,8 @@ class FwBoost(Boost):
             'raw', raw data
         """
         print "-------fw boost training---------"
+        ntr = xtr.shape[0]
         if ftr == 'raw':
-            ntr = xtr.shape[0]
             xtr = self._process_train_data(xtr)
             xtr = np.hstack((xtr, np.ones((ntr, 1))))
             y_h = ytr[:, np.newaxis] * xtr
