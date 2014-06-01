@@ -47,10 +47,10 @@ class AdaFwBoost(Boost):
         self.ratio = ratio
 
         self.steprule = steprule
-        self._primal_obj = []
-        self._dual_obj = []
-        self._margin = []
-        self._gap = []
+        self.primal_obj = []
+        self.dual_obj = []
+        self.margin = []
+        self.gap = []
         self.learners = []
         self.err_tr = []
         self.err_wl = []
@@ -101,18 +101,18 @@ class AdaFwBoost(Boost):
             pred = weak_learner.predict(x)
             h = pred * y
             self.err_wl.append(np.dot(h<=0, d))
-            self._gap.append(np.dot(d, h - Ha))
+            self.gap.append(np.dot(d, h - Ha))
             if self.has_dcap:
                 min_margin = ksmallest(Ha, nu)
-                self._margin.append(np.mean(min_margin))
+                self.margin.append(np.mean(min_margin))
             else:
-                self._margin.append(np.min(Ha))
-            self._primal_obj.append(self.mu * np.log(1.0 / n * np.sum(np.exp(-Ha / self.mu))))
+                self.margin.append(np.min(Ha))
+            self.primal_obj.append(self.mu * np.log(1.0 / n * np.sum(np.exp(-Ha / self.mu))))
             self.err_tr.append(np.mean(Ha <= 0))
             if self.steprule == 1:
-                eta = np.maximum(0, np.minimum(1, self.mu * self._gap[-1] / (1 + self.alpha.sum()) ** 2))
+                eta = np.maximum(0, np.minimum(1, self.mu * self.gap[-1] / (1 + self.alpha.sum()) ** 2))
             elif self.steprule == 2:
-                eta = np.maximum(0, np.minimum(1, self.mu * self._gap[-1] / (LA.norm(h - Ha, np.inf)) ** 2))
+                eta = np.maximum(0, np.minimum(1, self.mu * self.gap[-1] / (LA.norm(h - Ha, np.inf)) ** 2))
             else:
                 """
                 line search
@@ -121,11 +121,11 @@ class AdaFwBoost(Boost):
             self.alpha[t] = eta
             Ha *= (1-eta)
             Ha += eta * h
-            if self._gap[-1] < self.epsi:
+            if self.gap[-1] < self.epsi:
                 break
         self.d = d
         # gaps = gaps[:t]
-        # self._margin = self._margin[:t]
+        # self.margin = self.margin[:t]
         # prim_obj = prim_obj[:t]
         # dual_obj = dual_obj[:t]
 
@@ -142,15 +142,15 @@ class AdaFwBoost(Boost):
         c = 2
         nBins = 6
         plt.subplot(r, c, 1)
-        plt.plot(np.log(self._gap), 'rx-', markersize=0.3, label='gap')
-        T = len(self._gap)
+        plt.plot(np.log(self.gap), 'rx-', markersize=0.3, label='gap')
+        T = len(self.gap)
         bound = 1/(self.mu * np.arange(1, 1+T))
         plt.plot(np.log(bound), 'bo-', markersize=0.2, label='bound')
         plt.title('log primal-dual gap')
         plt.legend(loc='best')
         plt.locator_params(axis='x', nbins=nBins)
         plt.subplot(r, c, 2)
-        plt.plot(self._margin, 'bo-', markersize=0.3)
+        plt.plot(self.margin, 'bo-', markersize=0.3)
         plt.title('margin')
         plt.locator_params(axis='x', nbins=nBins)
         plt.subplot(r, c, 3)
@@ -191,10 +191,10 @@ class FwBoost(Boost):
         self.has_dcap = has_dcap
         self.ratio = ratio
         self.steprule = steprule
-        self._primal_obj = []
-        self._dual_obj = []
-        self._margin = []
-        self._gap = []
+        self.primal_obj = []
+        self.dual_obj = []
+        self.margin = []
+        self.gap = []
         self.err_tr = []
         self.alpha = []
         self.num_zeros = []
@@ -220,7 +220,7 @@ class FwBoost(Boost):
         print "-------fw boost training---------"
         ntr = xtr.shape[0]
         if ftr == 'raw':
-            xtr = self._process_train_data(xtr)
+            xtr = self.process_train_data(xtr)
             xtr = np.hstack((xtr, np.ones((ntr, 1))))
             y_h = ytr[:, np.newaxis] * xtr
         elif ftr == 'wl':
@@ -238,7 +238,7 @@ class FwBoost(Boost):
             self.max_iter = int(108*np.log(ntr) / self.epsi**2)
 
         if codetype == "cy":
-            self.alpha, self._primal_obj, self._gap, self.err_tr, self._margin, self.iter_num, self.num_zeros= \
+            self.alpha, self.primal_obj, self.gap, self.err_tr, self.margin, self.iter_num, self.num_zeros = \
                 fw_cy.fw_boost_cy(y_h, np.float32(self.epsi), self.ratio, self.steprule, self.has_dcap, self.mu, self.max_iter)
         elif codetype == 'py':
             self._fw_boosting(y_h)
@@ -310,14 +310,14 @@ class FwBoost(Boost):
                 self.iter_num.append(t)
                 if self.has_dcap:
                     min_margin = ksmallest(h_a, nu)
-                    self._margin.append(np.mean(min_margin))
+                    self.margin.append(np.mean(min_margin))
                 else:
-                    self._margin.append(np.min(h_a))
-                self._gap.append(curr_gap)
+                    self.margin.append(np.min(h_a))
+                self.gap.append(curr_gap)
                 self.err_tr.append(np.mean(h_a <= 0))
-                self._primal_obj.append(self.mu * np.log(1.0 / n * np.sum(np.exp(-h_a / self.mu))))
+                self.primal_obj.append(self.mu * np.log(1.0 / n * np.sum(np.exp(-h_a / self.mu))))
                 self.num_zeros.append(total_zeros)
-            # self._dual_obj.append(-np.max(np.abs(dt_h)) - self.mu * np.dot(d, np.log(d)) + self.mu * np.log(n))
+            # self.dual_obj.append(-np.max(np.abs(dt_h)) - self.mu * np.dot(d, np.log(d)) + self.mu * np.log(n))
             if self.steprule == 1:
                 eta = np.maximum(0, np.minimum(1, self.mu * curr_gap / np.sum(np.abs(self.alpha - ej)) ** 2))
             elif self.steprule == 2:
@@ -342,20 +342,20 @@ class FwBoost(Boost):
         nBins = 6
         plt.figure()
         plt.subplot(r, c, 1)
-        plt.plot(np.log(self._gap), 'r-', label='gap')
-        T = len(self._gap)
+        plt.plot(np.log(self.gap), 'r-', label='gap')
+        T = len(self.gap)
         bound = 1/(self.mu * np.arange(1, 1+T))
         plt.plot(np.log(bound), 'b-', label='bound')
         plt.title('log primal-dual gap')
         plt.legend(loc='best')
         plt.locator_params(axis='x', nbins=nBins)
         plt.subplot(r, c, 2)
-        plt.plot(self._margin, 'b-')
+        plt.plot(self.margin, 'b-')
         plt.title('margin')
         plt.locator_params(axis='x', nbins=nBins)
         plt.subplot(r, c, 3)
-        plt.plot(self._primal_obj, 'r-', label='primal')
-        # plt.plot(self._dual_obj, color='g', label='dual')
+        plt.plot(self.primal_obj, 'r-', label='primal')
+        # plt.plot(self.dual_obj, color='g', label='dual')
         plt.title('primal objective')
         plt.legend(loc='best')
         plt.locator_params(axis='x', nbins=nBins)

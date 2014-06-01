@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2e59c25-b02d-4772-b3bb-3f39495576e4" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../mcmc/src/nips_test.py" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.idea/.name" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.idea/encodings.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.idea/misc.xml" afterPath="" />
@@ -10,29 +11,6 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.idea/scopes/scope_settings.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.idea/vcs.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.lock" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/history.version" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.index" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.version" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.plugins/org.eclipse.core.resources/.root/1.tree" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.core.resources.prefs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.ui.prefs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.ide.prefs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.prefs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.plugins/org.eclipse.egit.ui/dialog_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.plugins/org.eclipse.jdt.core/invalidArchivesCache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.plugins/org.eclipse.jdt.core/nonChainingJarsCache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.plugins/org.eclipse.jdt.core/variablesAndContainers.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.plugins/org.eclipse.jdt.ui/OpenTypeHistory.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.plugins/org.eclipse.jdt.ui/QualifiedTypeNameHistory.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.plugins/org.eclipse.jdt.ui/dialog_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.plugins/org.eclipse.ui.ide/dialog_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.plugins/org.eclipse.ui.workbench/dialog_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/.plugins/org.eclipse.ui.workbench/workingsets.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/.metadata/version.ini" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/LPTest.m" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/Loss01Explorer.m" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/_readme.txt" afterPath="" />
@@ -417,152 +395,140 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/tests/test623a.mat" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/tests/test632a.mat" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Loss01/tests/test633a.mat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/2-RSGF.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/2_RSG_V.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Algorithm_Selecting.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Algorithm_Selecting.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Computing_Data.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Computing_Data.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Data_generation.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Data_generation.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Estimating_Parameters.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Estimating_Parameters.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/General_sample_generation.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/General_sample_generation.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Hybrid-RSG.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Hybrid_RSG.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Hybrid_RSGF.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Input1.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Input1.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Input2.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Input3.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Input3.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Input4.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Input_Parameters.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Input_Parameters.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Input_Parameters2.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Least_sqr-n100-st0.1.mat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Least_sqr-n100-st1.mat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Least_sqr-n1000-st0.1.mat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Least_sqr-n1000-st1.mat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Least_sqr-n500-st0.1.mat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Least_sqr-n500-st1.mat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Main_Program.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Main_Program.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Notes for repeating the experiments in the paper.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/RSG.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/RSG.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/RSGF.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/RSGF_2.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/RSGF_2.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/RSGF_2V.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/RSG_2.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/RSG_2V.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Results_showing.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Results_showing.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Results_showing2.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Results_showing2.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/SGradient.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/SGradient.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/SVM-n100.mat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/SVM-n1000.mat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/SVM-n500.mat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Sample_generation.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Sample_generation.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Sample_generation_Reg.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Sample_generation_SVM.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Sample_generation_SVM.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Sample_generation_SVM2.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Sample_generation_Trig.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Sample_generation_Trig.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/Zero_Running_script.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/classic_SA.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/classic_SA.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/common_prog.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/common_prog.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/data_showing.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/eval_xbar.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/eval_xbar.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/evaluation_oracle.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/evaluation_oracle.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/evaluation_oracle2.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/generating_rnd_num.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/generating_rnd_num.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/initializer.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/initializer.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/last_seed.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/objective_computation.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/objective_computation.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/problem_selecting.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/problem_selecting.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/problem_selecting2.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/simulation.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/simulation.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/smooth_SA.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/smooth_SA.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/smooth_zero_SA.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/smooth_zero_SA.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_Algorithm_Selecting.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_Estimating_Parameters.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_Estimating_Parameters.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_Input1.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_Input1.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_Input2.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_Input_Parameters.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_Input_Parameters.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_Results_showing.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_Results_showing.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_Results_showing2.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_SGradient.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_SGradient.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_classic_SA.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_common_prog.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_eval_xbar.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_eval_xbar.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_eval_xbar2.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_evaluation.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_evaluation.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_initializer.asv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex-SA-Code/zero_initializer.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/2-RSGF.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/2_RSG_V.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Algorithm_Selecting.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Algorithm_Selecting.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Computing_Data.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Computing_Data.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Data_generation.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Data_generation.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Estimating_Parameters.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Estimating_Parameters.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/General_sample_generation.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/General_sample_generation.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Hybrid-RSG.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Hybrid_RSG.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Hybrid_RSGF.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Input1.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Input1.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Input2.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Input3.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Input3.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Input4.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Input_Parameters.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Input_Parameters.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Input_Parameters2.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Least_sqr-n100-st0.1.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Least_sqr-n100-st1.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Least_sqr-n1000-st0.1.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Least_sqr-n1000-st1.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Least_sqr-n500-st0.1.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Least_sqr-n500-st1.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Main_Program.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Main_Program.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Notes for repeating the experiments in the paper.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/RSG.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/RSG.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/RSGF.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/RSGF_2.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/RSGF_2.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/RSGF_2V.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/RSG_2.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/RSG_2V.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Results_showing.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Results_showing.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Results_showing2.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Results_showing2.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/SGradient.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/SGradient.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/SVM-n100.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/SVM-n1000.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/SVM-n500.mat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Sample_generation.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Sample_generation.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Sample_generation_Reg.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Sample_generation_SVM.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Sample_generation_SVM.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Sample_generation_SVM2.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Sample_generation_Trig.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Sample_generation_Trig.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/Zero_Running_script.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/classic_SA.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/classic_SA.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/common_prog.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/common_prog.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/data_showing.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/eval_xbar.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/eval_xbar.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/evaluation_oracle.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/evaluation_oracle.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/evaluation_oracle2.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/generating_rnd_num.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/generating_rnd_num.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/initializer.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/initializer.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/last_seed.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/objective_computation.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/objective_computation.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/problem_selecting.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/problem_selecting.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/problem_selecting2.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/simulation.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/simulation.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/smooth_SA.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/smooth_SA.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/smooth_zero_SA.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/smooth_zero_SA.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/zero_Algorithm_Selecting.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/zero_Estimating_Parameters.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/zero_Estimating_Parameters.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/zero_Input1.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/zero_Input1.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/zero_Input2.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/zero_Input_Parameters.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/zero_Input_Parameters.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/zero_Results_showing.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/zero_Results_showing.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/zero_Results_showing2.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/zero_SGradient.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/zero_SGradient.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/zero_classic_SA.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/zero_common_prog.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/zero_eval_xbar.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/zero_eval_xbar.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/zero_eval_xbar2.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/zero_evaluation.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/zero_evaluation.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/zero_initializer.asv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/Nonconvex SA-Code/zero_initializer.m" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/data/SVM-n100.mat" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/data/SVM-n1000.mat" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/data/SVM-n500.mat" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/output/aaa.eps" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/output/vis2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/output/visu.png" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/paper/NonconvexSA-Techreport1.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/1000acc.tex" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/1000mean_nm.tex" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/1000var_nm.tex" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/100acc.lyx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/100acc.tex" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/100mean_nm.lyx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/100mean_nm.tex" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/100var_nm.lyx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/100var_nm.tex" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/500acc.tex" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/500mean_nm.tex" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/500var_nm.tex" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/converg.eps" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/converg.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/converg0.0001.eps" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/converg0.001.eps" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/converg0.01.eps" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/curve.eps" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/main.py" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/regis.py" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/sigmoid.py" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../nonconvex/src/stoch.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\qdengpercy\workspace\nonconvex\Nonconvex SA-Code\Result\Results-SVM-n1000.mat" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\qdengpercy\workspace\nonconvex\Nonconvex SA-Code\Result\Results-svm-n100.mat" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\qdengpercy\workspace\nonconvex\Nonconvex SA-Code\Result\Results.txt" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\qdengpercy\workspace\nonconvex\Nonconvex-SA-Code\Result\Results-SVM-n100.mat" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\qdengpercy\workspace\nonconvex\Nonconvex-SA-Code\Result\Results.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\qdpercy\workspace\mcmc\src\cmp_opt.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\qdpercy\workspace\mcmc\src\cmp_sample.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\qdpercy\workspace\mcmc\src\exp1_size100001.pdf" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\qdpercy\workspace\mcmc\src\exp1_size10001.pdf" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\qdpercy\workspace\nonconvex\Nonconvex SA-Code\Result\Results-SVM-n1000.mat" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\qdpercy\workspace\nonconvex\Nonconvex SA-Code\Result\Results.txt" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fwboost.py" afterPath="$PROJECT_DIR$/src/fwboost.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/frank_wolfe_cy.pyd" afterPath="$PROJECT_DIR$/src/frank_wolfe_cy.pyd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/sparse_pattern.pdf" afterPath="$PROJECT_DIR$/output/sparse_pattern.pdf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/boost.iml" afterPath="$PROJECT_DIR$/.idea/boost.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../dualsvm/src/coor_cy.pyx" afterPath="$PROJECT_DIR$/../dualsvm/src/coor_cy.pyx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcmc/.idea/mcmc.iml" afterPath="$PROJECT_DIR$/../mcmc/.idea/mcmc.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcmc/.idea/modules.xml" afterPath="$PROJECT_DIR$/../mcmc/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/frank_wolfe_cy.cpp" afterPath="$PROJECT_DIR$/src/frank_wolfe_cy.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/paraboost.py" afterPath="$PROJECT_DIR$/src/paraboost.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test_boost.py" afterPath="$PROJECT_DIR$/src/test_boost.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test_mnist_boost.py" afterPath="$PROJECT_DIR$/src/test_mnist_boost.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcmc/.idea/vcs.xml" afterPath="$PROJECT_DIR$/../mcmc/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcmc/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../mcmc/.idea/workspace.xml" />
     </list>
     <ignored path="boost.iws" />
@@ -589,10 +555,17 @@
       <file leaf-file-name="test_boost.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test_boost.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="361" column="32" selection-start="13419" selection-end="13419" vertical-scroll-proportion="0.0" vertical-offset="5175" max-vertical-offset="6195">
-              <folding>
-                <element signature="e#27#41#0" expanded="true" />
-              </folding>
+            <state line="145" column="69" selection-start="5189" selection-end="5250" vertical-scroll-proportion="-10.038462" vertical-offset="1764" max-vertical-offset="6045">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="time_spend.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/time_spend.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="31" column="16" selection-start="718" selection-end="718" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="870">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -600,7 +573,7 @@
       <file leaf-file-name="load_data.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/load_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="43" selection-start="906" selection-end="906" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="1320">
+            <state line="29" column="43" selection-start="906" selection-end="906" vertical-scroll-proportion="0.0" vertical-offset="435" max-vertical-offset="1350">
               <folding />
             </state>
           </provider>
@@ -609,7 +582,7 @@
       <file leaf-file-name="extract_features.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/extract_features.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
               <folding />
             </state>
           </provider>
@@ -618,7 +591,7 @@
       <file leaf-file-name="test_mnist_boost.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test_mnist_boost.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="24" selection-start="570" selection-end="570" vertical-scroll-proportion="0.122349106" vertical-offset="270" max-vertical-offset="1080">
+            <state line="76" column="12" selection-start="1393" selection-end="2652" vertical-scroll-proportion="0.9425287" vertical-offset="402" max-vertical-offset="1245">
               <folding>
                 <element signature="e#27#36#0" expanded="true" />
               </folding>
@@ -629,9 +602,20 @@
       <file leaf-file-name="fwboost.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/fwboost.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="255" column="2" selection-start="8952" selection-end="8952" vertical-scroll-proportion="0.0" vertical-offset="3244" max-vertical-offset="6060">
+            <state line="276" column="12" selection-start="9564" selection-end="9564" vertical-scroll-proportion="-9.472727" vertical-offset="3619" max-vertical-offset="6060">
               <folding>
                 <element signature="e#42#51#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="paraboost.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/paraboost.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="47" column="0" selection-start="1601" selection-end="1601" vertical-scroll-proportion="-6.2" vertical-offset="364" max-vertical-offset="2745">
+              <folding>
+                <element signature="e#40#59#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -640,16 +624,25 @@
       <file leaf-file-name="frank_wolfe_cy.pyx" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/frank_wolfe_cy.pyx">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="16" selection-start="3031" selection-end="3031" vertical-scroll-proportion="0.0" vertical-offset="1515" max-vertical-offset="4215">
+            <state line="13" column="21" selection-start="364" selection-end="364" vertical-scroll-proportion="0.0" vertical-offset="1530" max-vertical-offset="4215">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="benchmark.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/benchmark.py">
+      <file leaf-file-name="boost.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/boost.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="36" selection-start="1033" selection-end="1033" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
+            <state line="62" column="10" selection-start="1316" selection-end="1317" vertical-scroll-proportion="-4.5636363" vertical-offset="649" max-vertical-offset="2445">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="setup_fw.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/setup_fw.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="6" selection-start="335" selection-end="366" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
               <folding />
             </state>
           </provider>
@@ -725,10 +718,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="299" />
-    <option name="y" value="24" />
-    <option name="width" value="1354" />
-    <option name="height" value="839" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -804,6 +797,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="boost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="boost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="output" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -925,6 +932,9 @@
       <option name="PARAMETERS" value="" />
       <method />
     </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+      <method />
+    </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -946,9 +956,6 @@
       <option name="PUREUNITTEST" value="true" />
       <option name="PARAMS" value="" />
       <option name="USE_PARAM" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -1045,18 +1052,18 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="299" y="24" width="1354" height="839" extended-state="0" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.245142" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24479167" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.121751025" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12105263" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.044548653" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1123,9 +1130,7 @@
     <entry file="file://$PROJECT_DIR$/src/test_boost.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="214" column="0" selection-start="7686" selection-end="7686" vertical-scroll-proportion="0.0" vertical-offset="2580" max-vertical-offset="5400">
-          <folding>
-            <element signature="e#27#41#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1268,13 +1273,6 @@
         <state line="13" column="26" selection-start="298" selection-end="298" vertical-scroll-proportion="0.40456432" vertical-offset="0" max-vertical-offset="2145" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/setup_fw.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="27" selection-start="353" selection-end="353" vertical-scroll-proportion="0.3030303" vertical-offset="0" max-vertical-offset="495">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="0" selection-start="27" selection-end="27" vertical-scroll-proportion="0.060606062" vertical-offset="0" max-vertical-offset="495" />
@@ -1295,57 +1293,29 @@
         <state line="84" column="0" selection-start="2791" selection-end="2791" vertical-scroll-proportion="-0.21212122" vertical-offset="1260" max-vertical-offset="2280" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/boost.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="12" selection-start="2111" selection-end="2112" vertical-scroll-proportion="0.0" vertical-offset="525" max-vertical-offset="2445">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/time_spend.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="16" selection-start="718" selection-end="718" vertical-scroll-proportion="0.63517916" vertical-offset="0" max-vertical-offset="870">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../dualsvm/src/testsvm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0053097345" vertical-offset="3" max-vertical-offset="2355">
-          <folding>
-            <element signature="e#27#49#0" expanded="false" />
-          </folding>
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0053097345" vertical-offset="3" max-vertical-offset="2355" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../dualsvm/src/mysvm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="24" selection-end="24" vertical-scroll-proportion="0.053097345" vertical-offset="0" max-vertical-offset="1050">
-          <folding>
-            <element signature="e#24#33#0" expanded="false" />
-          </folding>
-        </state>
+        <state line="2" column="0" selection-start="24" selection-end="24" vertical-scroll-proportion="0.053097345" vertical-offset="0" max-vertical-offset="1050" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../dualsvm/src/coor_cy.pyx">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="207" column="0" selection-start="6907" selection-end="6907" vertical-scroll-proportion="5.4955754" vertical-offset="0" max-vertical-offset="3345">
-          <folding />
-        </state>
+        <state line="207" column="0" selection-start="6907" selection-end="6907" vertical-scroll-proportion="5.4955754" vertical-offset="0" max-vertical-offset="3345" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../dualsvm/src/dualksvm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="0" selection-start="2105" selection-end="2105" vertical-scroll-proportion="0.6283186" vertical-offset="500" max-vertical-offset="3345">
-          <folding />
-        </state>
+        <state line="64" column="0" selection-start="2105" selection-end="2105" vertical-scroll-proportion="0.6283186" vertical-offset="500" max-vertical-offset="3345" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../dualsvm/src/test_time.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="62" selection-end="62" vertical-scroll-proportion="0.12733446" vertical-offset="30" max-vertical-offset="705">
-          <folding />
-        </state>
+        <state line="8" column="0" selection-start="62" selection-end="62" vertical-scroll-proportion="0.12733446" vertical-offset="30" max-vertical-offset="705" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/extract_features.py">
@@ -1357,49 +1327,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/setup_boost.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="21" selection-start="371" selection-end="390" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/frank_wolfe_cy.pyx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="16" selection-start="3031" selection-end="3031" vertical-scroll-proportion="0.0" vertical-offset="1515" max-vertical-offset="4215">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fwboost.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="255" column="2" selection-start="8952" selection-end="8952" vertical-scroll-proportion="0.0" vertical-offset="3244" max-vertical-offset="6060">
-          <folding>
-            <element signature="e#42#51#0" expanded="true" />
-          </folding>
-        </state>
+        <state line="15" column="21" selection-start="371" selection-end="390" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/load_data.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="43" selection-start="906" selection-end="906" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="1320">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test_boost.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="361" column="32" selection-start="13419" selection-end="13419" vertical-scroll-proportion="0.0" vertical-offset="5175" max-vertical-offset="6195">
-          <folding>
-            <element signature="e#27#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/paraboost.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="132" column="0" selection-start="4359" selection-end="4359" vertical-scroll-proportion="3.3106961" vertical-offset="30" max-vertical-offset="2745">
-          <folding>
-            <element signature="e#40#59#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1410,9 +1344,62 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/paraboost.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="0" selection-start="1601" selection-end="1601" vertical-scroll-proportion="-6.2" vertical-offset="364" max-vertical-offset="2745">
+          <folding>
+            <element signature="e#40#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/time_spend.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="16" selection-start="718" selection-end="718" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="870">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/boost.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="10" selection-start="1316" selection-end="1317" vertical-scroll-proportion="-4.5636363" vertical-offset="649" max-vertical-offset="2445">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup_fw.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="6" selection-start="335" selection-end="366" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frank_wolfe_cy.pyx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="21" selection-start="364" selection-end="364" vertical-scroll-proportion="0.0" vertical-offset="1530" max-vertical-offset="4215">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fwboost.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="276" column="12" selection-start="9564" selection-end="9564" vertical-scroll-proportion="-9.472727" vertical-offset="3619" max-vertical-offset="6060">
+          <folding>
+            <element signature="e#42#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test_boost.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="145" column="69" selection-start="5189" selection-end="5250" vertical-scroll-proportion="-10.038462" vertical-offset="1764" max-vertical-offset="6045">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test_mnist_boost.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="24" selection-start="570" selection-end="570" vertical-scroll-proportion="0.122349106" vertical-offset="270" max-vertical-offset="1080">
+        <state line="76" column="12" selection-start="1393" selection-end="2652" vertical-scroll-proportion="0.9425287" vertical-offset="402" max-vertical-offset="1245">
           <folding>
             <element signature="e#27#36#0" expanded="true" />
           </folding>

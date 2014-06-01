@@ -25,10 +25,10 @@ class ParaBoost(Boost):
         self.epsi = epsi
         self.has_dcap = has_dcap
         self.ratio = ratio
-        self._primal_obj = []
-        self._dual_obj = []
-        self._margin = []
-        self._gap = []
+        self.primal_obj = []
+        self.dual_obj = []
+        self.margin = []
+        self.gap = []
         self.err_tr = []
         self.alpha = []
         self.iter_num = []
@@ -68,20 +68,20 @@ class ParaBoost(Boost):
         nBins = 6
         plt.figure()
         plt.subplot(r, c, 1)
-        plt.plot(np.log(self._gap), 'r-', label='gap')
-        T = len(self._gap)
+        plt.plot(np.log(self.gap), 'r-', label='gap')
+        T = len(self.gap)
         bound = self.c / np.arange(1, 1 + T)
         plt.plot(np.log(bound), 'b-', label='bound')
         plt.title('log primal-dual gap')
         plt.legend(loc='best')
         plt.locator_params(axis='x', nbins=nBins)
         plt.subplot(r, c, 2)
-        plt.plot(self._margin, 'b-')
+        plt.plot(self.margin, 'b-')
         plt.title('margin')
         plt.locator_params(axis='x', nbins=nBins)
         plt.subplot(r, c, 3)
-        plt.plot(self._primal_obj, 'r-', label='primal')
-        plt.plot(self._dual_obj, color='g', label='dual')
+        plt.plot(self.primal_obj, 'r-', label='primal')
+        plt.plot(self.dual_obj, color='g', label='dual')
         plt.title('primal objective')
         plt.legend(loc='best')
         plt.locator_params(axis='x', nbins=nBins)
@@ -159,16 +159,16 @@ class ParaBoost(Boost):
                 self.iter_num.append(t)
                 if self.has_dcap:
                     min_margin = ksmallest2(h_a_bar, nu)
-                    self._primal_obj.append(-np.mean(min_margin))
+                    self.primal_obj.append(-np.mean(min_margin))
                 else:
-                    self._primal_obj.append(- np.min(h_a_bar))
-                self._margin.append(-self._primal_obj[-1])
-                self._dual_obj.append(-np.max(np.dot(d_bar, H)))
-                self._gap.append(self._primal_obj[-1] - self._dual_obj[-1])
+                    self.primal_obj.append(- np.min(h_a_bar))
+                self.margin.append(-self.primal_obj[-1])
+                self.dual_obj.append(-np.max(np.dot(d_bar, H)))
+                self.gap.append(self.primal_obj[-1] - self.dual_obj[-1])
                 self.err_tr.append(np.mean(h_a_bar < 0))
             # if t % (max_iter / showtimes) == 0:
-            #     print 'iter ' + str(t) + ' ' + str(self._gap[-1])
-            if self._gap[-1] < self.epsi:
+            #     print 'iter ' + str(t) + ' ' + str(self.gap[-1])
+            if self.gap[-1] < self.epsi:
                 break
         self.alpha = a_bar[:p / 2] - a_bar[p / 2:]
         self.d = d_bar
