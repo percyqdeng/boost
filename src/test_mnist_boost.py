@@ -34,9 +34,9 @@ if __name__ == "__main__":
     ada_disc.fit(x_train, y_train)
     htr = weak_learner_pred(ada_disc, x_train)
     print "-----------------obtain weak learner feature------------------"
-    fw = FwBoost(epsi=0.005, has_dcap=True, ratio=0.1)
+    fw = FwBoost(epsi=0.001, has_dcap=True, ratio=0.1)
     fw.train(htr, y_train, codetype="cy", ftr='wl')
-    pd = ParaBoost(0.005, has_dcap=True, ratio=0.1)
+    pd = ParaBoost(0.001, has_dcap=True, ratio=0.1)
     pd.train(htr, y_train, ftr='wl')
     plt.figure()
     plt.subplot(121)
