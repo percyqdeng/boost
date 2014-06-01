@@ -22,6 +22,7 @@ if __name__ == "__main__":
     data = load_mnist()
     x, y = convert_one_vs_one(data, digit1, digit2)
     print "-------------------load mnist data-------------------"
+    print "mnist n_samples:%d, n_dim"
     # ----------------pass through adaboost-----------------
     n_estimators = 200
     n_samples = x.shape[0]
@@ -42,14 +43,14 @@ if __name__ == "__main__":
     plt.plot(fw.iter_num, fw.num_zeros, 'rx-')
     plt.ylim(0, n_estimators)
     plt.subplot(122)
-    plt.plot(fw.iter_num, fw.err_tr, 'rx-', label='fw')
-    plt.plot(pd.iter_num, pd.err_tr, 'bx-', label='pd')
+    plt.semilogy(fw.iter_num, fw.err_tr, 'rx-', label='fw')
+    plt.semilogy(pd.iter_num, pd.err_tr, 'bx-', label='pd')
     plt.legend(loc='best')
     plt.ticklabel_format(style='sci')
     plt.tight_layout()
 
     plt.figure()
-    plt.subplot(121)
+
     a = np.fabs(fw.alpha)
     a /= a.max()
     a = np.sort(a, kind='quicksort')[::-1]
@@ -58,4 +59,8 @@ if __name__ == "__main__":
     b = np.sort(b, kind='quicksort')[::-1]
     plt.plot(a, 'rx-', label='fw')
     plt.plot(b, 'bo-', label='pd')
+    plt.ylabel("relative magnitude of weights")
+    plt.xlabel('sorted weights ')
+    plt.legend(loc='best')
+    plt.savefig('../output/sparse_pattern.pdf', format='pdf')
     # plt.show()

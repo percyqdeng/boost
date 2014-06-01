@@ -225,6 +225,8 @@ class FwBoost(Boost):
             y_h = ytr[:, np.newaxis] * xtr
         elif ftr == 'wl':
             y_h = ytr[:, np.newaxis] * xtr
+        else:
+            print "error, fwboost: train()"
         if approx_margin:
             self.mu = self.epsi / (2 * np.log(ntr))
         else:
