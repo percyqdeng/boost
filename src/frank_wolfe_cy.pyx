@@ -18,7 +18,7 @@ ctypedef np.float_t dtype_t
 @cython.cdivision(True)
 cpdef fw_boost_cy(np.ndarray[np.float64_t, ndim=2]hh,
                   np.float64_t epsi=0.01, np.float64_t ratio=0.1,
-                  int steprule=1, bool has_dcap=False, np.float64_t mu=1, int max_iter=20):
+                  int steprule=1, bool has_dcap=False, np.float64_t mu=1, int max_iter=10):
     """
     frank-wolfe boost for binary classification with weak learner as matrix hh
     min_a max_d   d^T(-hha) sub to:  ||a||_1\le 1
@@ -62,7 +62,7 @@ cpdef fw_boost_cy(np.ndarray[np.float64_t, ndim=2]hh,
     if max_iter < 200:
         delta = 1
     else:
-        delta = 40
+        delta = 1
     print " fw-boosting: maximal iter #: "+str(max_iter)
     for t in xrange(max_iter):
         exp_descent(h_a, d0, <np.float_t*>d.data, 1 / mu)
@@ -142,9 +142,8 @@ cpdef fw_boost_cy(np.ndarray[np.float64_t, ndim=2]hh,
             h_a[i] += hh[i, j] * (eta * ej)
         if curr_gap < epsi:
             break
-        if t % (max_iter/20) == 0:
-            print ("iter# %d, gap %.5f, dmax %f" % (t, curr_gap, d.max()))
-
+        if max_iter<=10 or t % (max_iter/10) == 0:
+            print ("iter# %u, gap %f, dmax %f, j %d" % (t, curr_gap, d.max(), j))
     print " fwboost, max iter#%d: , actual iter#%d" % (max_iter, t)
     return alpha, primal_obj, gap, err_tr, margin, iter_num, num_zeros, d
 
@@ -193,27 +192,34 @@ cdef void proj_cap_ent_cy(np.ndarray[np.float64_t]d0, np.float64_t v):
     min KL(d,d0) sub to max_i d(i) <=v
     """
     cdef np.ndarray[np.float64_t] u = d0.copy()
-    cdef int i, m = d0.shape[0]
+    cdef int i
+    cdef int m = d0.shape[0]
     if v < 1.0 / m:
         print "error"
     qsort(u)
     assert u[0] <= u[m-1]
-    cdef np.float64_t e, z = 0
+    cdef np.float64_t e
+    cdef np.float64_t z = 0
 
-    for i in range(m):
+    for i in xrange(m):
         z += u[i]
 
+    for i in xrange(m):
+        e = (1 - v*i) / z
+        if e * u[m-1-i] <= v:
+            break
+        z -= u[m-1-i]
     # for i in range(m):
     #     e = (1 - v * i) / z
     #     if e * u[i] <= v:
     #         break
     #     z -= u[i]
-    for i in xrange(m-1, -1, -1):
-        e = 1 - v*(m-1-i) / z
-        if e * u[i] <= v:
-            break
-        z -= u[i]
-    for i in range(m):
+    # for i in xrange(m-1, -1, -1):
+    #     e = 1 - v*(m-1-i) / z
+    #     if e * u[i] <= v:
+    #         break
+    #     z -= u[i]
+    for i in xrange(m):
         d0[i] = fmin(v, e *d0[i])
         # d = np.minimum(v, e * d0)
 

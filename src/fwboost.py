@@ -12,7 +12,6 @@ from gen_ftrs import *
 import frank_wolfe_cy as fw_cy
 
 
-
 class FwBoost(Boost):
     """Frank-Wolfe Boosting method as a saddle point matrix game
     Parameters:
@@ -52,7 +51,7 @@ class FwBoost(Boost):
     def to_name(self):
         return "fwboost"
 
-    def train(self, xtr, ytr, codetype="cy", approx_margin=True, early_stop=False, ftr='raw'):
+    def train(self, xtr, ytr, codetype="cy", approx_margin=True, max_iter=None, ftr='raw'):
         """
         Argument:
         codetype:  string,
@@ -65,7 +64,6 @@ class FwBoost(Boost):
             'wl', features from weak learner
             'raw', raw data
         """
-        print "-------fw boost training---------"
         ntr = xtr.shape[0]
         if ftr == 'raw':
             xtr = self._process_train_data(xtr)
@@ -80,11 +78,13 @@ class FwBoost(Boost):
         else:
             self.mu = 1
 
-        if early_stop:
-            self.max_iter = 10
+        if max_iter is None:
+            if approx_margin:
+                self.max_iter = int(108*np.log(ntr) / self.epsi**2)
+            else:
+                self.max_iter = 10
         else:
-            self.max_iter = int(108*np.log(ntr) / self.epsi**2)
-
+            self.max_iter = max_iter
         if codetype == "cy":
             self.alpha, self.primal_obj, self.gap, self.err_tr, self.margin, self.iter_num, self.num_zeros, self.d= \
                 fw_cy.fw_boost_cy(y_h, np.float32(self.epsi), self.ratio, self.steprule, self.has_dcap, self.mu, self.max_iter)
@@ -124,9 +124,8 @@ class FwBoost(Boost):
         if self.max_iter < 100:
             delta = 1
         else:
-            delta = 40
+            delta = 1
         h_a = np.dot(H, self.alpha)
-        # d0 = np.ones(n)/n
         print " fw-boosting(python): maximal iter #: "+str(self.max_iter)
         for t in xrange(self.max_iter):
             d_next = prox_mapping(h_a, d0, 1 / self.mu)
@@ -139,7 +138,7 @@ class FwBoost(Boost):
                 if d.max() > 1.0/nu or d.min()<0:
                     d = proj_cap_ent(d_next, 1.0 / nu)
                     print 'dmax %f, cap, %f' % (d.max(), 1.0/nu)
-                    # assert d.max() <= 1.0/nu
+                    assert d.max() <= 1.0/nu
             else:
                 d = d_next
             # if math.isnan(d.max()) or d.min() < 0 or d.max()>1:
@@ -162,7 +161,8 @@ class FwBoost(Boost):
                     self.margin.append(np.min(h_a))
                 self.gap.append(curr_gap)
                 self.err_tr.append(np.mean(h_a <= 0))
-                self.primal_obj.append(self.mu * np.log(1.0 / n * np.sum(np.exp(-h_a / self.mu))))
+                # self.primal_obj.append(self.mu * np.log(1.0 / n * np.sum(np.exp(-h_a / self.mu))))
+                # self.primal_obj.append(-np.dot(d, h_a) - self.mu * np.dot(d, np.log(d*n)))
                 self.num_zeros.append(total_zeros)
             # self.dual_obj.append(-np.max(np.abs(dt_h)) - self.mu * np.dot(d, np.log(d)) + self.mu * np.log(n))
             if self.steprule == 1:
@@ -177,10 +177,11 @@ class FwBoost(Boost):
             self.alpha[j] += eta * ej[j]
             h_a *= (1 - eta)
             h_a += H[:, j] * (eta * ej[j])
+
             if curr_gap < self.epsi:
                 break
-            if t % (self.max_iter/100) == 0:
-                print "iter#: %d " % (t)
+            if self.max_iter <= 10 or t % (self.max_iter/10) == 0:
+                print "iter# %d, gap %f, dmax %f, j:%d" % (t, curr_gap, d.max(), j)
         # self.d = d
         print " fwboost, max iter#%d: , actual iter#%d" % (self.max_iter, t)
 

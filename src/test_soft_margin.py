@@ -20,11 +20,17 @@ if __name__ == '__main__':
     # ss = cv.ShuffleSplit(2*n1, n_iter=1, train_size=0.25, test_size=0.75)
     epsi = 0.01
     has_dcap = True
+    # early_stop = False
+    early_stop = True
+    max_iter = 10
     r = 0.4
     pd = ParaBoost(epsi, has_dcap=has_dcap, ratio=r)
     pd.train(x_train, y_train, early_stop=False, ftr='wl')
     fw = FwBoost(epsi, has_dcap=has_dcap, ratio=r, steprule=2)
-    fw.train(x_train, y_train, codetype="cy", approx_margin=True, early_stop=False, ftr='wl')
+    fw.train(x_train, y_train, codetype="cy", approx_margin=True, max_iter=max_iter, ftr='wl')
+
+    fw2 = FwBoost(epsi, has_dcap=has_dcap, ratio=r, steprule=2)
+    fw2.train(x_train, y_train, codetype="py", approx_margin=True, max_iter=max_iter, ftr='wl')
     row = 2
     col = 2
     plt.subplot(row, col, 1)
@@ -52,7 +58,8 @@ if __name__ == '__main__':
     h = y_train[:, np.newaxis] * x_train
     h_a = np.dot(h, pd.alpha)
     margin1 = k_avg(h_a, int(r*n))
-
+    mu = epsi/(2*np.log(n))
+    nu = int(r * n)
     h_a2 = np.dot(h, fw.alpha)
-
-    obj_fw = fw.mu * np.log(1.0/n * (np.exp(-h_a2/fw.mu)).sum())
+    obj_fw = cmp_obj_cap(h_a2, mu, nu)
+    # obj_fw = fw.mu * np.log(1.0/n * (np.exp(-h_a2/fw.mu)).sum())

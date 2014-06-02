@@ -98,10 +98,13 @@ def proj_cap_ent(d0, v):
     return d
 
 
-def cmp_ksmal_time():
-    n = 100000
-    k = 100
-    a = np.random.normal(0, 1, n)
+def cmp_obj_cap(h_a, mu, nu):
+    n = h_a.shape
+    d0 = np.ones(n) / n
+    d = prox_mapping(h_a, d0, 1 / mu)
+    d = proj_cap_ent(d, 1.0 / nu)
+    res = -np.dot(d, h_a) - mu * np.dot(d, np.log(d*n))
+    return res
 
 
 def ksmallest2(u0, k):
