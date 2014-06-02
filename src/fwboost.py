@@ -11,157 +11,6 @@ from boost import *
 from gen_ftrs import *
 import frank_wolfe_cy as fw_cy
 
-class AdaFwBoost(Boost):
-    """Adaptive Frank-Wolfe Boosting method,
-    Parameters:
-    ------------
-    epsi ：optimization tolerance,
-    has_dcap : boolean
-        has capped probability in the dual variable (distribution of samples)
-    has_pcap : boolean
-        has capped weight in the primal variable (weight of weak learners)
-    ratio : float the capped probability
-    steprule : int, the stepsize choice in FW method
-        1 : derive from quadratic surrogate function one
-        2 : quadratic surrogate function two
-        3 : line search
-    max_iter :  int,
-        maximal iteration number, or the maximal number of weak learners in the adaptive setting
-    learners : list type, set of weak learners, (used in the adaptive fw boosting)
-    alpha : weights of weak learners
-    mu : smoothing parameter
-    err_tr : array type, training error of each iteration
-    err_wl : array type, training error of each weak learner
-    _primal_obj :  array type, primal objective in each iteration
-    _margin :  array type, margin in each iteration
-    _dual_obj : array type, dual objective in each iteration
-    _gap : array type, primal-dual gap in each iteration
-    """
-    def __init__(self, epsi=0.01, has_dcap=False, ratio=0.1,  steprule=1):
-        """
-
-        :type max_iter: int
-        """
-        self.epsi = epsi
-        self.has_dcap = has_dcap
-        self.ratio = ratio
-
-        self.steprule = steprule
-        self.primal_obj = []
-        self.dual_obj = []
-        self.margin = []
-        self.gap = []
-        self.learners = []
-        self.err_tr = []
-        self.err_wl = []
-        # self.alpha = np.zeros(max_iter)
-        self.mu = 1
-
-    def train(self, xtr, ytr):
-        self.ada_fw_boosting(xtr, ytr)
-
-    def test(self, xte, yte):
-        pred = self.pred(xte)
-        err = np.mean(pred != yte)
-        return err
-
-    def adaboost(self, x, y):
-
-        pass
-
-    def ada_fw_boosting(self, x, y):
-        """
-        frank-wolfe boost for binary classification with user defined weak learners, choose decision stump
-        as default
-        x : array of shape n*p
-        y : array of shape n*1
-        """
-        n, p = x.shape
-        d = np.ones(n) / n
-        Ha = np.zeros(n)  # the current margin
-        # z = np.zeros(n)   # the current output of learner
-        self.mu = self.epsi / (2 * np.log(n))
-        max_iter = int(np.log(n) / self.epsi**2)
-        max_iter = 4000
-        self.alpha = np.zeros(max_iter)
-        # mu = 1
-        nu = int(n * self.ratio)
-        for t in range(max_iter):
-            if t % (max_iter/10) == 0:
-                print "iter "+str(t)
-            d_next = prox_mapping(Ha, d, 1 / self.mu)
-            assert not math.isnan(d_next[0])
-            if self.has_dcap:
-                d_next = proj_cap_ent(d_next, 1.0 / nu)
-            d = d_next
-            assert np.abs(1-d.sum()) < 0.0001
-            weak_learner = DecisionTreeClassifier(max_depth=1)
-            weak_learner.fit(x, y, sample_weight=d)
-            self.learners.append(weak_learner)
-            pred = weak_learner.predict(x)
-            h = pred * y
-            self.err_wl.append(np.dot(h<=0, d))
-            self.gap.append(np.dot(d, h - Ha))
-            if self.has_dcap:
-                min_margin = ksmallest(Ha, nu)
-                self.margin.append(np.mean(min_margin))
-            else:
-                self.margin.append(np.min(Ha))
-            self.primal_obj.append(self.mu * np.log(1.0 / n * np.sum(np.exp(-Ha / self.mu))))
-            self.err_tr.append(np.mean(Ha <= 0))
-            if self.steprule == 1:
-                eta = np.maximum(0, np.minimum(1, self.mu * self.gap[-1] / (1 + self.alpha.sum()) ** 2))
-            elif self.steprule == 2:
-                eta = np.maximum(0, np.minimum(1, self.mu * self.gap[-1] / (LA.norm(h - Ha, np.inf)) ** 2))
-            else:
-                """
-                line search
-                """
-            self.alpha *= (1 - eta)
-            self.alpha[t] = eta
-            Ha *= (1-eta)
-            Ha += eta * h
-            if self.gap[-1] < self.epsi:
-                break
-        self.d = d
-        # gaps = gaps[:t]
-        # self.margin = self.margin[:t]
-        # prim_obj = prim_obj[:t]
-        # dual_obj = dual_obj[:t]
-
-    def pred(self, x):
-        n, p = x.shape
-        h = np.zeros(n)
-        for t, weak_learner in enumerate(self.learners):
-            pred = weak_learner.predict(x)
-            h += pred * self.alpha[t]
-        return np.sign(h)
-
-    def plot_result(self):
-        r = 2
-        c = 2
-        nBins = 6
-        plt.subplot(r, c, 1)
-        plt.plot(np.log(self.gap), 'rx-', markersize=0.3, label='gap')
-        T = len(self.gap)
-        bound = 1/(self.mu * np.arange(1, 1+T))
-        plt.plot(np.log(bound), 'bo-', markersize=0.2, label='bound')
-        plt.title('log primal-dual gap')
-        plt.legend(loc='best')
-        plt.locator_params(axis='x', nbins=nBins)
-        plt.subplot(r, c, 2)
-        plt.plot(self.margin, 'bo-', markersize=0.3)
-        plt.title('margin')
-        plt.locator_params(axis='x', nbins=nBins)
-        plt.subplot(r, c, 3)
-        plt.plot(self.err_tr, 'b-',  label="train err")
-        plt.plot(self.err_wl, 'r-', label="wl err")
-        plt.savefig('result.eps', format='eps')
-        plt.title('training error')
-        plt.legend(loc='best')
-        plt.locator_params(axis='x', nbins=nBins)
-        plt.tight_layout()
-        plt.savefig('adafwboost.png')
 
 
 class FwBoost(Boost):
@@ -281,7 +130,7 @@ class FwBoost(Boost):
         h_a = np.dot(H, self.alpha)
         # d0 = np.ones(n)/n
         print " fw-boosting(python): maximal iter #: "+str(self.max_iter)
-        for t in range(self.max_iter):
+        for t in xrange(self.max_iter):
             d_next = prox_mapping(h_a, d0, 1 / self.mu)
 
             # assert not math.isnan(d_next.max())
@@ -381,18 +230,3 @@ def plot_2d_data(data):
     plt.scatter(x[:, 0], x[:, 1])
     plt.title('banana')
 
-
-if __name__ == '__main__':
-    # if os.name == "nt":
-    #     path = "..\\dataset\\"
-    # elif os.name == "posix":
-    #     path = '/Users/qdengpercy/workspace/boost/dataset/'
-    #
-    # dtname = 'bananamat.mat'
-    # data = scipy.io.loadmat(path+dtname)
-    # plot_2d_data(data)
-    # plt.figure()
-    # booster, err = benchmark(data)
-    # booster = test_fwboost()
-    # booster = test_adafwboost()
-    pass

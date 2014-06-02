@@ -153,9 +153,9 @@ class TestCase(object):
         """
         compare margin
         """
-        n = 1000
+        n = 500
         n1 = 100
-        n2 = 1000
+        n2 = 100
         x = np.random.random_integers(0, 1, size=(n, n1))
         x = 2*x.astype(np.float) - 1
         z= np.sum(x[:, :5], axis=1)

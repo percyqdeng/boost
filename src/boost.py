@@ -83,7 +83,7 @@ def proj_cap_ent(d0, v):
     uu = np.sort(d, kind='quicksort')[::-1]
     Z = uu.sum()
     # try:
-    for i in range(m):
+    for i in xrange(m):
         if Z == 0:
             break
         e = (1 - v * i) / Z
@@ -133,7 +133,7 @@ def check_ksm():
     rep = 20
     t1 = 0
     t2 = 0
-    for i in range(rep):
+    for i in xrange(rep):
         arr = np.random.normal(0, 1, n)
         # timeit.timeit("ksmallest(arr,k")
         start = time.time()

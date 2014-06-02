@@ -518,7 +518,17 @@
       <change type="DELETED" beforePath="C:\Users\qdpercy\workspace\mcmc\src\exp1_size10001.pdf" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\qdpercy\workspace\nonconvex\Nonconvex SA-Code\Result\Results-SVM-n1000.mat" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\qdpercy\workspace\nonconvex\Nonconvex SA-Code\Result\Results.txt" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/temp.win-amd64-2.7/Release/src/frank_wolfe_cy.o" afterPath="$PROJECT_DIR$/build/temp.win-amd64-2.7/Release/src/frank_wolfe_cy.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/frank_wolfe_cy.pyd" afterPath="$PROJECT_DIR$/src/frank_wolfe_cy.pyd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/boost.py" afterPath="$PROJECT_DIR$/src/boost.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../dualsvm/src/coor_cy.pyx" afterPath="$PROJECT_DIR$/../dualsvm/src/coor_cy.pyx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/debug.py" afterPath="$PROJECT_DIR$/src/debug.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/frank_wolfe_cy.cpp" afterPath="$PROJECT_DIR$/src/frank_wolfe_cy.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/frank_wolfe_cy.pyx" afterPath="$PROJECT_DIR$/src/frank_wolfe_cy.pyx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fwboost.py" afterPath="$PROJECT_DIR$/src/fwboost.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/paraboost.py" afterPath="$PROJECT_DIR$/src/paraboost.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test_boost.py" afterPath="$PROJECT_DIR$/src/test_boost.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcmc/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../mcmc/.idea/workspace.xml" />
     </list>
     <ignored path="boost.iws" />
@@ -545,17 +555,19 @@
       <file leaf-file-name="test_boost.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test_boost.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4965">
+            <state line="172" column="41" selection-start="6453" selection-end="6453" vertical-scroll-proportion="0.0" vertical-offset="1800" max-vertical-offset="4815">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="debug.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="debug.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/debug.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="1" selection-start="1721" selection-end="1721" vertical-scroll-proportion="0.7382953" vertical-offset="0" max-vertical-offset="833">
-              <folding />
+            <state line="25" column="61" selection-start="856" selection-end="856" vertical-scroll-proportion="0.0" vertical-offset="52" max-vertical-offset="945">
+              <folding>
+                <element signature="e#27#48#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -563,7 +575,7 @@
       <file leaf-file-name="test_mnist_boost.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test_mnist_boost.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1245">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1095">
               <folding />
             </state>
           </provider>
@@ -572,16 +584,16 @@
       <file leaf-file-name="fwboost.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/fwboost.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6060">
+            <state line="84" column="30" selection-start="2703" selection-end="2703" vertical-scroll-proportion="0.0" vertical-offset="997" max-vertical-offset="3450">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="paraboost.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="paraboost.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/paraboost.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2790">
+            <state line="139" column="31" selection-start="4706" selection-end="4754" vertical-scroll-proportion="0.8019208" vertical-offset="1387" max-vertical-offset="2760">
               <folding />
             </state>
           </provider>
@@ -590,7 +602,7 @@
       <file leaf-file-name="frank_wolfe_cy.pyx" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/frank_wolfe_cy.pyx">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="168" column="27" selection-start="5391" selection-end="5391" vertical-scroll-proportion="-9.890909" vertical-offset="1976" max-vertical-offset="4260">
+            <state line="20" column="89" selection-start="657" selection-end="657" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4410">
               <folding />
             </state>
           </provider>
@@ -599,7 +611,7 @@
       <file leaf-file-name="setup_fw.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/setup_fw.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
+            <state line="12" column="37" selection-start="335" selection-end="366" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
               <folding />
             </state>
           </provider>
@@ -608,10 +620,19 @@
       <file leaf-file-name="boost.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/boost.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="112" column="0" selection-start="2293" selection-end="2359" vertical-scroll-proportion="0.0" vertical-offset="1110" max-vertical-offset="2550">
+            <state line="133" column="10" selection-start="2704" selection-end="2704" vertical-scroll-proportion="0.0" vertical-offset="1717" max-vertical-offset="2550">
               <folding>
                 <element signature="e#26#44#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="boost_cy.pyx" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/boost_cy.pyx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="43" column="44" selection-start="1149" selection-end="1149" vertical-scroll-proportion="0.0" vertical-offset="7" max-vertical-offset="2145">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -675,12 +696,12 @@
         <option value="$PROJECT_DIR$/src/time_spend.py" />
         <option value="$PROJECT_DIR$/../dualsvm/src/dualksvm.py" />
         <option value="$PROJECT_DIR$/../dualsvm/src/coor_cy.pyx" />
-        <option value="$PROJECT_DIR$/src/fwboost.py" />
         <option value="$PROJECT_DIR$/src/test_mnist_boost.py" />
-        <option value="$PROJECT_DIR$/src/test_boost.py" />
+        <option value="$PROJECT_DIR$/src/fwboost.py" />
+        <option value="$PROJECT_DIR$/src/boost.py" />
         <option value="$PROJECT_DIR$/src/paraboost.py" />
         <option value="$PROJECT_DIR$/src/debug.py" />
-        <option value="$PROJECT_DIR$/src/boost.py" />
+        <option value="$PROJECT_DIR$/src/test_boost.py" />
         <option value="$PROJECT_DIR$/src/frank_wolfe_cy.pyx" />
       </list>
     </option>
@@ -1007,14 +1028,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19427083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19427083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.09578948" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -1201,11 +1222,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/boost_cy.pyx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
@@ -1268,21 +1284,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/setup_fw.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/extract_features.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/paraboost.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding />
@@ -1296,6 +1298,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/boost_cy.pyx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="44" selection-start="1149" selection-end="1149" vertical-scroll-proportion="0.0" vertical-offset="7" max-vertical-offset="2145">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/boost.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="133" column="10" selection-start="2704" selection-end="2704" vertical-scroll-proportion="0.0" vertical-offset="1717" max-vertical-offset="2550">
+          <folding>
+            <element signature="e#26#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test_mnist_boost.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
@@ -1303,39 +1321,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test_boost.py">
+    <entry file="file://$PROJECT_DIR$/setup_fw.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
+        <state line="12" column="37" selection-start="335" selection-end="366" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/fwboost.py">
+    <entry file="file://$PROJECT_DIR$/src/debug.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
+        <state line="25" column="61" selection-start="856" selection-end="856" vertical-scroll-proportion="0.0" vertical-offset="52" max-vertical-offset="945">
+          <folding>
+            <element signature="e#27#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test_boost.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="172" column="41" selection-start="6453" selection-end="6453" vertical-scroll-proportion="0.0" vertical-offset="1800" max-vertical-offset="4815">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/frank_wolfe_cy.pyx">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="168" column="27" selection-start="5391" selection-end="5391" vertical-scroll-proportion="-9.890909" vertical-offset="1976" max-vertical-offset="4260">
+        <state line="20" column="89" selection-start="657" selection-end="657" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4410">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/boost.py">
+    <entry file="file://$PROJECT_DIR$/src/fwboost.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="0" selection-start="2293" selection-end="2359" vertical-scroll-proportion="0.0" vertical-offset="1110" max-vertical-offset="2550">
-          <folding>
-            <element signature="e#26#44#0" expanded="true" />
-          </folding>
+        <state line="84" column="30" selection-start="2703" selection-end="2703" vertical-scroll-proportion="0.0" vertical-offset="997" max-vertical-offset="3450">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/debug.py">
+    <entry file="file://$PROJECT_DIR$/src/paraboost.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="1" selection-start="1721" selection-end="1721" vertical-scroll-proportion="0.7382953" vertical-offset="0" max-vertical-offset="833">
+        <state line="139" column="31" selection-start="4706" selection-end="4754" vertical-scroll-proportion="0.8019208" vertical-offset="1387" max-vertical-offset="2760">
           <folding />
         </state>
       </provider>

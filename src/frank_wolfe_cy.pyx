@@ -18,7 +18,7 @@ ctypedef np.float_t dtype_t
 @cython.cdivision(True)
 cpdef fw_boost_cy(np.ndarray[np.float64_t, ndim=2]hh,
                   np.float64_t epsi=0.01, np.float64_t ratio=0.1,
-                  int steprule=1, bool has_dcap=False, np.float64_t mu=1, int max_iter=200):
+                  int steprule=1, bool has_dcap=False, np.float64_t mu=1, int max_iter=20):
     """
     frank-wolfe boost for binary classification with weak learner as matrix hh
     min_a max_d   d^T(-hha) sub to:  ||a||_1\le 1
@@ -95,15 +95,25 @@ cpdef fw_boost_cy(np.ndarray[np.float64_t, ndim=2]hh,
             if has_dcap:
                 min_margin = k_avg_cy(h_a, nu)
                 margin.push_back(min_margin)
+                res = 0
+                for i in xrange(n):
+                    res -= dt_h[i] * alpha[i]
+                    res -= mu * d[i] * math.log(d[i] * n)
+                primal_obj.push_back(res)
+
             else:
                 margin.push_back(smallest(h_a))
+                res = 0
+                for i in xrange(n):
+                    res += math.exp(-h_a[i]/mu)
+                res = mu * math.log(res / n)
+                primal_obj.push_back(res)
             res = 0
             for i in xrange(n):
                 if h_a[i] < 0:
                     res += 1
             err_tr.push_back(res/n)
             gap.push_back(curr_gap)
-            primal_obj.push_back(cmp_primal_objective(h_a, mu))
             num_zeros.push_back(total_zeros)
             # print 'iter %s, gap: %s ' %(t, curr_gap)
         if steprule == 1:
@@ -133,7 +143,7 @@ cpdef fw_boost_cy(np.ndarray[np.float64_t, ndim=2]hh,
             h_a[i] += hh[i, j] * (eta * ej)
         if curr_gap < epsi:
             break
-        if t % (max_iter/10) == 0:
+        if t % (max_iter/20) == 0:
             print ("iter# %d, gap %.5f, dmax %f" % (t, curr_gap, d.max()))
 
     print "most t "+str(t)

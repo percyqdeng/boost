@@ -136,8 +136,8 @@ class ParaBoost(Boost):
                 self.dual_obj.append(-np.max(np.dot(d_bar, H)))
                 self.gap.append(self.primal_obj[-1] - self.dual_obj[-1])
                 self.err_tr.append(np.mean(h_a_bar < 0))
-            # if t % (max_iter / showtimes) == 0:
-            #     print 'iter ' + str(t) + ' ' + str(self.gap[-1])
+            if t % (max_iter / showtimes) == 0:
+                print 'iter ' + str(t) + ' ' + str(self.gap[-1])
             if self.gap[-1] < self.epsi:
                 break
         self.alpha = a_bar[:p / 2] - a_bar[p / 2:]
