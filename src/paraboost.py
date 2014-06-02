@@ -62,37 +62,7 @@ class ParaBoost(Boost):
         pred = np.sign(np.dot(xte, self.alpha))
         return np.mean(pred != yte)
 
-    def plot_result(self):
-        r = 2
-        c = 2
-        nBins = 6
-        plt.figure()
-        plt.subplot(r, c, 1)
-        plt.plot(np.log(self.gap), 'r-', label='gap')
-        T = len(self.gap)
-        bound = self.c / np.arange(1, 1 + T)
-        plt.plot(np.log(bound), 'b-', label='bound')
-        plt.title('log primal-dual gap')
-        plt.legend(loc='best')
-        plt.locator_params(axis='x', nbins=nBins)
-        plt.subplot(r, c, 2)
-        plt.plot(self.margin, 'b-')
-        plt.title('margin')
-        plt.locator_params(axis='x', nbins=nBins)
-        plt.subplot(r, c, 3)
-        plt.plot(self.primal_obj, 'r-', label='primal')
-        plt.plot(self.dual_obj, color='g', label='dual')
-        plt.title('primal objective')
-        plt.legend(loc='best')
-        plt.locator_params(axis='x', nbins=nBins)
-        plt.subplot(r, c, 4)
-        plt.plot(self.err_tr, 'b-', label="train err")
-        plt.savefig('result.eps', format='eps')
-        plt.title('training error')
-        plt.legend(loc='best')
-        plt.tight_layout()
-        plt.locator_params(axis='x', nbins=nBins)
-        plt.savefig('result_paraboost.png', format='png')
+
 
     def _para_boosting(self, H, earlystop=False):
         """
@@ -173,6 +143,39 @@ class ParaBoost(Boost):
         self.alpha = a_bar[:p / 2] - a_bar[p / 2:]
         self.d = d_bar
         print " pd-boosting(python): max iter#%d: , actual iter#%d" % (max_iter, t)
+
+    def plot_result(self):
+        r = 2
+        c = 2
+        nBins = 6
+        plt.figure()
+        plt.subplot(r, c, 1)
+        plt.plot(np.log(self.gap), 'r-', label='gap')
+        T = len(self.gap)
+        bound = self.c / np.arange(1, 1 + T)
+        plt.plot(np.log(bound), 'b-', label='bound')
+        plt.title('log primal-dual gap')
+        plt.legend(loc='best')
+        plt.locator_params(axis='x', nbins=nBins)
+        plt.subplot(r, c, 2)
+        plt.plot(self.margin, 'b-')
+        plt.title('margin')
+        plt.locator_params(axis='x', nbins=nBins)
+        plt.subplot(r, c, 3)
+        plt.plot(self.primal_obj, 'r-', label='primal')
+        plt.plot(self.dual_obj, color='g', label='dual')
+        plt.title('primal objective')
+        plt.legend(loc='best')
+        plt.locator_params(axis='x', nbins=nBins)
+        plt.subplot(r, c, 4)
+        plt.plot(self.err_tr, 'b-', label="train err")
+        plt.savefig('result.eps', format='eps')
+        plt.title('training error')
+        plt.legend(loc='best')
+        plt.tight_layout()
+        plt.locator_params(axis='x', nbins=nBins)
+        plt.savefig('result_paraboost.png', format='png')
+
 
 if __name__ == "__main__":
     pass

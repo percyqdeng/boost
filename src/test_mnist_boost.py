@@ -22,7 +22,7 @@ if __name__ == "__main__":
     data = load_mnist()
     x, y = convert_one_vs_one(data, digit1, digit2)
     print "-------------------load mnist data-------------------"
-    print "mnist n_samples:%d, n_dim"
+    print "mnist n_samples:%d, n_dim:%d" % (x.shape[0], x.shape[1])
     # ----------------pass through adaboost-----------------
     n_estimators = 200
     n_samples = x.shape[0]

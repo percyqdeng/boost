@@ -55,7 +55,9 @@ cpdef fw_boost_cy(np.ndarray[np.float64_t, ndim=2]hh,
     cdef unsigned int nu = int(n * ratio)
     mat_vec(hh, alpha, <np.float_t*>h_a.data)
     cdef Py_ssize_t t, j, i, k
-    cdef np.float64_t res, tmp, curr_gap
+    cdef np.float64_t res
+    cdef np.float64_t tmp
+    cdef np.float64_t curr_gap
     cdef Py_ssize_t delta
     if max_iter < 200:
         delta = 1
@@ -70,7 +72,7 @@ cpdef fw_boost_cy(np.ndarray[np.float64_t, ndim=2]hh,
         vec_mat(d, hh, <np.float_t*>dt_h.data)
         res = fabs(dt_h[0])
         j = 0
-        for i in range(1,p):
+        for i in xrange(1,p):
             if fabs(dt_h[i]) > res:
                 res = fabs(dt_h[i])
                 j = i
@@ -165,6 +167,7 @@ cdef np.float64_t smallest(np.ndarray[np.float64_t] u):
 @cython.boundscheck(False)
 @cython.cdivision(True)
 cdef np.float64_t k_average(np.ndarray[np.float64_t]v, unsigned int k):
+    # the average of k smallest elements
     cdef np. ndarray[np.float64_t] u = v.copy()
     qsort(u)
     cdef np.float64_t res = 0

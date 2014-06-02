@@ -81,71 +81,72 @@ class TestCase(object):
         y[ind] = - y[ind]
         return x, y
 
-    @staticmethod
-    def debug():
-        n1 = 1000
-        n2 = 100
-        x, y = TestCase.gen_syn_data(n1, n2)
-        ss = cv.ShuffleSplit(2*n1, n_iter=1, train_size=0.25, test_size=0.75)
-        epsi = 0.01
-        has_dcap = True
-        r = 0.5
-        print
-        for tr_ind, te_ind in ss:
-            xtr = x[tr_ind, :]
-            ytr = y[tr_ind]
-            xte = x[te_ind, :]
-            yte = y[te_ind]
-            fw = FwBoost(epsi, has_dcap, ratio=r)
-            fw.train(xtr, ytr, codetype="py", approx_margin=True, early_stop=False)
-            fw = FwBoost(epsi, has_dcap, ratio=r)
-            fw.train(xtr, ytr, codetype="cy", approx_margin=True, early_stop=False)
 
     @staticmethod
     def synthetic_soft_margin():
         """
-        synthetic test on soft margin
+        synthetic test on soft margin, follow the experiment in Warmuth's NIPS paper
         """
         n1 = 1000
         n2 = 100
         x, y = TestCase.gen_syn_data(n1, n2)
-        epsi = 0.01
+        epsi = 0.001
         has_dcap = True
-        ss = cv.ShuffleSplit(2*n1, n_iter=1, train_size=0.25, test_size=0.75)
+        n_iter = 2
+        ss = cv.ShuffleSplit(2*n1, n_iter=n_iter, train_size=0.25, test_size=0.75)
         rate = np.linspace(0.1, 0.8, 8, endpoint=True)
-        te_err = np.zeros(len(rate))
-        tr_err = np.zeros(len(rate))
+        te_err_fw = np.zeros((n_iter, len(rate)))
+        tr_err_fw = np.zeros((n_iter, len(rate)))
+        te_err_pd = np.zeros((n_iter, len(rate)))
+        tr_err_pd = np.zeros((n_iter, len(rate)))
+        k = 0
         for tr_ind, te_ind in ss:
             xtr = x[tr_ind, :]
             ytr = y[tr_ind]
             xte = x[te_ind, :]
             yte = y[te_ind]
             for i, r in enumerate(rate):
-                pd = FwBoost(epsi, has_dcap, ratio=r)
-                pd.train(xtr, ytr, codetype="cy", approx_margin=True, early_stop=False)
-                # pd = ParaBoost(epsi, has_dcap, ratio=r)
-                # pd.train(xtr, ytr, early_stop=False)
-                te_err[i] = pd.test(xte, yte)
-                tr_err[i] = pd.err_tr[-1]
+                fw = FwBoost(epsi, has_dcap, ratio=r)
+                fw.train(xtr, ytr, codetype="cy", approx_margin=True, early_stop=False, ftr='wl')
+                pd = ParaBoost(epsi, has_dcap, ratio=r)
+                pd.train(xtr, ytr, early_stop=False, ftr='wl')
+                te_err_fw[k, i] = fw.test(xte, yte)
+                tr_err_fw[k, i] = fw.err_tr[-1]
+                te_err_pd[k, i] = pd.test(xte, yte)
+                tr_err_pd[k, i] = pd.err_tr[-1]
+            k += 1
 
         plt.figure()
-        plt.subplot(121)
-        plt.plot(rate, te_err, 'bx-', label='test err')
-        plt.plot(rate, tr_err, 'ro-', label='train err')
+        # plt.subplot(121)
+        plt.plot(rate, np.mean(te_err_fw, axis=0), 'bx-', label='fw test err')
+        plt.plot(rate, np.mean(tr_err_fw, axis=0), 'ro-', label='fw train err')
+        plt.plot(rate, np.mean(te_err_pd, axis=0), 'yx-', label='pd test err')
+        plt.plot(rate, np.mean(tr_err_pd, axis=0), 'go-', label='pd train err')
+        plt.xlabel('r')
         plt.legend(loc='best')
-        # plt.savefig('../output/syn_soft_margin1.pdf')
+        plt.savefig('../output/syn_cmp_rate.pdf')
 
+        plt.figure()
         epsi = 0.01
         r = 0.4
         pd = ParaBoost(epsi, has_dcap, ratio=r)
-        pd.train(xtr, ytr, early_stop=False)
-        # plt.figure()
+        pd.train(xtr, ytr, early_stop=False, ftr='wl')
+        fw = FwBoost(epsi, has_dcap=has_dcap, ratio=r)
+        fw.train(xtr, ytr, codetype="cy", approx_margin=True, early_stop=False, ftr='wl')
+        plt.subplot(121)
+        plt.plot(pd.iter_num, pd.margin, 'b-', label='pd')
+        plt.plot(fw.iter_num, fw.margin, 'r-', label='fw')
+        plt.ylabel('margin')
+        plt.xlabel('number of iteration')
         plt.subplot(122)
-        plt.plot(pd.iter_num, pd.margin)
+        plt.plot(pd.iter_num, pd.gap, 'b-', label='pd')
+        plt.plot(fw.iter_num, fw.gap, 'r-', label='fw')
+        plt.ylabel('primal dual gap')
+        plt.xlabel('number of iteration')
         # plt.semilogx(pd.iter_num, pd.margin)
         plt.ticklabel_format(style='sci', axis='x', scilimits=(0, 0))
         plt.tight_layout()
-        plt.savefig('../output/syn_soft_margin.pdf')
+        plt.savefig('../output/syn_cmp_margin.pdf')
 
     @staticmethod
     def synthetic_hard_margin():
@@ -175,11 +176,11 @@ class TestCase(object):
         pd.train(xtr=x, ytr=y, early_stop=stop)
 
         # print "margin fw:%s pd%s" % (fw.margin[-1], pd.margin[-1])
-        print "margin pd%s" % ( pd.margin[-1])
+        print "margin pd%s" % (pd.margin[-1])
         plt.figure()
         plt.ylim(0.05, 0.2)
         # plt.plot(fw.iter_num, fw.margin,'r-',label='fw')
-        plt.plot(pd.iter_num, pd.margin,'b-', label='pd')
+        plt.plot(pd.iter_num, pd.margin, 'b-', label='pd')
         plt.ylabel('margin')
         plt.legend(loc='best')
         plt.savefig("../output/synth_hard_margin.pdf")
@@ -192,54 +193,6 @@ class TestCase(object):
         plt.legend(loc='best')
         plt.savefig("../output/synth_hard_margin_log.pdf")
 
-    # @staticmethod
-    def cmp_sparsity(self):
-        """
-        show sparsity pattern
-        """
-        # n_estimators = np.minimum(1000, int(self.x.shape[0]*0.7))
-        n_estimators = 1000
-        n_samples = self.x.shape[0]
-        n_reps = 1
-        ss = cv.ShuffleSplit(n_samples, n_reps, train_size=0.6, test_size=0.4, random_state=1)
-        k = 0
-        for tr_ind, te_ind in ss:
-            print " iter#: %d" % (k)
-            xtr = self.x[tr_ind, :]
-            ytr = self.y[tr_ind]
-            xte = self.x[te_ind, :]
-            yte = self.y[te_ind]
-            ada_disc = AdaBoostClassifier(DecisionTreeClassifier(max_depth=1),
-                                          n_estimators=n_estimators, algorithm="SAMME")
-            ada_disc.fit(xtr, ytr)
-            htr = weak_learner_pred(ada_disc, xtr)
-            fw = FwBoost(epsi=0.005, has_dcap=True, ratio=0.1)
-            fw.train(htr, ytr, codetype="cy", ftr='wl')
-            pd = ParaBoost(0.005, has_dcap=True, ratio=0.1)
-            pd.train(htr, ytr, ftr='wl')
-        plt.figure()
-        plt.subplot(121)
-        plt.plot(fw.iter_num, fw.num_zeros, 'rx-')
-        plt.ylim(0, n_estimators)
-        plt.subplot(122)
-        plt.plot(fw.iter_num, fw.err_tr, 'rx-', label='fw')
-        plt.plot(pd.iter_num, pd.err_tr, 'bx-', label='pd')
-        plt.legend(loc='best')
-        plt.ticklabel_format(style='sci')
-        plt.tight_layout()
-
-        plt.figure()
-        plt.subplot(121)
-        a = np.fabs(fw.alpha)
-        a /= a.max()
-        a = np.sort(a, kind='quicksort')[::-1]
-        b = np.fabs(pd.alpha)
-        b /= b.max()
-        b = np.sort(b, kind='quicksort')[::-1]
-        plt.plot(a, 'rx-', label='fw')
-        plt.plot(b, 'bo-', label='pd')
-        # plt.show()
-        return fw
 
     def bench_mark(self):
         """
@@ -336,48 +289,12 @@ class TestCase(object):
         err = err_te_avg[arg]
         return best_ratio
 
-    @staticmethod
-    def test_hard_margin():
-        # ntr = 1000
-        """
-        toy example with hard margin
-        """
-        (xtr, ytr, yH, margin, w, xte, yte) = gen_syn(ftr_type='disc', ntr=1000, nte=100)
-        booster1 = ParaBoost(has_dcap=False, ratio=0.3)
-        booster2 = FwBoost(has_dcap=False, ratio=0.3)
 
-        booster1.train(xtr, ytr)
-        booster2.train(xtr, ytr)
-        row = 1
-        col = 2
-        plt.subplot(row, col, 1)
-        plt.plot(booster1.gap, 'r-', label=booster1.to_name())
-        plt.plot(booster2.gap, 'b-', label=booster2.to_name())
-        plt.ylabel('primal-dual gap')
-        plt.subplot(row, col, 2)
-        plt.plot(booster1.err_tr, 'r-', label=booster1.to_name())
-        plt.plot(booster2.err_tr, 'b-', label=booster2.to_name())
-        plt.ylabel('train err')
-        # plot gap
-        # booster1.plot_result()
-        plt.ticklabel_format(style='sci')
-        plt.legend(bbox_to_anchor=(-1.2, 1.01, 2.2, .1), loc=2, ncol=2, mode="expand", borderaxespad=0.)
-        print booster1.err_tr[0]
-        print booster2.err_tr[0]
 
 def profile_paraboost():
     x, y = TestCase.gen_syn_data(n1=2000, n2=2000)
     pd = ParaBoost(epsi=0.005, has_dcap=True, ratio=0.1)
     profile.runctx("pd.train(x,y)", globals(), locals())
-
-def test_adafwboost():
-    ntr = 500
-    (xtr, ytr, yH, margin, w, xte, yte) = gen_syn('disc', ntr, 1000)
-    booster = AdaFwBoost(epsi=0.01, has_dcap=False, ratio=0.1, steprule=1)
-    booster.train(xtr, ytr)
-    # plt.plot(booster.gaps,'rx-')
-    booster.plot_result()
-    return booster
 
 
 
@@ -396,8 +313,9 @@ mnistfile = 'mnist_all.mat'
 
 if __name__ == "__main__":
 
-    newtest = TestCase(ucipath, ucifile[0])
-    fw = newtest.cmp_sparsity()
+    TestCase.synthetic_soft_margin()
+    # newtest = TestCase(ucipath, ucifile[0])
+    # fw = newtest.cmp_sparsity()
     # newtest.bench_mark()
     # newtest.rand_test_boost()
     # bfw, bpd, w = cmp_margin()
