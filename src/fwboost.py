@@ -184,6 +184,7 @@ class FwBoost(Boost):
             if t % (self.max_iter/10) == 0:
                 print ("iter# %d, gap %.5f, dmax %f" % (t, curr_gap, d.max()))
         # self.d = d
+        print "total iter#: %d " % (t)
 
     def plot_result(self):
         r = 2

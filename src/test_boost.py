@@ -155,7 +155,7 @@ class TestCase(object):
         """
         n = 500
         n1 = 100
-        n2 = 100
+        n2 = 1
         x = np.random.random_integers(0, 1, size=(n, n1))
         x = 2*x.astype(np.float) - 1
         z= np.sum(x[:, :5], axis=1)
@@ -171,7 +171,7 @@ class TestCase(object):
         cap_prob = False
         stop = False
         fw = FwBoost(0.01, has_dcap=cap_prob, ratio=0.1)
-        fw.train(x, y, codetype='cy', approx_margin=True, early_stop=stop)
+        fw.train(x, y, codetype='py', approx_margin=True, early_stop=stop)
         pd = ParaBoost(epsi=0.01, has_dcap=cap_prob, ratio=0.1)
         pd.train(xtr=x, ytr=y, early_stop=stop)
 
@@ -313,7 +313,7 @@ mnistfile = 'mnist_all.mat'
 
 if __name__ == "__main__":
 
-    TestCase.synthetic_soft_margin()
+    TestCase.synthetic_hard_margin()
     # newtest = TestCase(ucipath, ucifile[0])
     # fw = newtest.cmp_sparsity()
     # newtest.bench_mark()

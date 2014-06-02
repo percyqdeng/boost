@@ -96,7 +96,7 @@ cpdef fw_boost_cy(np.ndarray[np.float64_t, ndim=2]hh,
                 min_margin = k_avg_cy(h_a, nu)
                 margin.push_back(min_margin)
                 res = 0
-                for i in xrange(n):
+                for i in xrange(p):
                     res -= dt_h[i] * alpha[i]
                     res -= mu * d[i] * math.log(d[i] * n)
                 primal_obj.push_back(res)
@@ -104,7 +104,7 @@ cpdef fw_boost_cy(np.ndarray[np.float64_t, ndim=2]hh,
             else:
                 margin.push_back(smallest(h_a))
                 res = 0
-                for i in xrange(n):
+                for i in xrange(p):
                     res += math.exp(-h_a[i]/mu)
                 res = mu * math.log(res / n)
                 primal_obj.push_back(res)
@@ -146,7 +146,7 @@ cpdef fw_boost_cy(np.ndarray[np.float64_t, ndim=2]hh,
         if t % (max_iter/20) == 0:
             print ("iter# %d, gap %.5f, dmax %f" % (t, curr_gap, d.max()))
 
-    print "most t "+str(t)
+    print "total iter#: %d " % (t)
     return alpha, primal_obj, gap, err_tr, margin, iter_num, num_zeros
 
 
