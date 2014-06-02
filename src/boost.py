@@ -110,6 +110,11 @@ def ksmallest2(u0, k):
     return res
 
 
+def k_avg(u0, k):
+    v = ksmallest2(u0, k)
+    return np.mean(v)
+
+
 def ksmallest(u0, k):
     u = u0.tolist()
     mins = u[:k]

@@ -93,7 +93,7 @@ cpdef fw_boost_cy(np.ndarray[np.float64_t, ndim=2]hh,
         if t % delta == 0:
             iter_num.push_back(t)
             if has_dcap:
-                min_margin = k_average(h_a, nu)
+                min_margin = k_avg_cy(h_a, nu)
                 margin.push_back(min_margin)
             else:
                 margin.push_back(smallest(h_a))
@@ -166,7 +166,7 @@ cdef np.float64_t smallest(np.ndarray[np.float64_t] u):
 
 @cython.boundscheck(False)
 @cython.cdivision(True)
-cdef np.float64_t k_average(np.ndarray[np.float64_t]v, unsigned int k):
+cdef np.float64_t k_avg_cy(np.ndarray[np.float64_t]v, unsigned int k):
     # the average of k smallest elements
     cdef np. ndarray[np.float64_t] u = v.copy()
     qsort(u)
