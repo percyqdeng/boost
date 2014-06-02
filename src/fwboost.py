@@ -49,7 +49,6 @@ class FwBoost(Boost):
         self.num_zeros = []
         self.iter_num = []
 
-
     def to_name(self):
         return "fwboost"
 
@@ -87,7 +86,7 @@ class FwBoost(Boost):
             self.max_iter = int(108*np.log(ntr) / self.epsi**2)
 
         if codetype == "cy":
-            self.alpha, self.primal_obj, self.gap, self.err_tr, self.margin, self.iter_num, self.num_zeros = \
+            self.alpha, self.primal_obj, self.gap, self.err_tr, self.margin, self.iter_num, self.num_zeros, self.d= \
                 fw_cy.fw_boost_cy(y_h, np.float32(self.epsi), self.ratio, self.steprule, self.has_dcap, self.mu, self.max_iter)
         elif codetype == 'py':
             self._fw_boosting(y_h)
@@ -119,7 +118,6 @@ class FwBoost(Boost):
         self.alpha = np.zeros(p)
         d0 = np.ones(n) / n
         # self.mu = self.epsi / (2 * np.log(n))
-
         # max_iter = 100
         # mu = 1
         nu = int(n * self.ratio)
@@ -181,10 +179,10 @@ class FwBoost(Boost):
             h_a += H[:, j] * (eta * ej[j])
             if curr_gap < self.epsi:
                 break
-            if t % (self.max_iter/10) == 0:
-                print ("iter# %d, gap %.5f, dmax %f" % (t, curr_gap, d.max()))
+            if t % (self.max_iter/100) == 0:
+                print "iter#: %d " % (t)
         # self.d = d
-        print "total iter#: %d " % (t)
+        print " fwboost, max iter#%d: , actual iter#%d" % (self.max_iter, t)
 
     def plot_result(self):
         r = 2

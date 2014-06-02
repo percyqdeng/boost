@@ -89,22 +89,21 @@ cpdef fw_boost_cy(np.ndarray[np.float64_t, ndim=2]hh,
         res += dt_h[j] * ej
         curr_gap = res
         # print 'curr gap '+str(curr_gap)
-        # gap.push(np.dot(dt_h, ej - alpha))
         if t % delta == 0:
             iter_num.push_back(t)
             if has_dcap:
                 min_margin = k_avg_cy(h_a, nu)
                 margin.push_back(min_margin)
                 res = 0
-                for i in xrange(p):
-                    res -= dt_h[i] * alpha[i]
+                for i in xrange(n):
+                    res -= d[i] * h_a[i]
                     res -= mu * d[i] * math.log(d[i] * n)
                 primal_obj.push_back(res)
 
             else:
                 margin.push_back(smallest(h_a))
                 res = 0
-                for i in xrange(p):
+                for i in xrange(n):
                     res += math.exp(-h_a[i]/mu)
                 res = mu * math.log(res / n)
                 primal_obj.push_back(res)
@@ -146,8 +145,8 @@ cpdef fw_boost_cy(np.ndarray[np.float64_t, ndim=2]hh,
         if t % (max_iter/20) == 0:
             print ("iter# %d, gap %.5f, dmax %f" % (t, curr_gap, d.max()))
 
-    print "total iter#: %d " % (t)
-    return alpha, primal_obj, gap, err_tr, margin, iter_num, num_zeros
+    print " fwboost, max iter#%d: , actual iter#%d" % (max_iter, t)
+    return alpha, primal_obj, gap, err_tr, margin, iter_num, num_zeros, d
 
 
 cdef np.float64_t cmp_primal_objective(np.ndarray[np.float64_t] z, np.float64_t mu):
