@@ -2,24 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2e59c25-b02d-4772-b3bb-3f39495576e4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/debug.py" />
-      <change type="DELETED" beforePath="C:\Users\qdengpercy\workspace\boost\dataset\bananamat.mat" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\qdengpercy\workspace\boost\dataset\benchmarks.mat" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\qdengpercy\workspace\boost\dataset\breast_cancermat.mat" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\qdengpercy\workspace\boost\dataset\cvt_bench.m" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\qdengpercy\workspace\boost\dataset\diabetismat.mat" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\qdengpercy\workspace\boost\dataset\flare_solarmat.mat" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\qdengpercy\workspace\boost\dataset\germanmat.mat" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\qdengpercy\workspace\boost\dataset\heartmat.mat" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\qdengpercy\workspace\boost\dataset\imagemat.mat" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\qdengpercy\workspace\boost\dataset\ringnormmat.mat" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\qdengpercy\workspace\boost\dataset\splicemat.mat" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\qdengpercy\workspace\boost\dataset\thyroidmat.mat" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\qdengpercy\workspace\boost\dataset\titanicmat.mat" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\qdengpercy\workspace\boost\dataset\twonormmat.mat" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\qdengpercy\workspace\boost\dataset\waveformmat.mat" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\qdengpercy\workspace\boost\output\synth2_margin.pdf" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\qdengpercy\workspace\boost\output\synth2_margin_log.pdf" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\qdengpercy\workspace\nonconvex\.idea\.name" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\qdengpercy\workspace\nonconvex\.idea\encodings.xml" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\qdengpercy\workspace\nonconvex\.idea\misc.xml" afterPath="" />
@@ -576,21 +558,12 @@
       <change type="DELETED" beforePath="C:\Users\qdengpercy\workspace\nonconvex\src\regis.py" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\qdengpercy\workspace\nonconvex\src\sigmoid.py" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\qdengpercy\workspace\nonconvex\src\stoch.py" afterPath="" />
-      <change type="MOVED" beforePath="C:\Users\qdengpercy\workspace\boost\src\fwBoost.py" afterPath="$PROJECT_DIR$/src/fwboost.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/mnist_convergence.pdf" afterPath="$PROJECT_DIR$/output/mnist_convergence.pdf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/mnist_sparse_pattern.pdf" afterPath="$PROJECT_DIR$/output/mnist_sparse_pattern.pdf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/boost.iml" afterPath="$PROJECT_DIR$/.idea/boost.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../dualsvm/src/coor_cy.pyx" afterPath="$PROJECT_DIR$/../dualsvm/src/coor_cy.pyx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/debug.py" afterPath="$PROJECT_DIR$/src/debug.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../dualsvm/.idea/dualsvm.iml" afterPath="$PROJECT_DIR$/../dualsvm/.idea/dualsvm.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/frank_wolfe_cy.pyx" afterPath="$PROJECT_DIR$/src/frank_wolfe_cy.pyx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcmc/.idea/mcmc.iml" afterPath="$PROJECT_DIR$/../mcmc/.idea/mcmc.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcmc/.idea/modules.xml" afterPath="$PROJECT_DIR$/../mcmc/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/paraboost.py" afterPath="$PROJECT_DIR$/src/paraboost.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test_boost.py" afterPath="$PROJECT_DIR$/src/test_boost.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test_mnist_boost.py" afterPath="$PROJECT_DIR$/src/test_mnist_boost.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcmc/.idea/vcs.xml" afterPath="$PROJECT_DIR$/../mcmc/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcmc/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../mcmc/.idea/workspace.xml" />
     </list>
     <ignored path="boost.iws" />
@@ -629,8 +602,8 @@
       <file leaf-file-name="debug.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/debug.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
-              <caret line="28" column="35" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="795">
+              <caret line="47" column="21" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="21" />
               <folding>
                 <element signature="e#27#48#0" expanded="true" />
               </folding>
@@ -673,7 +646,7 @@
       <file leaf-file-name="frank_wolfe_cy.pyx" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/frank_wolfe_cy.pyx">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.3626943" vertical-offset="328" max-vertical-offset="4260">
+            <state vertical-scroll-proportion="-0.79404145" vertical-offset="1993" max-vertical-offset="4260">
               <caret line="92" column="18" selection-start-line="92" selection-start-column="18" selection-end-line="92" selection-end-column="18" />
               <folding />
             </state>
@@ -1498,16 +1471,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/debug.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
-          <caret line="28" column="35" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
-          <folding>
-            <element signature="e#27#48#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/fwboost.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2959" max-vertical-offset="5940">
@@ -1516,9 +1479,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/debug.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="795">
+          <caret line="47" column="21" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="21" />
+          <folding>
+            <element signature="e#27#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/frank_wolfe_cy.pyx">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.3626943" vertical-offset="328" max-vertical-offset="4260">
+        <state vertical-scroll-proportion="-0.79404145" vertical-offset="1993" max-vertical-offset="4260">
           <caret line="92" column="18" selection-start-line="92" selection-start-column="18" selection-end-line="92" selection-end-column="18" />
           <folding />
         </state>

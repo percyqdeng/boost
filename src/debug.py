@@ -44,3 +44,5 @@ if __name__ == '__main__':
     plt.plot(fw.iter_num, fw.primal_obj, 'r-', label='fw')
     plt.ticklabel_format(style='sci', axis='x', scilimits=(0, 0))
     plt.tight_layout()
+
+    n = x_train.shape
