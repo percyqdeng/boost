@@ -32,23 +32,26 @@ class ParaBoost(Boost):
         self.err_tr = []
         self.alpha = []
         self.iter_num = []
+        self.max_iter = -1
 
     def to_name(self):
         return "paraboost"
 
-    def train(self, xtr, ytr, early_stop=False, ftr='raw'):
+    def train(self, xtr, ytr, max_iter=None, ftr='raw'):
         if ftr == 'raw':
             ntr = xtr.shape[0]
             h = self._process_train_data(xtr)
             h = np.hstack((h, np.ones((ntr, 1))))
-            y_h = ytr[:, np.newaxis] * xtr
+            y_h = ytr[:, np.newaxis] * h
         elif ftr == 'wl':
             y_h = ytr[:, np.newaxis] * xtr
-        self._para_boosting(y_h, early_stop)
+        n, p = y_h.shape
+        if max_iter is None:
+            self.max_iter = int(np.log(n * p) / self.epsi)
+        else:
+            self.max_iter = max_iter
+        self._para_boosting(y_h)
 
-    def train_h(self, h, ytr, early_stop=False):
-        yh = ytr[:, np.newaxis] * h
-        self._para_boosting(yh, early_stop)
 
     def test_h(self, h):
         pred = np.sign(np.dot(h, self.alpha))
@@ -64,7 +67,7 @@ class ParaBoost(Boost):
 
 
 
-    def _para_boosting(self, H, earlystop=False):
+    def _para_boosting(self, H):
         """
         primal-dual boost with capped probability ||d||_infty <= 1/k
         a, d : primal dual variables to be updated,
@@ -77,14 +80,14 @@ class ParaBoost(Boost):
         (n, p) = H.shape
         self.c = np.log(n*p)
         nu = int(n * self.ratio)
-        if earlystop:
-            max_iter = 200
-        else:
-            max_iter = int(np.log(n * p) / self.epsi)
-        if max_iter < 1000:
-            delta = 4
-        else:
-            delta = 40
+        # if earlystop:
+        #     max_iter = 200
+        # else:
+
+        # if max_iter < 1000:
+        #     delta = 4
+        # else:
+        #     delta = 40
         showtimes = int(5)
         d = np.ones(n) / n
         d_bar = np.ones(n) / n
@@ -101,7 +104,7 @@ class ParaBoost(Boost):
         tau = 1
         t = 0
 
-        for t in range(max_iter):
+        for t in range(self.max_iter):
             d = prox_mapping(h_a_tilde, d, tau, 2)
             if self.has_dcap:
                 d2 = proj_cap_ent(d, 1.0 / nu)
@@ -125,7 +128,7 @@ class ParaBoost(Boost):
             a_bar += 1.0 / (t + 1) * a
             # h_a_bar = np.dot(H, a_bar)
             h_a_bar = t / (t + 1.0) * h_a_bar + 1.0/(t+1) * h_a
-            if t % delta == 0:
+            if t % (self.max_iter / showtimes) == 0:
                 self.iter_num.append(t)
                 if self.has_dcap:
                     min_margin = ksmallest2(h_a_bar, nu)
@@ -136,13 +139,13 @@ class ParaBoost(Boost):
                 self.dual_obj.append(-np.max(np.dot(d_bar, H)))
                 self.gap.append(self.primal_obj[-1] - self.dual_obj[-1])
                 self.err_tr.append(np.mean(h_a_bar < 0))
-            if t % (max_iter / showtimes) == 0:
+            if t % (self.max_iter / showtimes) == 0:
                 print 'iter ' + str(t) + ' ' + str(self.gap[-1])
             if self.gap[-1] < self.epsi:
                 break
         self.alpha = a_bar[:p / 2] - a_bar[p / 2:]
         self.d = d_bar
-        print " pd-boosting(python): max iter#%d: , actual iter#%d" % (max_iter, t)
+        print " pd-boosting(python): max iter#%d: , actual iter#%d" % (self.max_iter, t)
 
     def plot_result(self):
         r = 2

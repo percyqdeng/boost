@@ -79,10 +79,10 @@ class FwBoost(Boost):
             self.mu = 1
 
         if max_iter is None:
-            if approx_margin:
+            # if approx_margin:
                 self.max_iter = int(108*np.log(ntr) / self.epsi**2)
-            else:
-                self.max_iter = 10
+            # else:
+            #     self.max_iter = 10
         else:
             self.max_iter = max_iter
         if codetype == "cy":
@@ -101,49 +101,45 @@ class FwBoost(Boost):
         pred = np.sign(np.dot(xte, self.alpha))
         return np.mean(pred != yte)
 
-    def _fw_boosting(self, H):
+    def _fw_boosting(self, hh):
         """
-        frank-wolfe boost for binary classification with weak learner as matrix H
-        min_a max_d   d^T(-Ha) sub to:  ||a||_1\le 1
+        frank-wolfe boost for binary classification with weak learner as matrix hh
+        min_a max_d   d^T(-hha) sub to:  ||a||_1\le 1
         capped probability constraint:
             max_i d_i <= 1/(n*ratio)
         Args:
-            H : output matrix of weak learners
+            hh : output matrix of weak learners
         """
-
-        [n, p] = H.shape
+        [n, p] = hh.shape
         used = np.zeros(p)
         total_zeros = p
         # self.alpha = np.ones(p)/p
         self.alpha = np.zeros(p)
         d0 = np.ones(n) / n
-        # self.mu = self.epsi / (2 * np.log(n))
-        # max_iter = 100
-        # mu = 1
         nu = int(n * self.ratio)
         if self.max_iter < 100:
             delta = 1
         else:
             delta = 1
-        h_a = np.dot(H, self.alpha)
+        h_a = np.dot(hh, self.alpha)
         print " fw-boosting(python): maximal iter #: "+str(self.max_iter)
         for t in xrange(self.max_iter):
             d_next = prox_mapping(h_a, d0, 1 / self.mu)
 
-            # assert not math.isnan(d_next.max())
-            # if math.isnan(d_next.max()) or d_next.min()<0 or d_next.max()>1:
-            #     print d_next.max()
+            assert not math.isnan(d_next.max())
+            if math.isnan(d_next.max()) or d_next.min()<0 or d_next.max()>1:
+                print d_next.max()
             if self.has_dcap:
                 d = proj_cap_ent(d_next, 1.0 / nu)
                 if d.max() > 1.0/nu or d.min()<0:
                     d = proj_cap_ent(d_next, 1.0 / nu)
-                    print 'dmax %f, cap, %f' % (d.max(), 1.0/nu)
-                    assert d.max() <= 1.0/nu
+                    print 'dmax %f, dmin %f, cap, %f' % (d.max(), d.min(), 1.0/nu)
+                    assert d.max() <= 1.0/nu and d.min() >= 0
             else:
                 d = d_next
             # if math.isnan(d.max()) or d.min() < 0 or d.max()>1:
             #     print d.max()
-            dt_h = np.dot(d, H)
+            dt_h = np.dot(d, hh)
             j = np.argmax(np.abs(dt_h))
             if used[j] == 0:
                 used[j] = 1
@@ -168,7 +164,7 @@ class FwBoost(Boost):
             if self.steprule == 1:
                 eta = np.maximum(0, np.minimum(1, self.mu * curr_gap / np.sum(np.abs(self.alpha - ej)) ** 2))
             elif self.steprule == 2:
-                eta = np.maximum(0, np.minimum(1, self.mu * curr_gap / LA.norm(h_a - H[:, j] * ej[j], np.inf) ** 2))
+                eta = np.maximum(0, np.minimum(1, self.mu * curr_gap / LA.norm(h_a - hh[:, j] * ej[j], np.inf) ** 2))
             else:
                 # do line search
                 #
@@ -176,13 +172,13 @@ class FwBoost(Boost):
             self.alpha *= (1 - eta)
             self.alpha[j] += eta * ej[j]
             h_a *= (1 - eta)
-            h_a += H[:, j] * (eta * ej[j])
+            h_a += hh[:, j] * (eta * ej[j])
 
             if curr_gap < self.epsi:
                 break
             if self.max_iter <= 10 or t % (self.max_iter/10) == 0:
-                print "iter# %d, gap %f, dmax %f, j:%d" % (t, curr_gap, d.max(), j)
-        # self.d = d
+                print "iter# %d, gap %f, dmax %f, j:%d, eta %f" % (t, curr_gap, d.max(), j, eta)
+        self.d = d
         print " fwboost, max iter#%d: , actual iter#%d" % (self.max_iter, t)
 
     def plot_result(self):

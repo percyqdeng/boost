@@ -82,18 +82,22 @@ def proj_cap_ent(d0, v):
     # uu = d[ind]
     uu = np.sort(d, kind='quicksort')[::-1]
     Z = uu.sum()
-    # try:
-    for i in xrange(m):
-        if Z == 0:
-            break
-        e = (1 - v * i) / Z
-        if e * uu[i] <= v:
-            break
-        Z -= uu[i]
+    try:
+        for i in xrange(m):
+            # if Z == 0:
+            #     break
+            e = (1 - v * i) / Z
+            if e * uu[i] <= v:
+                break
+            Z -= uu[i]
+            if e < 0:
+                print ""
+    except FloatingPointError:
+        print "Z: %f, sum: %d" % (Z, uu.sum())
     # except Exception as err:
     #     pdb.set_trace()
-    # if d.max()>1 or d.min()<0:
-    #     print ''
+    if d.max()>1 or d.min()<0:
+        print ''
     d = np.minimum(v, e * d)
     return d
 

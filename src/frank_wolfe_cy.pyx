@@ -88,7 +88,6 @@ cpdef fw_boost_cy(np.ndarray[np.float64_t, ndim=2]hh,
             res -= dt_h[i] * alpha[i]
         res += dt_h[j] * ej
         curr_gap = res
-        # print 'curr gap '+str(curr_gap)
         if t % delta == 0:
             iter_num.push_back(t)
             if has_dcap:
@@ -99,7 +98,6 @@ cpdef fw_boost_cy(np.ndarray[np.float64_t, ndim=2]hh,
                     res -= d[i] * h_a[i]
                     res -= mu * d[i] * math.log(d[i] * n)
                 primal_obj.push_back(res)
-
             else:
                 margin.push_back(smallest(h_a))
                 res = 0
@@ -114,7 +112,6 @@ cpdef fw_boost_cy(np.ndarray[np.float64_t, ndim=2]hh,
             err_tr.push_back(res/n)
             gap.push_back(curr_gap)
             num_zeros.push_back(total_zeros)
-            # print 'iter %s, gap: %s ' %(t, curr_gap)
         if steprule == 1:
             res = 0
             for i in xrange(p):
@@ -124,8 +121,8 @@ cpdef fw_boost_cy(np.ndarray[np.float64_t, ndim=2]hh,
                     res += fabs(alpha[i]-ej)
             eta = fmax(0, fmin(1, mu * curr_gap / res ** 2))
         elif steprule == 2:
-            res = fabs(h_a[0] - hh[0,j] * ej)
-            for i in xrange(1,p):
+            res = fabs(h_a[0] - hh[0, j] * ej)
+            for i in xrange(1, n):
                 tmp = fabs(h_a[i] - hh[i,j] * ej)
                 if tmp > res:
                     res = tmp
@@ -143,7 +140,7 @@ cpdef fw_boost_cy(np.ndarray[np.float64_t, ndim=2]hh,
         if curr_gap < epsi:
             break
         if max_iter<=10 or t % (max_iter/10) == 0:
-            print ("iter# %u, gap %f, dmax %f, j %d" % (t, curr_gap, d.max(), j))
+            print "iter# %u, gap %f, dmax %f, j %d, eta %f" % (t, curr_gap, d.max(), j, eta)
     print " fwboost, max iter#%d: , actual iter#%d" % (max_iter, t)
     return alpha, primal_obj, gap, err_tr, margin, iter_num, num_zeros, d
 
@@ -203,22 +200,11 @@ cdef void proj_cap_ent_cy(np.ndarray[np.float64_t]d0, np.float64_t v):
 
     for i in xrange(m):
         z += u[i]
-
     for i in xrange(m):
         e = (1 - v*i) / z
         if e * u[m-1-i] <= v:
             break
         z -= u[m-1-i]
-    # for i in range(m):
-    #     e = (1 - v * i) / z
-    #     if e * u[i] <= v:
-    #         break
-    #     z -= u[i]
-    # for i in xrange(m-1, -1, -1):
-    #     e = 1 - v*(m-1-i) / z
-    #     if e * u[i] <= v:
-    #         break
-    #     z -= u[i]
     for i in xrange(m):
         d0[i] = fmin(v, e *d0[i])
         # d = np.minimum(v, e * d0)
