@@ -13,9 +13,10 @@ print "--------- test hard margin -------------"
 n = 600
 n1 = 100
 n2 = 10
+n_ind = 11
 x = np.random.random_integers(0, 1, size=(n, n1))
 x = 2*x.astype(np.float) - 1
-important_ind = np.random.choice(n1, size=10, replace=False)
+important_ind = np.random.choice(n1, size=n_ind, replace=False)
 z = np.sum(x[:, important_ind], axis=1)
 y_train = np.sign(z)
 m = np.min(np.abs(z))
@@ -23,9 +24,9 @@ m = np.min(np.abs(z))
 x2 = np.repeat(x, n2, axis=1)
 x2 += np.random.normal(0, 0.1, size=(n, n1*n2))
 x_train = np.hstack((x, x2))
-x[x>1] = 1
-x[x<-1] = -1
-print "generate data n=%s, n1=%s, n2=%s, margin=%s" % (n, n1, n2, m)
+x_train[x_train>1] = 1
+x_train[x_train<-1] = -1
+print "generate data n=%s, n1=%s, n2=%s, margin=%s" % (n, n1, n2, 1.0/n_ind)
 
 cap_prob = False
 # steprule = 1
@@ -42,11 +43,12 @@ pd = ParaBoost(epsi=epsi, has_dcap=cap_prob, ratio=r)
 pd.train(xtr=x_train, ytr=y_train, max_iter=max_iter)
 
 # print "margin fw:%s pd%s" % (fw.margin[-1], pd.margin[-1])
+mksize = 10
 print "margin pd%s" % (pd.margin[-1])
 plt.figure()
-plt.ylim(0.05, 0.2)
-plt.semilogx(fw.iter_num, fw.margin, 'r-', label='fw')
-plt.semilogx(pd.iter_num, pd.margin, 'b-', label='pd')
+plt.ylim(0.05, 1.1/n_ind)
+plt.semilogx(fw.iter_num, fw.margin, 'rx-', label='fw', markersize=mksize)
+plt.semilogx(pd.iter_num, pd.margin, 'bo-', label='pd', markersize=mksize)
 plt.ylim(ymin=0)
 plt.ylabel('margin')
 plt.xlabel('log of iteration number')
@@ -55,12 +57,12 @@ plt.savefig("../output/synth1_hard_margin.pdf")
 plt.show()
 plt.figure()
 # plt.ylim(0.05, 0.2)
-plt.semilogx(fw.iter_num, fw.primal_obj, 'rx-', label='fw')
-plt.semilogx(pd.iter_num, pd.primal_obj, 'bx-', label='pd')
-plt.ylabel('gap')
-plt.legend(loc='best')
-plt.show()
-plt.savefig("../output/synth1_hard_margin_gap.pdf")
+# plt.semilogx(fw.iter_num, fw.primal_obj, 'rx-', label='fw')
+# plt.semilogx(pd.iter_num, pd.primal_obj, 'bx-', label='pd')
+# plt.ylabel('gap')
+# plt.legend(loc='best')
+# plt.show()
+# plt.savefig("../output/synth1_hard_margin_gap.pdf")
 
 plt.figure()
 a = np.fabs(fw.alpha)
@@ -70,9 +72,10 @@ b = np.fabs(pd.alpha)
 b /= b.max()
 n = len(a)
 b = np.sort(b, kind='quicksort')[::-1]
-plt.semilogx(range(1, n+1), a, 'r-', label='fw')
-plt.semilogx(range(1, n+1), b, 'b-', label='pd')
+plt.semilogx(range(1, n+1), a, 'rx-', label='fw', markersize=mksize)
+plt.semilogx(range(1, n+1), b, 'bo-', label='pd', markersize=mksize)
 plt.ylabel("relative magnitude")
 plt.xlabel('sorted weights ')
+plt.ylim(ymax=1.1)
 plt.legend(loc='best')
 plt.savefig('../output/synth1_hard_margin_sparsity.pdf', format='pdf')
