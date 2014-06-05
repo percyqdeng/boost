@@ -29,6 +29,7 @@ class Boost(object):
         self.normalizer = np.std(xtr, 0)
         self.avg = np.mean(xtr, 0)
         xtr = (xtr - self.avg[np.newaxis, :]) / self.normalizer[np.newaxis, :]
+        xtr = np.hstack((xtr, np.ones((xtr.shape[0], 1))))
         return xtr
 
     def _process_test_data(self, xte):
@@ -78,26 +79,36 @@ def proj_cap_ent(d0, v):
     m = len(d)
     if v < 1.0 / m:
         print "error"
-    # ind = np.argsort(d, kind='quicksort')[::-1]
-    # uu = d[ind]
-    uu = np.sort(d, kind='quicksort')[::-1]
-    Z = uu.sum()
-    try:
-        for i in xrange(m):
-            # if Z == 0:
-            #     break
-            e = (1 - v * i) / Z
-            if e * uu[i] <= v:
-                break
-            Z -= uu[i]
-            if e < 0:
-                print ""
-    except FloatingPointError:
-        print "Z: %f, sum: %d" % (Z, uu.sum())
+    # this is more numerically stable than the original pseudo code.
+    uu = np.sort(d, kind='quicksort')
+    cs = np.cumsum(uu)
+    # uu = np.sort(d, kind='quicksort')[::-1]
+    # Z = uu.sum()
+
+    for i in xrange(m):
+        # if Z == 0:
+        #     break
+        Z = cs[m-i-1]
+        e = (1 - v * i) / Z
+        if e * uu[m-i-1] <= v:
+            break
+
+    # try:
+    #     for i in xrange(m):
+    #         # if Z == 0:
+    #         #     break
+    #         e = (1 - v * i) / Z
+    #         if e * uu[i] <= v:
+    #             break
+    #         Z -= uu[i]
+    #         if e < 0:
+    #             print ""
+    # except FloatingPointError:
+    #     print "Z: %f, sum: %d" % (Z, uu.sum())
     # except Exception as err:
     #     pdb.set_trace()
     if d.max()>1 or d.min()<0:
-        print ''
+        print 'wrong'
     d = np.minimum(v, e * d)
     return d
 
@@ -164,7 +175,32 @@ def prox_mapping(v, x0, sigma, dist_option=2):
     elif dist_option == 2:
         x = x0 * np.exp(-sigma * v)
         x = x / x.sum()
+    return x
 
+lb = -30
+
+def prox_mapping2(v, x0, sigma, dist_option=2):
+    """
+    prox-mapping2  argmin_x   <v,x> + 1/sigma D(x0,x)
+    distance option:
+    dist_option:    1  euclidean distance, 0.5||x-x0||^2
+                    2  kl divergence
+    a more numerically stable version
+    """
+    lb = -25
+    if dist_option == 1:
+        x = x0 - sigma * v
+    elif dist_option == 2:
+        u = -sigma * v
+        u_max = u.max()
+        u = u - u_max
+        u[u < lb] = lb
+        # if u_max > 0:
+        #     x = x0 * np.exp(-sigma * v - u_max)
+        #     x = x / x.sum()
+        # else:
+        x = x0 * np.exp(u)
+        x = x / x.sum()
     return x
 
 

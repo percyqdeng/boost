@@ -120,15 +120,16 @@ class FwBoost(Boost):
         if self.max_iter < 100:
             delta = 1
         else:
-            delta = 1
+            # delta = self.max_iter/100
+            delta = 100
         h_a = np.dot(hh, self.alpha)
         print " fw-boosting(python): maximal iter #: "+str(self.max_iter)
         for t in xrange(self.max_iter):
-            d_next = prox_mapping(h_a, d0, 1 / self.mu)
+            d_next = prox_mapping2(h_a, d0, 1 / self.mu)
 
             assert not math.isnan(d_next.max())
             if math.isnan(d_next.max()) or d_next.min()<0 or d_next.max()>1:
-                print d_next.max()
+                d_next = prox_mapping2(h_a, d0, 1 / self.mu)
             if self.has_dcap:
                 d = proj_cap_ent(d_next, 1.0 / nu)
                 if d.max() > 1.0/nu or d.min()<0:
@@ -158,28 +159,31 @@ class FwBoost(Boost):
                 self.gap.append(curr_gap)
                 self.err_tr.append(np.mean(h_a <= 0))
                 # self.primal_obj.append(self.mu * np.log(1.0 / n * np.sum(np.exp(-h_a / self.mu))))
-                # self.primal_obj.append(-np.dot(d, h_a) - self.mu * np.dot(d, np.log(d*n)))
+                self.primal_obj.append(-np.dot(d, h_a) - self.mu * np.dot(d, np.log(d*n)))
                 self.num_zeros.append(total_zeros)
             # self.dual_obj.append(-np.max(np.abs(dt_h)) - self.mu * np.dot(d, np.log(d)) + self.mu * np.log(n))
             if self.steprule == 1:
                 eta = np.maximum(0, np.minimum(1, self.mu * curr_gap / np.sum(np.abs(self.alpha - ej)) ** 2))
             elif self.steprule == 2:
                 eta = np.maximum(0, np.minimum(1, self.mu * curr_gap / LA.norm(h_a - hh[:, j] * ej[j], np.inf) ** 2))
-            else:
+            elif self.steprule == 3:
+                eta = 2.0 / (t+2)
                 # do line search
                 #
+            else:
                 print "steprule 3, to be done"
             self.alpha *= (1 - eta)
             self.alpha[j] += eta * ej[j]
             h_a *= (1 - eta)
             h_a += hh[:, j] * (eta * ej[j])
-
             if curr_gap < self.epsi:
                 break
-            if self.max_iter <= 10 or t % (self.max_iter/10) == 0:
+            if self.max_iter <= 100 or t % (self.max_iter/100) == 0:
                 print "iter# %d, gap %f, dmax %f, j:%d, eta %f" % (t, curr_gap, d.max(), j, eta)
         self.d = d
-        print " fwboost, max iter#%d: , actual iter#%d" % (self.max_iter, t)
+        print " fwboost, max iter# %d: , actual iter# %d" % (self.max_iter, t)
+
+
 
     def plot_result(self):
         r = 2

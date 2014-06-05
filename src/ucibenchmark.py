@@ -18,17 +18,18 @@ if os.name == "nt":
 elif os.name == "posix":
     dtpath = '../../dataset/benchmark_uci/'
 
-if __name__ == '__main__':
-    filenames = ["bananamat", "breast_cancermat", "diabetismat", "flare_solarmat", "germanmat",
-                "heartmat", "ringnormmat", "splicemat"]
-    n_dataset = len(filenames)
-    err = np.zeros((n_dataset, 4))
-    std = np.zeros((n_dataset, 4))
-    for i, name in enumerate(filenames):
-        experiment = TestCase(dtpath, name)
-        res = experiment.bench_mark()
-        err[i, :] = res[0]
-        std[i, :] = res[1]
 
-    np.save('../output/bench_err', err)
-    np.save('../output/bench_std', std)
+filenames = ["bananamat", "breast_cancermat", "diabetismat", "flare_solarmat", "germanmat",
+            "heartmat", "ringnormmat", "splicemat"]
+n_dataset = len(filenames)
+err = np.zeros((n_dataset, 4))
+std = np.zeros((n_dataset, 4))
+for i, name in enumerate(filenames):
+    print "test dataset %s" % name
+    test = TestCase(dtname=name)
+    res = bench_mark(test)
+    err[i, :] = res[0]
+    std[i, :] = res[1]
+
+np.save('../output/bench_err', err)
+np.save('../output/bench_std', std)

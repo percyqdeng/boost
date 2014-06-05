@@ -2,21 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2e59c25-b02d-4772-b3bb-3f39495576e4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test_hard_margin.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test_stepsize.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/output/synth_hard_margin.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/output/synth_hard_margin_log.pdf" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../mcmc/my_stoc_sphere/junkyard/cmp.pyx" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../mcmc/my_stoc_sphere/junkyard/setup.py" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/debug.py" afterPath="$PROJECT_DIR$/src/test_soft_margin.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test_mnist_boost.py" afterPath="$PROJECT_DIR$/src/test_mnist.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/bench_err.npy" afterPath="$PROJECT_DIR$/output/bench_err.npy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/bench_std.npy" afterPath="$PROJECT_DIR$/output/bench_std.npy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/temp.macosx-10.5-x86_64-2.7/src/frank_wolfe_cy.o" afterPath="$PROJECT_DIR$/build/temp.macosx-10.5-x86_64-2.7/src/frank_wolfe_cy.o" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/frank_wolfe_cy.so" afterPath="$PROJECT_DIR$/src/frank_wolfe_cy.so" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/synth_hard_margin.pdf" afterPath="$PROJECT_DIR$/output/synth_hard_margin.pdf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/synth_hard_margin_log.pdf" afterPath="$PROJECT_DIR$/output/synth_hard_margin_log.pdf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/boost.iml" afterPath="$PROJECT_DIR$/.idea/boost.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/mnist_convergence.pdf" afterPath="$PROJECT_DIR$/output/mnist_convergence.pdf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/mnist_sparse_pattern.pdf" afterPath="$PROJECT_DIR$/output/mnist_sparse_pattern.pdf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/temp.macosx-10.5-x86_64-2.7/src/auxiliary/quicksort.o" afterPath="$PROJECT_DIR$/build/temp.macosx-10.5-x86_64-2.7/src/auxiliary/quicksort.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/auxiliary/quicksort.so" afterPath="$PROJECT_DIR$/src/auxiliary/quicksort.so" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/boost.py" afterPath="$PROJECT_DIR$/src/boost.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/frank_wolfe_cy.cpp" afterPath="$PROJECT_DIR$/src/frank_wolfe_cy.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/frank_wolfe_cy.pyx" afterPath="$PROJECT_DIR$/src/frank_wolfe_cy.pyx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fwboost.py" afterPath="$PROJECT_DIR$/src/fwboost.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../nonconvex/.idea/nonconvex.iml" afterPath="$PROJECT_DIR$/../nonconvex/.idea/nonconvex.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/paraboost.py" afterPath="$PROJECT_DIR$/src/paraboost.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/auxiliary/quicksort.c" afterPath="$PROJECT_DIR$/src/auxiliary/quicksort.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/auxiliary/quicksort.pyx" afterPath="$PROJECT_DIR$/src/auxiliary/quicksort.pyx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../nonconvex/src/regis.py" afterPath="$PROJECT_DIR$/../nonconvex/src/regis.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test_boost.py" afterPath="$PROJECT_DIR$/src/test_boost.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test_hard_margin.py" afterPath="$PROJECT_DIR$/src/test_hard_margin.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test_soft_margin.py" afterPath="$PROJECT_DIR$/src/test_soft_margin.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ucibenchmark.py" afterPath="$PROJECT_DIR$/src/ucibenchmark.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcmc/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../mcmc/.idea/workspace.xml" />
     </list>
@@ -41,26 +53,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="test_boost.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test_boost.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2070" max-vertical-offset="4305">
-              <caret line="148" column="51" selection-start-line="148" selection-start-column="51" selection-end-line="148" selection-end-column="51" />
-              <folding>
-                <element signature="e#27#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test_hard_margin.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="test_hard_margin.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test_hard_margin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="244" max-vertical-offset="855">
-              <caret line="30" column="32" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
-              <folding>
-                <element signature="e#28#49#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="1200">
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="25" selection-end-column="12" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -68,28 +66,58 @@
       <file leaf-file-name="test_soft_margin.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test_soft_margin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="825">
-              <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test_mnist_boost.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test_mnist_boost.py">
-          <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1095">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fwboost.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/fwboost.py">
+      <file leaf-file-name="test_stepsize.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test_stepsize.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="697" max-vertical-offset="3435">
-              <caret line="98" column="39" selection-start-line="98" selection-start-column="39" selection-end-line="98" selection-end-column="39" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="1005">
+              <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ucibenchmark.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ucibenchmark.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="600">
+              <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test_boost.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test_boost.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="3420" max-vertical-offset="4305">
+              <caret line="228" column="25" selection-start-line="228" selection-start-column="25" selection-end-line="228" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="extract_features.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/extract_features.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="525">
+              <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test_mnist.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test_mnist.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="1320">
+              <caret line="42" column="41" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -98,18 +126,28 @@
       <file leaf-file-name="paraboost.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/paraboost.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="12" max-vertical-offset="2760">
-              <caret line="144" column="73" selection-start-line="144" selection-start-column="73" selection-end-line="144" selection-end-column="73" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1980" max-vertical-offset="2820">
+              <caret line="132" column="18" selection-start-line="132" selection-start-column="18" selection-end-line="132" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="frank_wolfe_cy.pyx" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/frank_wolfe_cy.pyx">
+      <file leaf-file-name="fwboost.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/fwboost.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.6693945" vertical-offset="1200" max-vertical-offset="4395">
-              <caret line="148" column="73" selection-start-line="148" selection-start-column="73" selection-end-line="148" selection-end-column="73" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="2325" max-vertical-offset="3570">
+              <caret line="155" column="59" selection-start-line="155" selection-start-column="59" selection-end-line="155" selection-end-column="59" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="boost.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/boost.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2805" max-vertical-offset="3195">
+              <caret line="187" column="29" selection-start-line="187" selection-start-column="29" selection-end-line="187" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -130,12 +168,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/../dualsvm/src/coor_cython.pyx" />
-        <option value="$PROJECT_DIR$/../dualsvm/src/test_svm.py" />
-        <option value="$PROJECT_DIR$/../dualsvm/src/mysvm.py" />
-        <option value="$PROJECT_DIR$/../dualsvm/src/setup.py" />
-        <option value="$PROJECT_DIR$/../dualsvm/src/coor.py" />
-        <option value="$PROJECT_DIR$/../dualsvm/src/cmp_time_cost.py" />
         <option value="$PROJECT_DIR$/src/setup.py" />
         <option value="$PROJECT_DIR$/src/heapfun.pyx.py" />
         <option value="$PROJECT_DIR$/src/heapfun.pyx" />
@@ -167,20 +199,26 @@
         <option value="$PROJECT_DIR$/src/plot_adaboost_benchmark.py" />
         <option value="$PROJECT_DIR$/../dualsvm/src/testsvm.py" />
         <option value="$PROJECT_DIR$/src/setupqsort.py" />
-        <option value="$PROJECT_DIR$/src/auxiliary/quicksort.pyx" />
         <option value="$PROJECT_DIR$/setupqsort.py" />
         <option value="$PROJECT_DIR$/src/benchmark.py" />
         <option value="$PROJECT_DIR$/src/time_spend.py" />
         <option value="$PROJECT_DIR$/../dualsvm/src/dualksvm.py" />
         <option value="$PROJECT_DIR$/../dualsvm/src/coor_cy.pyx" />
-        <option value="$PROJECT_DIR$/src/test_mnist_boost.py" />
-        <option value="$PROJECT_DIR$/src/boost.py" />
         <option value="$PROJECT_DIR$/src/debug.py" />
+        <option value="$PROJECT_DIR$/src/nume_problem.py" />
+        <option value="$PROJECT_DIR$/src/auxiliary/quicksort.pyx" />
+        <option value="$PROJECT_DIR$/src/test_mnist_boost.py" />
+        <option value="$PROJECT_DIR$/src/frank_wolfe_cy.pyx" />
+        <option value="$PROJECT_DIR$/src/test_hard_margin.py" />
         <option value="$PROJECT_DIR$/src/paraboost.py" />
         <option value="$PROJECT_DIR$/src/test_boost.py" />
-        <option value="$PROJECT_DIR$/src/test_hard_margin.py" />
-        <option value="$PROJECT_DIR$/src/frank_wolfe_cy.pyx" />
+        <option value="$PROJECT_DIR$/src/ucibenchmark.py" />
+        <option value="$PROJECT_DIR$/src/test_soft_margin.py" />
+        <option value="$PROJECT_DIR$/src/test_stepsizse.py" />
         <option value="$PROJECT_DIR$/src/fwboost.py" />
+        <option value="$PROJECT_DIR$/src/boost.py" />
+        <option value="$PROJECT_DIR$/src/test_stepsize.py" />
+        <option value="$PROJECT_DIR$/src/test_mnist.py" />
       </list>
     </option>
   </component>
@@ -398,6 +436,9 @@
       <option name="PARAMETERS" value="" />
       <method />
     </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -419,9 +460,6 @@
       <option name="PUREUNITTEST" value="true" />
       <option name="PARAMS" value="" />
       <option name="USE_PARAM" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -467,7 +505,7 @@
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
-  <component name="SvnConfiguration" myUseAcceleration="nothing" SSL_PROTOCOLS="sslv3">
+  <component name="SvnConfiguration" myUseAcceleration="nothing">
     <configuration />
   </component>
   <component name="TaskManager">
@@ -500,19 +538,23 @@
       <created>1400843944386</created>
       <updated>1400843944386</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="mac">
+      <created>1401719553340</created>
+      <updated>1401719553340</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="774" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.09361702" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -520,12 +562,12 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.044548653" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32907802" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32907802" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -554,7 +596,7 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/paraboost.py">
+    <entry file="file://$PROJECT_DIR$/src/test_boost.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -562,24 +604,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/paraboost_cy.pyx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test_boost.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#27#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/benchmark.py">
+    <entry file="file://$PROJECT_DIR$/src/ucibenchmark.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -742,13 +767,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/auxiliary/quicksort.pyx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
@@ -757,13 +775,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/auxiliary/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/setupqsort.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -819,27 +830,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/benchmark.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/time_spend.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/extract_features.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/load_data.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
@@ -847,86 +837,131 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/boost.py">
+    <entry file="file://$PROJECT_DIR$/src/boost_cy.pyx">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2070" max-vertical-offset="2550">
-          <caret line="138" column="10" selection-start-line="138" selection-start-column="10" selection-end-line="138" selection-end-column="10" />
-          <folding />
+        <state vertical-scroll-proportion="1.0441898" vertical-offset="7" max-vertical-offset="2145">
+          <caret line="43" column="44" selection-start-line="43" selection-start-column="44" selection-end-line="43" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/time_spend.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="870">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/nume_problem.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
+          <caret line="16" column="30" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setupqsort.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
+          <caret line="15" column="39" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/auxiliary/quicksort.pyx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15816326" vertical-offset="342" max-vertical-offset="930">
+          <caret line="29" column="29" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/setup_fw.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+        <state vertical-scroll-proportion="0.25510204" vertical-offset="0" max-vertical-offset="588">
           <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/frank_wolfe_cy.pyx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1632" max-vertical-offset="4320">
+          <caret line="143" column="54" selection-start-line="143" selection-start-column="11" selection-end-line="143" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/extract_features.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/paraboost.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="12" max-vertical-offset="2760">
-          <caret line="144" column="73" selection-start-line="144" selection-start-column="73" selection-end-line="144" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/boost_cy.pyx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0441898" vertical-offset="7" max-vertical-offset="2145">
-          <caret line="43" column="44" selection-start-line="43" selection-start-column="44" selection-end-line="43" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1575" max-vertical-offset="2790">
+          <caret line="132" column="18" selection-start-line="132" selection-start-column="18" selection-end-line="132" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test_boost.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2070" max-vertical-offset="4305">
-          <caret line="148" column="51" selection-start-line="148" selection-start-column="51" selection-end-line="148" selection-end-column="51" />
-          <folding>
-            <element signature="e#27#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test_mnist_boost.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="3000" max-vertical-offset="4155">
+          <caret line="228" column="25" selection-start-line="228" selection-start-column="25" selection-end-line="228" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test_hard_margin.py">
+    <entry file="file://$PROJECT_DIR$/src/ucibenchmark.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="244" max-vertical-offset="855">
-          <caret line="30" column="32" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
-          <folding>
-            <element signature="e#28#49#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
+          <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test_soft_margin.py">
+    <entry file="file://$PROJECT_DIR$/src/test_mnist.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="825">
-          <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1170">
+          <caret line="42" column="41" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="41" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/fwboost.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="697" max-vertical-offset="3435">
-          <caret line="98" column="39" selection-start-line="98" selection-start-column="39" selection-end-line="98" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1590" max-vertical-offset="3450">
+          <caret line="155" column="59" selection-start-line="155" selection-start-column="59" selection-end-line="155" selection-end-column="59" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/frank_wolfe_cy.pyx">
+    <entry file="file://$PROJECT_DIR$/src/test_stepsize.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.6693945" vertical-offset="1200" max-vertical-offset="4395">
-          <caret line="148" column="73" selection-start-line="148" selection-start-column="73" selection-end-line="148" selection-end-column="73" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="72" max-vertical-offset="885">
+          <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/boost.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2376" max-vertical-offset="3165">
+          <caret line="187" column="29" selection-start-line="187" selection-start-column="29" selection-end-line="187" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test_soft_margin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1095">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test_hard_margin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1200">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="25" selection-end-column="12" />
           <folding />
         </state>
       </provider>

@@ -11,7 +11,7 @@ cimport cython
 from libcpp.vector cimport vector
 # from auxiliary.quicksort import sort as qsort
 from auxiliary.quicksort import sort as qsort
-ctypedef np.float_t dtype_t
+ctypedef np.float64_t dtype_t
 # from boost_cy import *
 
 @cython.boundscheck(False)
@@ -59,11 +59,12 @@ cpdef fw_boost_cy(np.ndarray[np.float64_t, ndim=2]hh,
     cdef np.float64_t tmp
     cdef np.float64_t curr_gap
     cdef Py_ssize_t delta
-    if max_iter < 200:
+    if max_iter < 100:
         delta = 1
     else:
-        delta = 1
+        delta = 100
     print " fw-boosting: maximal iter #: "+str(max_iter)
+    cdef int logscale = 1
     for t in xrange(max_iter):
         exp_descent(h_a, d0, <np.float_t*>d.data, 1 / mu)
         if has_dcap:
@@ -88,7 +89,8 @@ cpdef fw_boost_cy(np.ndarray[np.float64_t, ndim=2]hh,
             res -= dt_h[i] * alpha[i]
         res += dt_h[j] * ej
         curr_gap = res
-        if t % delta == 0:
+        if int(np.log(t+1)) == logscale:
+            logscale += 1
             iter_num.push_back(t)
             if has_dcap:
                 min_margin = k_avg_cy(h_a, nu)
@@ -139,7 +141,7 @@ cpdef fw_boost_cy(np.ndarray[np.float64_t, ndim=2]hh,
             h_a[i] += hh[i, j] * (eta * ej)
         if curr_gap < epsi:
             break
-        if max_iter<=10 or t % (max_iter/10) == 0:
+        if max_iter <= 100 or t % (max_iter/100) == 0:
             print "iter# %u, gap %f, dmax %f, j %d, eta %f" % (t, curr_gap, d.max(), j, eta)
     print " fwboost, max iter#%d: , actual iter#%d" % (max_iter, t)
     return alpha, primal_obj, gap, err_tr, margin, iter_num, num_zeros, d
@@ -195,19 +197,20 @@ cdef void proj_cap_ent_cy(np.ndarray[np.float64_t]d0, np.float64_t v):
         print "error"
     qsort(u)
     assert u[0] <= u[m-1]
+    cdef np.ndarray[np.float64_t] cs = np.zeros(m)
+    cs[0] = u[0]
+    for i in range(1, m):
+        cs[i] = cs[i-1] + u[i]
     cdef np.float64_t e
     cdef np.float64_t z = 0
 
     for i in xrange(m):
-        z += u[i]
-    for i in xrange(m):
+        z = cs[m-i-1]
         e = (1 - v*i) / z
         if e * u[m-1-i] <= v:
             break
-        z -= u[m-1-i]
     for i in xrange(m):
         d0[i] = fmin(v, e *d0[i])
-        # d = np.minimum(v, e * d0)
 
 
 @cython.boundscheck(False)

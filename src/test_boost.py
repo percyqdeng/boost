@@ -11,6 +11,8 @@ from sklearn.ensemble import AdaBoostClassifier
 from fwboost import *
 from paraboost import *
 from extract_features import *
+
+
 class TestCase(object):
     """
     TestCase: experimental comparison among different boosting algorithms.
@@ -149,102 +151,100 @@ class TestCase(object):
         plt.savefig('../output/syn_cmp_margin.pdf')
 
 
+def bench_mark(testcase):
+    """
+    test on uci benchmark
+    """
+    n_estimators = np.minimum(300, int(testcase.x.shape[0]*0.7))
+    # n_estimators = 1
+    n_samples = testcase.x.shape[0]
+    n_reps = 10
+    ss = cv.ShuffleSplit(n_samples, n_reps, train_size=0.5, test_size=0.5, random_state=1)
+    ada_tr_err = np.zeros(n_reps)
+    ada_te_err = np.zeros(n_reps)
+    pd_tr_err = np.zeros(n_reps)
+    pd_te_err = np.zeros(n_reps)
+    k = 0
+    ratio_list = np.array([0.05, 0.1, 0.15, 0.2, 0.3])
+    for tr_ind, te_ind in ss:
+        print " iter#: %d" % (k)
+        xtr = testcase.x[tr_ind, :]
+        ytr = testcase.y[tr_ind]
+        xte = testcase.x[te_ind, :]
+        yte = testcase.y[te_ind]
+        ada_disc = AdaBoostClassifier(DecisionTreeClassifier(max_depth=1),
+                                      n_estimators=n_estimators, algorithm="SAMME")
+        ada_disc.fit(xtr, ytr)
+        pred = ada_disc.predict(xtr)
+        ada_tr_err[k] = zero_one_loss(ytr, pred)
+        pred = ada_disc.predict(xte)
+        ada_te_err[k] = zero_one_loss(yte, pred)
+        htr = weak_learner_pred(ada_disc, xtr)
+        hte = weak_learner_pred(ada_disc, xte)
+        # htr = np.zeros((ytr.shape[0], n_estimators))
+        # for i, y_pred in enumerate(ada_disc.staged_predict(xtr)):
+        #     htr[:, i] = y_pred
+        #     ada_tr_err[k, i] = zero_one_loss(y_true=ytr, y_pred=y_pred)
 
-    def bench_mark(self):
-        """
-        test on uci benchmark
-        """
-        n_estimators = np.minimum(1000, int(self.x.shape[0]*0.7))
-        # n_estimators = 1
-        n_samples = self.x.shape[0]
-        n_reps = 20
-        ss = cv.ShuffleSplit(n_samples, n_reps, train_size=0.6, test_size=0.4, random_state=1)
-        ada_tr_err = np.zeros(n_reps)
-        ada_te_err = np.zeros(n_reps)
-        pd_tr_err = np.zeros(n_reps)
-        pd_te_err = np.zeros(n_reps)
-        k = 0
-        ratio_list = np.array([0.05, 0.1, 0.15, 0.2, 0.3])
-        for tr_ind, te_ind in ss:
-            print " iter#: %d" % (k)
-            xtr = self.x[tr_ind, :]
-            ytr = self.y[tr_ind]
-            xte = self.x[te_ind, :]
-            yte = self.y[te_ind]
-            ada_disc = AdaBoostClassifier(DecisionTreeClassifier(max_depth=1),
-                                          n_estimators=n_estimators, algorithm="SAMME")
-            ada_disc.fit(xtr, ytr)
-            pred = ada_disc.predict(xtr)
-            ada_tr_err[k] = zero_one_loss(ytr, pred)
-            pred = ada_disc.predict(xte)
-            ada_te_err[k] = zero_one_loss(yte, pred)
-            htr = TestCase.weak_learner_pred(ada_disc, xtr)
-            hte = TestCase.weak_learner_pred(ada_disc, xte)
-            # htr = np.zeros((ytr.shape[0], n_estimators))
-            # for i, y_pred in enumerate(ada_disc.staged_predict(xtr)):
-            #     htr[:, i] = y_pred
-            #     ada_tr_err[k, i] = zero_one_loss(y_true=ytr, y_pred=y_pred)
+        best_ratio = cross_valid(htr, ytr, ratio_list)
+        # best_ratio = 0.1
+        print "best ratio %f " % (best_ratio)
+        pd = ParaBoost(epsi=0.005, has_dcap=True, ratio=best_ratio)
+        pd.train(htr, ytr, ftr='wl')
+        pred = pd.test_h(hte)
+        pd_tr_err[k] = pd.err_tr[-1]
+        pd_te_err[k] = zero_one_loss(y_true=yte, y_pred=pred)
+        k += 1
 
-            best_ratio = TestCase.cross_valid(htr, ytr, ratio_list)
-            # best_ratio = 0.1
-            print "best ratio %f " % (best_ratio)
-            pd = ParaBoost(epsi=0.005, has_dcap=True, ratio=best_ratio)
-            pd.train(htr, ytr, ftr='wl')
-            pred = pd.test_h(hte)
-            pd_tr_err[k] = pd.err_tr[-1]
-            pd_te_err[k] = zero_one_loss(y_true=yte, y_pred=pred)
-            k += 1
+    print "trainerr %f, testerr %f" % (np.mean(pd_tr_err), np.mean(pd_te_err))
 
-        print "trainerr %f, testerr %f" % (np.mean(pd_tr_err), np.mean(pd_te_err))
+    n_terms = 2 * 2
+    err = np.zeros(n_terms)
+    std = np.zeros(n_terms)
+    err[0] = np.mean(ada_tr_err)
+    err[1] = np.mean(ada_te_err)
+    err[2] = np.mean(pd_tr_err)
+    err[3] = np.mean(pd_te_err)
+    std[0] = np.std(ada_tr_err)
+    std[1] = np.std(ada_te_err)
+    std[2] = np.std(pd_tr_err)
+    std[3] = np.std(pd_te_err)
+    # plt.figure()
+    # plt.plot(np.mean(ada_tr_err, axis=0), 'r-', label="ada_train")
+    # plt.plot(np.mean(ada_te_err, axis=0), 'b-', label="ada_test")
+    # plt.show()
+    return err, std,
 
-        n_terms = 2 * 2
-        err = np.zeros(n_terms)
-        std = np.zeros(n_terms)
-        err[0] = np.mean(ada_tr_err)
-        err[1] = np.mean(ada_te_err)
-        err[2] = np.mean(pd_tr_err)
-        err[3] = np.mean(pd_te_err)
-        std[0] = np.std(ada_tr_err)
-        std[1] = np.std(ada_te_err)
-        std[2] = np.std(pd_tr_err)
-        std[3] = np.std(pd_te_err)
-        # plt.figure()
-        # plt.plot(np.mean(ada_tr_err, axis=0), 'r-', label="ada_train")
-        # plt.plot(np.mean(ada_te_err, axis=0), 'b-', label="ada_test")
-        # plt.show()
-        return err, std,
 
-    @staticmethod
-    def cross_valid(h, y, ratio_list):
-        """
-        cross validation to tune the best cap probability for soft-margin boosting
-        """
-        print " find optimal ratio"
-        n_samples = h.shape[0]
-        n_folds = 4
-        ntr = n_samples/n_folds
-        ratio_list = ratio_list[ratio_list >= 1.0/ntr]
-        kf = cv.KFold(n=n_samples, n_folds=n_folds)
-        err_tr = np.zeros((n_folds, len(ratio_list)))
-        err_te = np.zeros((n_folds, len(ratio_list)))
-        k = 0
-        for tr_ind, te_ind in kf:
-            print "nfold: %d" % (k)
-            xtr, ytr, xte, yte = h[tr_ind, :], y[tr_ind], h[te_ind, :], y[te_ind]
-            for i, r in enumerate(ratio_list):
-                pd = ParaBoost(epsi=0.01, has_dcap=True, ratio=r)
-                pd.train_h(xtr, ytr)
-                pred = pd.test_h(xte)
-                err_te[k, i] = zero_one_loss(y_true=yte, y_pred=pred)
-                err_tr[k, i] = pd.err_tr[-1]
-            k += 1
-        err_te_avg = np.mean(err_te, axis=0)
-        err_tr_avg = np.mean(err_tr, axis=0)
-        arg = np.argmin(err_te_avg)
-        best_ratio = ratio_list[arg]
-        err = err_te_avg[arg]
-        return best_ratio
-
+def cross_valid(h, y, ratio_list):
+    """
+    cross validation to tune the best cap probability for soft-margin boosting
+    """
+    print " find optimal ratio"
+    n_samples = h.shape[0]
+    n_folds = 4
+    ntr = n_samples/n_folds
+    ratio_list = ratio_list[ratio_list >= 1.0/ntr]
+    kf = cv.KFold(n=n_samples, n_folds=n_folds)
+    err_tr = np.zeros((n_folds, len(ratio_list)))
+    err_te = np.zeros((n_folds, len(ratio_list)))
+    k = 0
+    for tr_ind, te_ind in kf:
+        print "nfold: %d" % (k)
+        xtr, ytr, xte, yte = h[tr_ind, :], y[tr_ind], h[te_ind, :], y[te_ind]
+        for i, r in enumerate(ratio_list):
+            pd = ParaBoost(epsi=0.005, has_dcap=True, ratio=r)
+            pd.train(xtr, ytr)
+            pred = pd.test_h(xte)
+            err_te[k, i] = zero_one_loss(y_true=yte, y_pred=pred)
+            err_tr[k, i] = pd.err_tr[-1]
+        k += 1
+    err_te_avg = np.mean(err_te, axis=0)
+    err_tr_avg = np.mean(err_tr, axis=0)
+    arg = np.argmin(err_te_avg)
+    best_ratio = ratio_list[arg]
+    err = err_te_avg[arg]
+    return best_ratio
 
 
 def profile_paraboost():
