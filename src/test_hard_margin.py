@@ -10,12 +10,13 @@ from test_boost import TestCase
 compare margin
 """
 print "--------- test hard margin -------------"
-n = 500
+n = 600
 n1 = 100
 n2 = 10
 x = np.random.random_integers(0, 1, size=(n, n1))
 x = 2*x.astype(np.float) - 1
-z = np.sum(x[:, :5], axis=1)
+important_ind = np.random.choice(n1, size=10, replace=False)
+z = np.sum(x[:, important_ind], axis=1)
 y_train = np.sign(z)
 m = np.min(np.abs(z))
 # repeat feature with infused noise
@@ -35,8 +36,8 @@ max_iter = None
 # max_iter = 20
 fw = FwBoost(epsi=epsi, has_dcap=cap_prob, ratio=r, steprule=steprule)
 fw.train(x_train, y_train, codetype='cy', approx_margin=True, max_iter=max_iter, ftr='wl')
-fw2 = FwBoost(epsi=epsi, has_dcap=cap_prob, ratio=r, steprule=steprule)
-fw2.train(x_train, y_train, codetype='py', approx_margin=True, max_iter=max_iter, ftr='wl')
+# fw2 = FwBoost(epsi=epsi, has_dcap=cap_prob, ratio=r, steprule=steprule)
+# fw2.train(x_train, y_train, codetype='py', approx_margin=True, max_iter=max_iter, ftr='wl')
 pd = ParaBoost(epsi=epsi, has_dcap=cap_prob, ratio=r)
 pd.train(xtr=x_train, ytr=y_train, max_iter=max_iter)
 
@@ -56,7 +57,7 @@ plt.figure()
 # plt.ylim(0.05, 0.2)
 plt.semilogx(fw.iter_num, fw.primal_obj, 'rx-', label='fw')
 plt.semilogx(pd.iter_num, pd.primal_obj, 'bx-', label='pd')
-plt.ylabel('margin')
+plt.ylabel('gap')
 plt.legend(loc='best')
 plt.show()
 plt.savefig("../output/synth1_hard_margin_gap.pdf")
@@ -69,9 +70,9 @@ b = np.fabs(pd.alpha)
 b /= b.max()
 n = len(a)
 b = np.sort(b, kind='quicksort')[::-1]
-plt.semilogx(range(1, n+1), 'r-', label='fw')
-plt.semilogx(range(1, n+1), 'b-', label='pd')
-plt.ylabel("relative magnitude of weights")
+plt.semilogx(range(1, n+1), a, 'r-', label='fw')
+plt.semilogx(range(1, n+1), b, 'b-', label='pd')
+plt.ylabel("relative magnitude")
 plt.xlabel('sorted weights ')
 plt.legend(loc='best')
 plt.savefig('../output/synth1_hard_margin_sparsity.pdf', format='pdf')
